@@ -22,6 +22,53 @@ export interface CategoryPage {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
+export interface Contact {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  location_name: string;
+  address: string;
+  phone: string;
+  hours: string;
+  email?: string;
+  map_url?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Footer {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  newsletter_heading?: string;
+  newsletter_placeholder?: string;
+  newsletter_disclaimer?: string;
+  privacy_label?: string;
+  privacy_url?: string;
+  support_heading?: string;
+  contact_heading?: string;
+  account_heading?: string;
+  help_center_label?: string;
+  help_center_url?: string;
+  bottom_brand_primary?: string;
+  bottom_brand_secondary?: string;
+  social_instagram?: string;
+  social_facebook?: string;
+  social_vimeo?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
 export interface Page {
   id: string;
   slug: string | null;
@@ -33,11 +80,11 @@ export interface Page {
   cta_label?: string;
   cta_url?: string;
   phone?: string;
+  content?: PortableTextBlock[];
   phone_secondary?: string;
   story_image_path?: string;
   story_byline?: string;
-  faq?: Array<{ question: string; answer: string }>;
-  content?: PortableTextBlock[];
+  faq?: { "question": string; "answer": string }[];
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;
@@ -55,25 +102,16 @@ export interface Product {
   designer?: string;
   price_label?: string;
   shipping_note?: string;
+  summary?: string;
+  content?: PortableTextBlock[];
+  featured?: boolean;
   shipping_cost?: string;
   sale_label?: string;
   dimensions?: string;
   materials?: string;
   badges?: string;
   gallery_paths?: string;
-  variants?: Array<{
-    label: string;
-    group?: string;
-    sku?: string;
-    swatch?: string;
-    price_label?: string;
-    compare_at_price?: string;
-    image_path?: string;
-    shipping_time?: string;
-  }>;
-  summary?: string;
-  content?: PortableTextBlock[];
-  featured?: boolean;
+  variants?: { "label": string; "group"?: string | null; "sku"?: string | null; "swatch"?: string | null; "price_label"?: string | null; "compare_at_price"?: string | null; "image_path"?: string | null; "shipping_time"?: string | null }[];
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;
@@ -85,6 +123,8 @@ export interface Product {
 declare module "emdash" {
   interface EmDashCollections {
     category_pages: CategoryPage;
+    contact: Contact;
+    footer: Footer;
     pages: Page;
     products: Product;
   }

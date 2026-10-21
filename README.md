@@ -32,4 +32,18 @@ Edit categories, menus, and demo products in `/_emdash/admin`. Reseed with:
 npx emdash seed seed/seed.json --on-conflict=update
 ```
 
-Passkey setup in admin is user-only. No production deploy from this project by default.
+Passkey setup in admin is user-only.
+
+## Deploy (Cloudflare Workers)
+
+Official EmDash path: Workers + D1 + R2 (see [Deploy to Cloudflare](https://docs.emdashcms.com/deployment/cloudflare/)).
+
+```bash
+npx wrangler login
+npm run deploy
+npx wrangler secret put EMDASH_ENCRYPTION_KEY
+```
+
+- Production: `https://modella.<account>.workers.dev` (after first deploy)
+- Admin: `https://modella.<account>.workers.dev/_emdash/admin`
+- Connect GitHub → Workers Builds on `main` with build `npm run build` and deploy `npx wrangler deploy`.
