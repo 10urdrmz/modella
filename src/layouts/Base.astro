@@ -298,7 +298,8 @@ const pageCtx = createPublicPageContext({
 			const nav = document.querySelector("[data-nav]");
 			const megaItems = document.querySelectorAll("[data-mega-item]");
 			const desktopMq = window.matchMedia("(min-width: 900px)");
-			let closeTimer: ReturnType<typeof setTimeout> | null = null;
+			/** @type {ReturnType<typeof setTimeout> | null} */
+			let closeTimer = null;
 
 			const isDesktop = () => desktopMq.matches;
 
@@ -309,7 +310,8 @@ const pageCtx = createPublicPageContext({
 				}
 			};
 
-			const closeAllMega = (except?: Element | null) => {
+			/** @param {Element | null | undefined} except */
+			const closeAllMega = (except) => {
 				megaItems.forEach((item) => {
 					if (except && item === except) return;
 					item.classList.remove("is-open");
@@ -320,7 +322,8 @@ const pageCtx = createPublicPageContext({
 				});
 			};
 
-			const openMega = (item: Element) => {
+			/** @param {Element} item */
+			const openMega = (item) => {
 				clearCloseTimer();
 				closeAllMega(item);
 				item.classList.add("is-open");
