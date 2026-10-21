@@ -1,10 +1,16 @@
 ---
-import { getMenuWithCacheHint, getSiteSettingsWithCacheHint } from "emdash";
+import {
+	getMenuWithCacheHint,
+	getSiteSettingsWithCacheHint,
+	getTaxonomyTermsWithCacheHint,
+} from "emdash";
 import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
 import { resolveStarterSiteIdentity } from "../utils/site-identity";
 import { phoneToTel, resolveSiteContact } from "../utils/site-contact";
 import { resolveSiteFooter } from "../utils/site-footer";
+import { buildMegaNav } from "../utils/mega-nav";
+import type { CategoryTermLike } from "../utils/categories";
 import SiteFooter from "../components/SiteFooter.astro";
 import HiveLogo from "../components/HiveLogo.astro";
 import HoneycombIcon from "../components/HoneycombIcon.astro";
@@ -36,6 +42,9 @@ const {
 } = Astro.props;
 const settingsResult = await getSiteSettingsWithCacheHint();
 const menuResult = await getMenuWithCacheHint("primary");
+const categoriesResult = await getTaxonomyTermsWithCacheHint("category", {
+	includeCounts: false,
+});
 const [siteContact, siteFooter] = await Promise.all([
 	resolveSiteContact(),
 	resolveSiteFooter(),
@@ -43,6 +52,7 @@ const [siteContact, siteFooter] = await Promise.all([
 if (Astro.cache?.enabled) {
 	Astro.cache.set(settingsResult.cacheHint);
 	if (menuResult.cacheHint) Astro.cache.set(menuResult.cacheHint);
+	if (categoriesResult.cacheHint) Astro.cache.set(categoriesResult.cacheHint);
 }
 
 const { siteTitle, siteTagline, siteLogo } = resolveStarterSiteIdentity(
@@ -59,12 +69,15 @@ const displayPhoneTel = phone?.trim()
 	? phoneToTel(phone.trim())
 	: siteContact.phoneTel;
 
-/** Primary nav from EmDash admin (Menus → Primary Navigation) */
-const navItems = (menuResult.data?.items ?? []).map((item) => ({
-	label: item.label,
-	url: item.url || "#",
-	sale: item.label.toLowerCase() === "sale",
-}));
+/** Primary nav from EmDash admin; hubs get Hive-style mega panels from taxonomy */
+const navItems = buildMegaNav(
+	(menuResult.data?.items ?? []).map((item) => ({
+		label: item.label,
+		url: item.url || "#",
+		sale: item.label.toLowerCase() === "sale",
+	})),
+	(categoriesResult.data ?? []) as CategoryTermLike[],
+);
 
 const pageCtx = createPublicPageContext({
 	Astro,
@@ -151,17 +164,56 @@ const pageCtx = createPublicPageContext({
 
 						<nav class="site-nav" id="primary-nav" data-nav aria-label="Primary">
 							{
-								navItems.map((item) => (
-									<a
-										href={item.url}
-										class:list={[
-											{ "is-sale": item.sale },
-											{ "is-active": activeNav === item.label },
-										]}
-									>
-										{item.label}
-									</a>
-								))
+								navItems.map((item) =>
+									item.mega?.length ? (
+										<div class="nav-item has-mega" data-mega-item>
+											<a
+												href={item.url}
+												class:list={[
+													"nav-item__link",
+													{ "is-sale": item.sale },
+													{ "is-active": activeNav === item.label },
+												]}
+												data-mega-trigger
+												aria-haspopup="true"
+												aria-expanded="false"
+											>
+												{item.label}
+											</a>
+											<div class="mega-panel" data-mega-panel hidden>
+												<div class="mega-panel__inner">
+													{item.mega.map((col) => (
+														<div class="mega-col">
+															<a class="mega-col__title" href={col.url}>
+																{col.title}
+															</a>
+															{col.links.length > 0 && (
+																<ul class="mega-col__list">
+																	{col.links.map((link) => (
+																		<li>
+																			<a href={link.url}>{link.label}</a>
+																		</li>
+																	))}
+																</ul>
+															)}
+														</div>
+													))}
+												</div>
+											</div>
+										</div>
+									) : (
+										<a
+											href={item.url}
+											class:list={[
+												"nav-item__link",
+												{ "is-sale": item.sale },
+												{ "is-active": activeNav === item.label },
+											]}
+										>
+											{item.label}
+										</a>
+									),
+								)
 							}
 						</nav>
 
@@ -244,10 +296,59 @@ const pageCtx = createPublicPageContext({
 		<script>
 			const toggle = document.querySelector("[data-nav-toggle]");
 			const nav = document.querySelector("[data-nav]");
+			const megaItems = document.querySelectorAll("[data-mega-item]");
+
+			const closeAllMega = (except?: Element | null) => {
+				megaItems.forEach((item) => {
+					if (except && item === except) return;
+					item.classList.remove("is-open");
+					const trigger = item.querySelector("[data-mega-trigger]");
+					const panel = item.querySelector("[data-mega-panel]");
+					trigger?.setAttribute("aria-expanded", "false");
+					if (panel instanceof HTMLElement) panel.hidden = true;
+				});
+			};
+
+			const openMega = (item: Element) => {
+				closeAllMega(item);
+				item.classList.add("is-open");
+				const trigger = item.querySelector("[data-mega-trigger]");
+				const panel = item.querySelector("[data-mega-panel]");
+				trigger?.setAttribute("aria-expanded", "true");
+				if (panel instanceof HTMLElement) panel.hidden = false;
+			};
+
 			toggle?.addEventListener("click", () => {
 				const open = nav?.classList.toggle("is-open");
 				toggle.setAttribute("aria-expanded", open ? "true" : "false");
 				document.body.classList.toggle("nav-open", !!open);
+				if (!open) closeAllMega();
+			});
+
+			megaItems.forEach((item) => {
+				const trigger = item.querySelector("[data-mega-trigger]");
+				trigger?.addEventListener("click", (event) => {
+					const isDesktop = window.matchMedia("(min-width: 900px)").matches;
+					if (isDesktop) return;
+					event.preventDefault();
+					const willOpen = !item.classList.contains("is-open");
+					if (willOpen) openMega(item);
+					else closeAllMega();
+				});
+
+				item.addEventListener("mouseenter", () => {
+					if (window.matchMedia("(min-width: 900px)").matches) openMega(item);
+				});
+				item.addEventListener("mouseleave", () => {
+					if (window.matchMedia("(min-width: 900px)").matches) closeAllMega();
+				});
+				item.addEventListener("focusin", () => {
+					if (window.matchMedia("(min-width: 900px)").matches) openMega(item);
+				});
+			});
+
+			document.addEventListener("keydown", (event) => {
+				if (event.key === "Escape") closeAllMega();
 			});
 		</script>
 	</body>

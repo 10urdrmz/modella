@@ -555,48 +555,18 @@
 			"items": [
 				{
 					"type": "custom",
-					"label": "Raydolap",
-					"url": "/category/raydolap"
+					"label": "Dolaplar",
+					"url": "/category/dolaplar"
 				},
 				{
 					"type": "custom",
-					"label": "Reflekte Camlı Dolap",
-					"url": "/category/reflekte-camli-dolap"
+					"label": "Odalar",
+					"url": "/category/odalar"
 				},
 				{
 					"type": "custom",
-					"label": "Membran Kapaklı Dolap",
-					"url": "/category/membran-kapakli-dolap"
-				},
-				{
-					"type": "custom",
-					"label": "Giyinme Odası",
-					"url": "/category/giyinme-odasi"
-				},
-				{
-					"type": "custom",
-					"label": "Yatak Odası",
-					"url": "/category/yatak-odasi"
-				},
-				{
-					"type": "custom",
-					"label": "Genç Odası",
-					"url": "/category/genc-odasi"
-				},
-				{
-					"type": "custom",
-					"label": "TV Ünitesi",
-					"url": "/category/tv-unitesi"
-				},
-				{
-					"type": "custom",
-					"label": "Dresuar ve Makyaj Masası",
-					"url": "/category/dresuar-ve-makyaj-masasi"
-				},
-				{
-					"type": "custom",
-					"label": "Coffee Corner ve Kitaplık",
-					"url": "/category/coffee-corner-ve-kitaplik"
+					"label": "Üniteler",
+					"url": "/category/uniteler"
 				},
 				{
 					"type": "custom",
