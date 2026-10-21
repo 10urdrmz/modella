@@ -1536,10 +1536,6 @@ p {
 	overflow: hidden;
 	background: var(--mist);
 	text-decoration: none;
-	border: 0;
-	padding: 0;
-	cursor: zoom-in;
-	width: 100%;
 }
 
 .mekan-gallery__item img {
