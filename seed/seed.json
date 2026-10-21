@@ -477,195 +477,73 @@
 			],
 			"terms": [
 				{
-					"slug": "furniture",
-					"label": "Furniture",
-					"description": "The foundation of every great space. Explore our curated collection of modern furniture from the world's most celebrated designers and manufacturers."
+					"slug": "dolaplar",
+					"label": "Dolaplar",
+					"description": "Sürgülü, camlı ve membran kapaklı raydolap çözümleri."
 				},
 				{
-					"slug": "seating",
-					"label": "Seating",
-					"parent": "furniture",
-					"description": "Shop seating from the designers and manufacturers architects trust."
+					"slug": "raydolap",
+					"label": "Raydolap",
+					"parent": "dolaplar",
+					"description": "Kişiye özel sürgülü raydolap sistemleri."
 				},
 				{
-					"slug": "tables-desks",
-					"label": "Tables & Desks",
-					"parent": "furniture",
-					"description": "Shop tables & desks from the designers and manufacturers architects trust."
+					"slug": "reflekte-camli-dolap",
+					"label": "Reflekte Camlı Dolap",
+					"parent": "dolaplar",
+					"description": "Reflekte cam kapaklı dolap modelleri."
 				},
 				{
-					"slug": "shelving-storage",
-					"label": "Shelving & Storage",
-					"parent": "furniture",
-					"description": "Shop shelving & storage from the designers and manufacturers architects trust."
+					"slug": "membran-kapakli-dolap",
+					"label": "Membran Kapaklı Dolap",
+					"parent": "dolaplar",
+					"description": "Membran kapaklı dolap sistemleri."
 				},
 				{
-					"slug": "bedroom",
-					"label": "Bedroom Furniture",
-					"parent": "furniture",
-					"description": "Shop bedroom furniture from the designers and manufacturers architects trust."
+					"slug": "odalar",
+					"label": "Odalar",
+					"description": "Giyinme, yatak ve genç odası çözümleri."
 				},
 				{
-					"slug": "lighting",
-					"label": "Lighting",
-					"description": "Architectural light for rooms that need atmosphere as much as illumination."
+					"slug": "giyinme-odasi",
+					"label": "Giyinme Odası",
+					"parent": "odalar",
+					"description": "Ölçüye özel giyinme odası uygulamaları."
 				},
 				{
-					"slug": "floor-lamps",
-					"label": "Floor Lamps",
-					"parent": "lighting",
-					"description": "Shop floor lamps from the designers and manufacturers architects trust."
+					"slug": "yatak-odasi",
+					"label": "Yatak Odası",
+					"parent": "odalar",
+					"description": "Yatak odası dolap ve mobilya çözümleri."
 				},
 				{
-					"slug": "table-lamps",
-					"label": "Table Lamps",
-					"parent": "lighting",
-					"description": "Shop table lamps from the designers and manufacturers architects trust."
+					"slug": "genc-odasi",
+					"label": "Genç Odası",
+					"parent": "odalar",
+					"description": "Genç odası dolap ve yaşam alanı çözümleri."
 				},
 				{
-					"slug": "pendants",
-					"label": "Pendants",
-					"parent": "lighting",
-					"description": "Shop pendants from the designers and manufacturers architects trust."
+					"slug": "uniteler",
+					"label": "Üniteler",
+					"description": "TV ünitesi, dresuar ve kitaplık çözümleri."
 				},
 				{
-					"slug": "wall-sconces",
-					"label": "Wall Sconces",
-					"parent": "lighting",
-					"description": "Shop wall sconces from the designers and manufacturers architects trust."
+					"slug": "tv-unitesi",
+					"label": "TV Ünitesi",
+					"parent": "uniteler",
+					"description": "TV ünitesi ve duvar ünitesi uygulamaları."
 				},
 				{
-					"slug": "accessories",
-					"label": "Accessories",
-					"description": "The finishing touches. Thoughtfully curated accessories that bring personality and purpose to every space."
+					"slug": "dresuar-ve-makyaj-masasi",
+					"label": "Dresuar ve Makyaj Masası",
+					"parent": "uniteler",
+					"description": "Dresuar ve makyaj masası çözümleri."
 				},
 				{
-					"slug": "home-accessories",
-					"label": "Home Accessories",
-					"parent": "accessories",
-					"description": "Shop home accessories from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "kitchen-dining",
-					"label": "Kitchen & Dining",
-					"parent": "accessories",
-					"description": "Shop kitchen & dining from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "organization-office",
-					"label": "Organization & Office",
-					"parent": "accessories",
-					"description": "Shop organization & office from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "clocks",
-					"label": "Clocks",
-					"parent": "accessories",
-					"description": "Shop clocks from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "pillows-blankets",
-					"label": "Pillows & Blankets",
-					"parent": "accessories",
-					"description": "Shop pillows & blankets from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "candle-holders",
-					"label": "Candle Holders",
-					"parent": "accessories",
-					"description": "Shop candle holders from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "planters",
-					"label": "Planters",
-					"parent": "accessories",
-					"description": "Shop planters from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "decorative-vases",
-					"label": "Decorative Vases & Bowls",
-					"parent": "accessories",
-					"description": "Shop decorative vases & bowls from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "coat-racks",
-					"label": "Coat Racks",
-					"parent": "accessories",
-					"description": "Shop coat racks from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "mirrors",
-					"label": "Mirrors",
-					"parent": "accessories",
-					"description": "Shop mirrors from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "fireplace",
-					"label": "Fireplace",
-					"parent": "accessories",
-					"description": "Shop fireplace from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "vitra-miniatures",
-					"label": "Miniatures by Vitra",
-					"parent": "accessories",
-					"description": "Shop miniatures by Vitra from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "rugs",
-					"label": "Rugs",
-					"description": "Ground the room with texture, color, and craft — from flatweaves to sculptural piles."
-				},
-				{
-					"slug": "area-rugs",
-					"label": "Area Rugs",
-					"parent": "rugs",
-					"description": "Shop area rugs from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "runners",
-					"label": "Runners",
-					"parent": "rugs",
-					"description": "Shop runners from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "outdoor-rugs",
-					"label": "Outdoor Rugs",
-					"parent": "rugs",
-					"description": "Shop outdoor rugs from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "outdoor",
-					"label": "Outdoor",
-					"description": "Furniture and lighting built for open air — designed with the same care as indoor classics."
-				},
-				{
-					"slug": "outdoor-seating",
-					"label": "Outdoor Seating",
-					"parent": "outdoor",
-					"description": "Shop outdoor seating from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "outdoor-tables",
-					"label": "Outdoor Tables",
-					"parent": "outdoor",
-					"description": "Shop outdoor tables from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "outdoor-lighting",
-					"label": "Outdoor Lighting",
-					"parent": "outdoor",
-					"description": "Shop outdoor lighting from the designers and manufacturers architects trust."
-				},
-				{
-					"slug": "sale",
-					"label": "Sale",
-					"description": "Selected pieces with seasonal savings — still the makers and designers you trust."
-				},
-				{
-					"slug": "new",
-					"label": "New!",
-					"description": "Just arrived — new introductions from the brands and designers we stock."
+					"slug": "coffee-corner-ve-kitaplik",
+					"label": "Coffee Corner ve Kitaplık",
+					"parent": "uniteler",
+					"description": "Coffee corner ve kitaplık üniteleri."
 				}
 			]
 		}
@@ -677,43 +555,48 @@
 			"items": [
 				{
 					"type": "custom",
-					"label": "Furniture",
-					"url": "/category/furniture"
+					"label": "Raydolap",
+					"url": "/category/raydolap"
 				},
 				{
 					"type": "custom",
-					"label": "Lighting",
-					"url": "/category/lighting"
+					"label": "Reflekte Camlı Dolap",
+					"url": "/category/reflekte-camli-dolap"
 				},
 				{
 					"type": "custom",
-					"label": "Accessories",
-					"url": "/category/accessories"
+					"label": "Membran Kapaklı Dolap",
+					"url": "/category/membran-kapakli-dolap"
 				},
 				{
 					"type": "custom",
-					"label": "Rugs",
-					"url": "/category/rugs"
+					"label": "Giyinme Odası",
+					"url": "/category/giyinme-odasi"
 				},
 				{
 					"type": "custom",
-					"label": "Outdoor",
-					"url": "/category/outdoor"
+					"label": "Yatak Odası",
+					"url": "/category/yatak-odasi"
 				},
 				{
 					"type": "custom",
-					"label": "Brands",
-					"url": "/brands"
+					"label": "Genç Odası",
+					"url": "/category/genc-odasi"
 				},
 				{
 					"type": "custom",
-					"label": "Designers",
-					"url": "/brands"
+					"label": "TV Ünitesi",
+					"url": "/category/tv-unitesi"
 				},
 				{
 					"type": "custom",
-					"label": "New!",
-					"url": "/category/new"
+					"label": "Dresuar ve Makyaj Masası",
+					"url": "/category/dresuar-ve-makyaj-masasi"
+				},
+				{
+					"type": "custom",
+					"label": "Coffee Corner ve Kitaplık",
+					"url": "/category/coffee-corner-ve-kitaplik"
 				},
 				{
 					"type": "custom",
@@ -722,8 +605,8 @@
 				},
 				{
 					"type": "custom",
-					"label": "Sale",
-					"url": "/category/sale"
+					"label": "İletişim",
+					"url": "/contact"
 				}
 			]
 		},
@@ -738,48 +621,38 @@
 				},
 				{
 					"type": "custom",
-					"label": "Sales Assistance",
+					"label": "İletişim",
 					"url": "/contact"
 				},
 				{
 					"type": "custom",
-					"label": "Trade Program",
-					"url": "/trade"
+					"label": "Sık Sorulan Sorular",
+					"url": "/about#sss"
 				},
 				{
 					"type": "custom",
-					"label": "Swatch Samples",
-					"url": "/products"
+					"label": "Dolaplar",
+					"url": "/category/dolaplar"
 				},
 				{
 					"type": "custom",
-					"label": "Order Status",
-					"url": "/contact"
+					"label": "Odalar",
+					"url": "/category/odalar"
 				},
 				{
 					"type": "custom",
-					"label": "Contact",
-					"url": "/contact"
+					"label": "Üniteler",
+					"url": "/category/uniteler"
 				},
 				{
 					"type": "custom",
-					"label": "FAQ",
-					"url": "/about"
+					"label": "Raydolap",
+					"url": "/category/raydolap"
 				},
 				{
 					"type": "custom",
-					"label": "Policies",
-					"url": "/about"
-				},
-				{
-					"type": "custom",
-					"label": "Privacy",
-					"url": "/about"
-				},
-				{
-					"type": "custom",
-					"label": "Cookie Policy",
-					"url": "/about"
+					"label": "Giyinme Odası",
+					"url": "/category/giyinme-odasi"
 				}
 			]
 		},
@@ -809,10 +682,10 @@
 				"status": "published",
 				"data": {
 					"title": "Home",
-					"hero_headline": "Designer furniture without compromise",
-					"hero_subcopy": "Cassina, Moroso, and the makers architects trust — expert consultation and trade pricing for more than two decades.",
-					"cta_label": "Shop furniture",
-					"cta_url": "/category/furniture",
+					"hero_headline": "Kişiye özel raydolap ve mobilya",
+					"hero_subcopy": "1999’dan bu yana Masko’da ölçüye özel üretim — Raydolap Modella.",
+					"cta_label": "Raydolapları incele",
+					"cta_url": "/category/raydolap",
 					"phone": "(0212) 675 20 57",
 					"hero_image": {
 						"$media": {
@@ -1050,13 +923,13 @@
 					"newsletter_disclaimer": "By providing this information, you are opting to receive email communications from hive.",
 					"privacy_label": "View privacy policy",
 					"privacy_url": "/about",
-					"support_heading": "Support",
-					"contact_heading": "Contact",
-					"account_heading": "Account",
-					"help_center_label": "Help Center",
+					"support_heading": "Destek",
+					"contact_heading": "İletişim",
+					"account_heading": "Hesap",
+					"help_center_label": "Yardım",
 					"help_center_url": "/contact",
-					"bottom_brand_primary": "hive",
-					"bottom_brand_secondary": "İstanbul",
+					"bottom_brand_primary": "Raydolap Modella",
+					"bottom_brand_secondary": "Masko · İstanbul",
 					"social_instagram": "https://www.instagram.com/",
 					"social_facebook": "https://www.facebook.com/",
 					"social_vimeo": "https://vimeo.com/"
@@ -1065,563 +938,206 @@
 		],
 		"category_pages": [
 			{
-				"id": "cp-furniture",
-				"slug": "furniture",
+				"id": "dolaplar",
+				"slug": "dolaplar",
 				"status": "published",
 				"data": {
-					"title": "Furniture",
-					"lede": "The foundation of every great space. Explore our curated collection of modern furniture from the world's most celebrated designers and manufacturers.",
-					"hero_image_path": "/hive-samples/furniture-hero.jpg",
-					"tile_image_path": "/hive-samples/furniture-hero.jpg",
-					"hero_alt": "Modern designer furniture"
+					"title": "Dolaplar",
+					"lede": "Sürgülü raydolap, reflekte camlı ve membran kapaklı dolap sistemleri.",
+					"hero_image_path": "/hive-samples/credenzas.jpg",
+					"tile_image_path": "/hive-samples/credenzas.jpg",
+					"hero_alt": "Dolaplar"
 				},
 				"taxonomies": {
 					"category": [
-						"furniture"
+						"dolaplar"
 					]
 				}
 			},
 			{
-				"id": "cp-seating",
-				"slug": "seating",
+				"id": "raydolap",
+				"slug": "raydolap",
 				"status": "published",
 				"data": {
-					"title": "Seating",
-					"lede": "Shop seating from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/seating.jpg",
-					"tile_image_path": "/hive-samples/seating.jpg",
-					"hero_alt": "Seating"
-				},
-				"taxonomies": {
-					"category": [
-						"seating"
-					]
-				}
-			},
-			{
-				"id": "cp-tables-desks",
-				"slug": "tables-desks",
-				"status": "published",
-				"data": {
-					"title": "Tables & Desks",
-					"lede": "Shop tables & desks from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/tables-desks.jpg",
-					"tile_image_path": "/hive-samples/tables-desks.jpg",
-					"hero_alt": "Tables & Desks"
-				},
-				"taxonomies": {
-					"category": [
-						"tables-desks"
-					]
-				}
-			},
-			{
-				"id": "cp-shelving-storage",
-				"slug": "shelving-storage",
-				"status": "published",
-				"data": {
-					"title": "Shelving & Storage",
-					"lede": "Shop shelving & storage from the designers and manufacturers architects trust.",
+					"title": "Raydolap",
+					"lede": "Ölçüye özel sürgülü raydolap — alanınızı son santimine kadar değerlendirin.",
 					"hero_image_path": "/hive-samples/shelving.jpg",
 					"tile_image_path": "/hive-samples/shelving.jpg",
-					"hero_alt": "Shelving & Storage"
+					"hero_alt": "Raydolap"
 				},
 				"taxonomies": {
 					"category": [
-						"shelving-storage"
+						"raydolap"
 					]
 				}
 			},
 			{
-				"id": "cp-bedroom",
-				"slug": "bedroom",
+				"id": "reflekte-camli-dolap",
+				"slug": "reflekte-camli-dolap",
 				"status": "published",
 				"data": {
-					"title": "Bedroom Furniture",
-					"lede": "Shop bedroom furniture from the designers and manufacturers architects trust.",
+					"title": "Reflekte Camlı Dolap",
+					"lede": "Reflekte cam detaylı dolap çözümleriyle ferah ve modern görünüm.",
+					"hero_image_path": "/hive-samples/mirrors.jpg",
+					"tile_image_path": "/hive-samples/mirrors.jpg",
+					"hero_alt": "Reflekte Camlı Dolap"
+				},
+				"taxonomies": {
+					"category": [
+						"reflekte-camli-dolap"
+					]
+				}
+			},
+			{
+				"id": "membran-kapakli-dolap",
+				"slug": "membran-kapakli-dolap",
+				"status": "published",
+				"data": {
+					"title": "Membran Kapaklı Dolap",
+					"lede": "Membran kapaklı dolaplar; dayanıklı yüzey, temiz çizgiler.",
 					"hero_image_path": "/hive-samples/bedroom.jpg",
 					"tile_image_path": "/hive-samples/bedroom.jpg",
-					"hero_alt": "Bedroom Furniture"
+					"hero_alt": "Membran Kapaklı Dolap"
 				},
 				"taxonomies": {
 					"category": [
-						"bedroom"
+						"membran-kapakli-dolap"
 					]
 				}
 			},
 			{
-				"id": "cp-lighting",
-				"slug": "lighting",
+				"id": "odalar",
+				"slug": "odalar",
 				"status": "published",
 				"data": {
-					"title": "Lighting",
-					"lede": "Architectural light for rooms that need atmosphere as much as illumination.",
-					"hero_image_path": "/hive-samples/lighting-hero.jpg",
-					"tile_image_path": "/hive-samples/lighting-hero.jpg",
-					"hero_alt": "Modern lighting"
+					"title": "Odalar",
+					"lede": "Giyinme, yatak ve genç odası için kişiye özel mobilya uygulamaları.",
+					"hero_image_path": "/hive-samples/bedroom.jpg",
+					"tile_image_path": "/hive-samples/bedroom.jpg",
+					"hero_alt": "Odalar"
 				},
 				"taxonomies": {
 					"category": [
-						"lighting"
+						"odalar"
 					]
 				}
 			},
 			{
-				"id": "cp-floor-lamps",
-				"slug": "floor-lamps",
+				"id": "giyinme-odasi",
+				"slug": "giyinme-odasi",
 				"status": "published",
 				"data": {
-					"title": "Floor Lamps",
-					"lede": "Shop floor lamps from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/lighting-hero.jpg",
-					"tile_image_path": "/hive-samples/lighting-hero.jpg",
-					"hero_alt": "Floor Lamps"
-				},
-				"taxonomies": {
-					"category": [
-						"floor-lamps"
-					]
-				}
-			},
-			{
-				"id": "cp-table-lamps",
-				"slug": "table-lamps",
-				"status": "published",
-				"data": {
-					"title": "Table Lamps",
-					"lede": "Shop table lamps from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/candle-holders.jpg",
-					"tile_image_path": "/hive-samples/candle-holders.jpg",
-					"hero_alt": "Table Lamps"
-				},
-				"taxonomies": {
-					"category": [
-						"table-lamps"
-					]
-				}
-			},
-			{
-				"id": "cp-pendants",
-				"slug": "pendants",
-				"status": "published",
-				"data": {
-					"title": "Pendants",
-					"lede": "Shop pendants from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/decorative-vases.jpg",
-					"tile_image_path": "/hive-samples/decorative-vases.jpg",
-					"hero_alt": "Pendants"
-				},
-				"taxonomies": {
-					"category": [
-						"pendants"
-					]
-				}
-			},
-			{
-				"id": "cp-wall-sconces",
-				"slug": "wall-sconces",
-				"status": "published",
-				"data": {
-					"title": "Wall Sconces",
-					"lede": "Shop wall sconces from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/mirrors.jpg",
-					"tile_image_path": "/hive-samples/mirrors.jpg",
-					"hero_alt": "Wall Sconces"
-				},
-				"taxonomies": {
-					"category": [
-						"wall-sconces"
-					]
-				}
-			},
-			{
-				"id": "cp-accessories",
-				"slug": "accessories",
-				"status": "published",
-				"data": {
-					"title": "Accessories",
-					"lede": "The finishing touches. Thoughtfully curated accessories that bring personality and purpose to every space.",
-					"hero_image_path": "/hive-samples/accessories-hero.jpg",
-					"tile_image_path": "/hive-samples/accessories-hero.jpg",
-					"hero_alt": "Modern home accessories"
-				},
-				"taxonomies": {
-					"category": [
-						"accessories"
-					]
-				}
-			},
-			{
-				"id": "cp-home-accessories",
-				"slug": "home-accessories",
-				"status": "published",
-				"data": {
-					"title": "Home Accessories",
-					"lede": "Shop home accessories from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/home-accessories.jpg",
-					"tile_image_path": "/hive-samples/home-accessories.jpg",
-					"hero_alt": "Home Accessories"
-				},
-				"taxonomies": {
-					"category": [
-						"home-accessories"
-					]
-				}
-			},
-			{
-				"id": "cp-kitchen-dining",
-				"slug": "kitchen-dining",
-				"status": "published",
-				"data": {
-					"title": "Kitchen & Dining",
-					"lede": "Shop kitchen & dining from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/kitchen-dining.jpg",
-					"tile_image_path": "/hive-samples/kitchen-dining.jpg",
-					"hero_alt": "Kitchen & Dining"
-				},
-				"taxonomies": {
-					"category": [
-						"kitchen-dining"
-					]
-				}
-			},
-			{
-				"id": "cp-organization-office",
-				"slug": "organization-office",
-				"status": "published",
-				"data": {
-					"title": "Organization & Office",
-					"lede": "Shop organization & office from the designers and manufacturers architects trust.",
+					"title": "Giyinme Odası",
+					"lede": "Duvara gömülü sistemlerden tavana uzanan modüler giyinme odaları.",
 					"hero_image_path": "/hive-samples/organization-office.jpg",
 					"tile_image_path": "/hive-samples/organization-office.jpg",
-					"hero_alt": "Organization & Office"
+					"hero_alt": "Giyinme Odası"
 				},
 				"taxonomies": {
 					"category": [
-						"organization-office"
+						"giyinme-odasi"
 					]
 				}
 			},
 			{
-				"id": "cp-clocks",
-				"slug": "clocks",
+				"id": "yatak-odasi",
+				"slug": "yatak-odasi",
 				"status": "published",
 				"data": {
-					"title": "Clocks",
-					"lede": "Shop clocks from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/clocks.jpg",
-					"tile_image_path": "/hive-samples/clocks.jpg",
-					"hero_alt": "Clocks"
+					"title": "Yatak Odası",
+					"lede": "Yatak odanıza uyumlu dolap ve ünite çözümleri.",
+					"hero_image_path": "/hive-samples/bedroom.jpg",
+					"tile_image_path": "/hive-samples/bedroom.jpg",
+					"hero_alt": "Yatak Odası"
 				},
 				"taxonomies": {
 					"category": [
-						"clocks"
+						"yatak-odasi"
 					]
 				}
 			},
 			{
-				"id": "cp-pillows-blankets",
-				"slug": "pillows-blankets",
+				"id": "genc-odasi",
+				"slug": "genc-odasi",
 				"status": "published",
 				"data": {
-					"title": "Pillows & Blankets",
-					"lede": "Shop pillows & blankets from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/pillows-blankets.jpg",
-					"tile_image_path": "/hive-samples/pillows-blankets.jpg",
-					"hero_alt": "Pillows & Blankets"
+					"title": "Genç Odası",
+					"lede": "Büyüyen ihtiyaçlara göre planlanan genç odası çözümleri.",
+					"hero_image_path": "/hive-samples/shelving.jpg",
+					"tile_image_path": "/hive-samples/shelving.jpg",
+					"hero_alt": "Genç Odası"
 				},
 				"taxonomies": {
 					"category": [
-						"pillows-blankets"
+						"genc-odasi"
 					]
 				}
 			},
 			{
-				"id": "cp-candle-holders",
-				"slug": "candle-holders",
+				"id": "uniteler",
+				"slug": "uniteler",
 				"status": "published",
 				"data": {
-					"title": "Candle Holders",
-					"lede": "Shop candle holders from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/candle-holders.jpg",
-					"tile_image_path": "/hive-samples/candle-holders.jpg",
-					"hero_alt": "Candle Holders"
+					"title": "Üniteler",
+					"lede": "TV ünitesi, dresuar, makyaj masası ve kitaplık üniteleri.",
+					"hero_image_path": "/hive-samples/tables-desks.jpg",
+					"tile_image_path": "/hive-samples/tables-desks.jpg",
+					"hero_alt": "Üniteler"
 				},
 				"taxonomies": {
 					"category": [
-						"candle-holders"
+						"uniteler"
 					]
 				}
 			},
 			{
-				"id": "cp-planters",
-				"slug": "planters",
+				"id": "tv-unitesi",
+				"slug": "tv-unitesi",
 				"status": "published",
 				"data": {
-					"title": "Planters",
-					"lede": "Shop planters from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/planters.jpg",
-					"tile_image_path": "/hive-samples/planters.jpg",
-					"hero_alt": "Planters"
+					"title": "TV Ünitesi",
+					"lede": "Oturma alanına özel TV ve duvar ünitesi uygulamaları.",
+					"hero_image_path": "/hive-samples/credenzas.jpg",
+					"tile_image_path": "/hive-samples/credenzas.jpg",
+					"hero_alt": "TV Ünitesi"
 				},
 				"taxonomies": {
 					"category": [
-						"planters"
+						"tv-unitesi"
 					]
 				}
 			},
 			{
-				"id": "cp-decorative-vases",
-				"slug": "decorative-vases",
+				"id": "dresuar-ve-makyaj-masasi",
+				"slug": "dresuar-ve-makyaj-masasi",
 				"status": "published",
 				"data": {
-					"title": "Decorative Vases & Bowls",
-					"lede": "Shop decorative vases & bowls from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/decorative-vases.jpg",
-					"tile_image_path": "/hive-samples/decorative-vases.jpg",
-					"hero_alt": "Decorative Vases & Bowls"
+					"title": "Dresuar ve Makyaj Masası",
+					"lede": "Dresuar ve makyaj masası ile tamamlanan yatak odası düzeni.",
+					"hero_image_path": "/hive-samples/bathroom.jpg",
+					"tile_image_path": "/hive-samples/bathroom.jpg",
+					"hero_alt": "Dresuar ve Makyaj Masası"
 				},
 				"taxonomies": {
 					"category": [
-						"decorative-vases"
+						"dresuar-ve-makyaj-masasi"
 					]
 				}
 			},
 			{
-				"id": "cp-coat-racks",
-				"slug": "coat-racks",
+				"id": "coffee-corner-ve-kitaplik",
+				"slug": "coffee-corner-ve-kitaplik",
 				"status": "published",
 				"data": {
-					"title": "Coat Racks",
-					"lede": "Shop coat racks from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/coat-racks.jpg",
-					"tile_image_path": "/hive-samples/coat-racks.jpg",
-					"hero_alt": "Coat Racks"
+					"title": "Coffee Corner ve Kitaplık",
+					"lede": "Coffee corner ve kitaplık ile işlevsel yaşam köşeleri.",
+					"hero_image_path": "/hive-samples/shelving.jpg",
+					"tile_image_path": "/hive-samples/shelving.jpg",
+					"hero_alt": "Coffee Corner ve Kitaplık"
 				},
 				"taxonomies": {
 					"category": [
-						"coat-racks"
-					]
-				}
-			},
-			{
-				"id": "cp-mirrors",
-				"slug": "mirrors",
-				"status": "published",
-				"data": {
-					"title": "Mirrors",
-					"lede": "Shop mirrors from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/mirrors.jpg",
-					"tile_image_path": "/hive-samples/mirrors.jpg",
-					"hero_alt": "Mirrors"
-				},
-				"taxonomies": {
-					"category": [
-						"mirrors"
-					]
-				}
-			},
-			{
-				"id": "cp-fireplace",
-				"slug": "fireplace",
-				"status": "published",
-				"data": {
-					"title": "Fireplace",
-					"lede": "Shop fireplace from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/fireplace.jpg",
-					"tile_image_path": "/hive-samples/fireplace.jpg",
-					"hero_alt": "Fireplace"
-				},
-				"taxonomies": {
-					"category": [
-						"fireplace"
-					]
-				}
-			},
-			{
-				"id": "cp-vitra-miniatures",
-				"slug": "vitra-miniatures",
-				"status": "published",
-				"data": {
-					"title": "Miniatures by Vitra",
-					"lede": "Shop miniatures by Vitra from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/vitra-miniatures.jpg",
-					"tile_image_path": "/hive-samples/vitra-miniatures.jpg",
-					"hero_alt": "Miniatures by Vitra"
-				},
-				"taxonomies": {
-					"category": [
-						"vitra-miniatures"
-					]
-				}
-			},
-			{
-				"id": "cp-rugs",
-				"slug": "rugs",
-				"status": "published",
-				"data": {
-					"title": "Rugs",
-					"lede": "Ground the room with texture, color, and craft — from flatweaves to sculptural piles.",
-					"hero_image_path": "/hive-samples/rugs-tile.jpg",
-					"tile_image_path": "/hive-samples/rugs-tile.jpg",
-					"hero_alt": "Modern rugs"
-				},
-				"taxonomies": {
-					"category": [
-						"rugs"
-					]
-				}
-			},
-			{
-				"id": "cp-area-rugs",
-				"slug": "area-rugs",
-				"status": "published",
-				"data": {
-					"title": "Area Rugs",
-					"lede": "Shop area rugs from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/rugs-tile.jpg",
-					"tile_image_path": "/hive-samples/rugs-tile.jpg",
-					"hero_alt": "Area Rugs"
-				},
-				"taxonomies": {
-					"category": [
-						"area-rugs"
-					]
-				}
-			},
-			{
-				"id": "cp-runners",
-				"slug": "runners",
-				"status": "published",
-				"data": {
-					"title": "Runners",
-					"lede": "Shop runners from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/pillows-blankets.jpg",
-					"tile_image_path": "/hive-samples/pillows-blankets.jpg",
-					"hero_alt": "Runners"
-				},
-				"taxonomies": {
-					"category": [
-						"runners"
-					]
-				}
-			},
-			{
-				"id": "cp-outdoor-rugs",
-				"slug": "outdoor-rugs",
-				"status": "published",
-				"data": {
-					"title": "Outdoor Rugs",
-					"lede": "Shop outdoor rugs from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/outdoor-seating.jpg",
-					"tile_image_path": "/hive-samples/outdoor-seating.jpg",
-					"hero_alt": "Outdoor Rugs"
-				},
-				"taxonomies": {
-					"category": [
-						"outdoor-rugs"
-					]
-				}
-			},
-			{
-				"id": "cp-outdoor",
-				"slug": "outdoor",
-				"status": "published",
-				"data": {
-					"title": "Outdoor",
-					"lede": "Furniture and lighting built for open air — designed with the same care as indoor classics.",
-					"hero_image_path": "/hive-samples/outdoor-seating.jpg",
-					"tile_image_path": "/hive-samples/outdoor-seating.jpg",
-					"hero_alt": "Outdoor furniture"
-				},
-				"taxonomies": {
-					"category": [
-						"outdoor"
-					]
-				}
-			},
-			{
-				"id": "cp-outdoor-seating",
-				"slug": "outdoor-seating",
-				"status": "published",
-				"data": {
-					"title": "Outdoor Seating",
-					"lede": "Shop outdoor seating from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/outdoor-seating.jpg",
-					"tile_image_path": "/hive-samples/outdoor-seating.jpg",
-					"hero_alt": "Outdoor Seating"
-				},
-				"taxonomies": {
-					"category": [
-						"outdoor-seating"
-					]
-				}
-			},
-			{
-				"id": "cp-outdoor-tables",
-				"slug": "outdoor-tables",
-				"status": "published",
-				"data": {
-					"title": "Outdoor Tables",
-					"lede": "Shop outdoor tables from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/outdoor-tables.jpg",
-					"tile_image_path": "/hive-samples/outdoor-tables.jpg",
-					"hero_alt": "Outdoor Tables"
-				},
-				"taxonomies": {
-					"category": [
-						"outdoor-tables"
-					]
-				}
-			},
-			{
-				"id": "cp-outdoor-lighting",
-				"slug": "outdoor-lighting",
-				"status": "published",
-				"data": {
-					"title": "Outdoor Lighting",
-					"lede": "Shop outdoor lighting from the designers and manufacturers architects trust.",
-					"hero_image_path": "/hive-samples/lighting-hero.jpg",
-					"tile_image_path": "/hive-samples/lighting-hero.jpg",
-					"hero_alt": "Outdoor Lighting"
-				},
-				"taxonomies": {
-					"category": [
-						"outdoor-lighting"
-					]
-				}
-			},
-			{
-				"id": "cp-sale",
-				"slug": "sale",
-				"status": "published",
-				"data": {
-					"title": "Sale",
-					"lede": "Selected pieces with seasonal savings — still the makers and designers you trust.",
-					"hero_image_path": "/hive-samples/home-hero-2.jpg",
-					"tile_image_path": "/hive-samples/home-hero-2.jpg",
-					"hero_alt": "Sale selection"
-				},
-				"taxonomies": {
-					"category": [
-						"sale"
-					]
-				}
-			},
-			{
-				"id": "cp-new",
-				"slug": "new",
-				"status": "published",
-				"data": {
-					"title": "New!",
-					"lede": "Just arrived — new introductions from the brands and designers we stock.",
-					"hero_image_path": "/hive-samples/home-hero-3.jpg",
-					"tile_image_path": "/hive-samples/home-hero-3.jpg",
-					"hero_alt": "New arrivals"
-				},
-				"taxonomies": {
-					"category": [
-						"new"
+						"coffee-corner-ve-kitaplik"
 					]
 				}
 			}
@@ -1708,8 +1224,9 @@
 						"cassina"
 					],
 					"category": [
-						"furniture",
-						"seating"
+						"dolaplar",
+						"raydolap",
+						"giyinme-odasi"
 					]
 				}
 			},
@@ -1784,8 +1301,8 @@
 						"cassina"
 					],
 					"category": [
-						"furniture",
-						"seating"
+						"odalar",
+						"genc-odasi"
 					]
 				}
 			},
@@ -1860,8 +1377,8 @@
 						"moroso"
 					],
 					"category": [
-						"furniture",
-						"seating"
+						"odalar",
+						"yatak-odasi"
 					]
 				}
 			},
@@ -1938,8 +1455,8 @@
 						"moroso"
 					],
 					"category": [
-						"furniture",
-						"seating"
+						"uniteler",
+						"dresuar-ve-makyaj-masasi"
 					]
 				}
 			},
@@ -2014,9 +1531,8 @@
 						"herman-miller"
 					],
 					"category": [
-						"furniture",
-						"seating",
-						"new"
+						"uniteler",
+						"coffee-corner-ve-kitaplik"
 					]
 				}
 			},
@@ -2082,9 +1598,8 @@
 						"flos"
 					],
 					"category": [
-						"lighting",
-						"floor-lamps",
-						"sale"
+						"uniteler",
+						"tv-unitesi"
 					]
 				}
 			}

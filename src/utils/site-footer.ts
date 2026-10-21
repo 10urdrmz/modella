@@ -43,16 +43,14 @@ const DEFAULTS: Omit<SiteFooterContent, "supportLinks" | "accountLinks" | "edit"
 };
 
 const DEFAULT_SUPPORT: FooterMenuItem[] = [
-	{ label: "About hive", url: "/about" },
-	{ label: "Sales Assistance", url: "/contact" },
-	{ label: "Trade Program", url: "/trade" },
-	{ label: "Swatch Samples", url: "/products" },
-	{ label: "Order Status", url: "/contact" },
-	{ label: "Contact", url: "/contact" },
-	{ label: "FAQ", url: "/about" },
-	{ label: "Policies", url: "/about" },
-	{ label: "Privacy", url: "/about" },
-	{ label: "Cookie Policy", url: "/about" },
+	{ label: "Hakkımızda", url: "/about" },
+	{ label: "İletişim", url: "/contact" },
+	{ label: "Sık Sorulan Sorular", url: "/about#sss" },
+	{ label: "Dolaplar", url: "/category/dolaplar" },
+	{ label: "Odalar", url: "/category/odalar" },
+	{ label: "Üniteler", url: "/category/uniteler" },
+	{ label: "Raydolap", url: "/category/raydolap" },
+	{ label: "Giyinme Odası", url: "/category/giyinme-odasi" },
 ];
 
 const DEFAULT_ACCOUNT: FooterMenuItem[] = [
