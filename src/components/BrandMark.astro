@@ -1,7 +1,7 @@
 ---
 /**
- * Primary brand mark: dashed trail → solid stroke → lowercase “e”
- * Recreated from the supplied red-on-black identity mark.
+ * Primary brand mark — exact uploaded asset (not redrawn).
+ * File: /public/brand/logo-e.png
  */
 interface Props {
 	title?: string;
@@ -14,30 +14,20 @@ const {
 	variant = "full",
 	class: className = "",
 } = Astro.props;
+
+const src = "/brand/logo-e.png";
 ---
 
-<svg
+<img
+	src={src}
+	alt={variant === "full" ? title : ""}
+	width="188"
+	height="144"
+	decoding="async"
 	class:list={[
 		"brand-e",
 		variant === "compact" ? "brand-e--compact" : "brand-e--full",
 		className,
 	]}
-	viewBox="0 0 168 72"
-	role={variant === "full" ? "img" : "presentation"}
 	aria-hidden={variant === "compact" ? "true" : undefined}
-	aria-label={variant === "full" ? title : undefined}
-	focusable="false"
->
-	{variant === "full" && <title>{title}</title>}
-	<!-- Dashed trail -->
-	<rect x="2" y="33" width="16" height="7" rx="1.2" fill="currentColor"></rect>
-	<rect x="26" y="33" width="16" height="7" rx="1.2" fill="currentColor"></rect>
-	<rect x="50" y="33" width="16" height="7" rx="1.2" fill="currentColor"></rect>
-	<!-- Solid stroke into e crossbar -->
-	<rect x="74" y="33" width="38" height="7" rx="1.2" fill="currentColor"></rect>
-	<!-- Lowercase e -->
-	<path
-		fill="currentColor"
-		d="M112.5 36.5c0-13.8 10.2-24 24-24s24 10.2 24 24-10.2 24-24 24c-8.6 0-16.1-4-20.6-10.2l8.1-5.5c2.7 3.8 7 6.2 12.5 6.2 8.2 0 14.5-6.3 14.5-14.5S144.7 22 136.5 22c-8.2 0-14.5 6.3-14.5 14.5 0 .7 0 1.3.1 2h29.4v7H120.2c-3.4 0-6.4-1.4-8.4-3.6-.8-1.1-1.3-2.4-1.3-3.9Z"
-	></path>
-</svg>
+/>
