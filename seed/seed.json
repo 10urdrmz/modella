@@ -534,7 +534,7 @@
 			"name": "footer_support",
 			"label": "Footer — Support",
 			"items": [
-				{ "type": "custom", "label": "About hive", "url": "/about" },
+				{ "type": "custom", "label": "Hakkımızda", "url": "/about" },
 				{ "type": "custom", "label": "Sales Assistance", "url": "/contact" },
 				{ "type": "custom", "label": "Trade Program", "url": "/trade" },
 				{ "type": "custom", "label": "Swatch Samples", "url": "/products" },
