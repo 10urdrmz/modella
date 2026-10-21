@@ -8,6 +8,7 @@ import {
 } from "emdash";
 import { Image, PortableText } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
+import ImageLightbox from "../../components/ImageLightbox.astro";
 import { sampleImageForProduct } from "../../data/catalog";
 import {
 	asVariants,
@@ -311,6 +312,8 @@ const initialShip =
 			<a class="btn btn--ghost" href="/products">Back to furniture</a>
 		</div>
 	</article>
+
+	<ImageLightbox siteTitle={siteTitle} />
 
 	<script>
 		const root = document.querySelector("[data-pdp]");
