@@ -52,6 +52,86 @@
 					"type": "string"
 				},
 				{
+					"slug": "shipping_cost",
+					"label": "Shipping Cost",
+					"type": "string"
+				},
+				{
+					"slug": "sale_label",
+					"label": "Sale Label",
+					"type": "string"
+				},
+				{
+					"slug": "dimensions",
+					"label": "Dimensions",
+					"type": "text"
+				},
+				{
+					"slug": "materials",
+					"label": "Materials",
+					"type": "string"
+				},
+				{
+					"slug": "badges",
+					"label": "Feature Badges",
+					"type": "text"
+				},
+				{
+					"slug": "gallery_paths",
+					"label": "Gallery Image Paths",
+					"type": "text"
+				},
+				{
+					"slug": "variants",
+					"label": "Variants",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "label",
+								"label": "Label",
+								"type": "string",
+								"required": true
+							},
+							{
+								"slug": "group",
+								"label": "Group",
+								"type": "string"
+							},
+							{
+								"slug": "sku",
+								"label": "SKU",
+								"type": "string"
+							},
+							{
+								"slug": "swatch",
+								"label": "Swatch Color",
+								"type": "string"
+							},
+							{
+								"slug": "price_label",
+								"label": "Price",
+								"type": "string"
+							},
+							{
+								"slug": "compare_at_price",
+								"label": "Compare-at Price",
+								"type": "string"
+							},
+							{
+								"slug": "image_path",
+								"label": "Image Path",
+								"type": "string"
+							},
+							{
+								"slug": "shipping_time",
+								"label": "Shipping Time",
+								"type": "string"
+							}
+						]
+					}
+				},
+				{
 					"slug": "summary",
 					"label": "Summary",
 					"type": "text",
@@ -1182,8 +1262,51 @@
 					"designer": "Le Corbusier",
 					"price_label": "$6,505.00 – $7,005.00",
 					"shipping_note": "Plus Shipping",
+					"shipping_cost": "Plus Shipping",
+					"dimensions": "22.5\" w | 63\" d | 26.5\" h | seat: 11\"–16\" h",
+					"materials": "Chrome-plated steel, leather or hide",
+					"badges": "iconic design\nmid-century modern\nadjustable frame",
+					"gallery_paths": "/hive-samples/products/lounge.jpg\n/hive-samples/products/sofa.jpg\n/hive-samples/products/masters.jpg",
 					"featured": true,
 					"summary": "The iconic reclining chaise from Cassina’s Le Corbusier collection — continuous comfort in chrome and hide.",
+					"variants": [
+						{
+							"label": "Pony hide — black & white",
+							"group": "Upholstery",
+							"sku": "LC4-PONY",
+							"swatch": "#1a1a1a",
+							"price_label": "$7,005.00",
+							"image_path": "/hive-samples/products/lounge.jpg",
+							"shipping_time": "8–10 weeks · Plus Shipping"
+						},
+						{
+							"label": "Leather — cognac",
+							"group": "Upholstery",
+							"sku": "LC4-COG",
+							"swatch": "#8b5a2b",
+							"price_label": "$6,780.00",
+							"image_path": "/hive-samples/products/sofa.jpg",
+							"shipping_time": "10–12 weeks · Plus Shipping"
+						},
+						{
+							"label": "Leather — black",
+							"group": "Upholstery",
+							"sku": "LC4-BLK",
+							"swatch": "#111111",
+							"price_label": "$6,505.00",
+							"image_path": "/hive-samples/products/masters.jpg",
+							"shipping_time": "6–8 weeks · Plus Shipping"
+						},
+						{
+							"label": "Leather — ivory",
+							"group": "Upholstery",
+							"sku": "LC4-IVY",
+							"swatch": "#e8dfd0",
+							"price_label": "$6,650.00",
+							"image_path": "/hive-samples/products/lounge.jpg",
+							"shipping_time": "10–12 weeks · Plus Shipping"
+						}
+					],
 					"featured_image": {
 						"$media": {
 							"url": "https://hivemodern.com/public_resources/lounge-chairs-2c54c794f7.jpg",
@@ -1220,8 +1343,41 @@
 					"designer": "Gerrit Rietveld",
 					"price_label": "$2,570.00 – $3,290.00",
 					"shipping_note": "Plus Shipping",
+					"dimensions": "14.5\" w | 17\" d | 29\" h | seat: 17\" h",
+					"materials": "Solid ash or oak, natural or stained finish",
+					"badges": "iconic design\nships assembled",
+					"gallery_paths": "/hive-samples/products/masters.jpg\n/hive-samples/products/victoria-ghost.jpg",
 					"featured": true,
 					"summary": "A continuous plane of wood folded into seating — Rietveld’s radical cantilever for Cassina.",
+					"variants": [
+						{
+							"label": "Natural ash",
+							"group": "Finish",
+							"sku": "ZZ-ASH",
+							"swatch": "#d9c3a0",
+							"price_label": "$2,570.00",
+							"image_path": "/hive-samples/products/masters.jpg",
+							"shipping_time": "8–10 weeks · Plus Shipping"
+						},
+						{
+							"label": "Black stained ash",
+							"group": "Finish",
+							"sku": "ZZ-BLK",
+							"swatch": "#2a2a2a",
+							"price_label": "$2,890.00",
+							"image_path": "/hive-samples/products/victoria-ghost.jpg",
+							"shipping_time": "10–12 weeks · Plus Shipping"
+						},
+						{
+							"label": "Oak",
+							"group": "Finish",
+							"sku": "ZZ-OAK",
+							"swatch": "#b08958",
+							"price_label": "$3,290.00",
+							"image_path": "/hive-samples/products/masters.jpg",
+							"shipping_time": "12–14 weeks · Plus Shipping"
+						}
+					],
 					"featured_image": {
 						"$media": {
 							"url": "https://hivemodern.com/public_resources/masters-chair-philippe-starck-thumb-edf1544177.jpg",
@@ -1258,8 +1414,41 @@
 					"designer": "Patricia Urquiola",
 					"price_label": "$14,180.00 – $15,270.00",
 					"shipping_note": "Free Shipping",
+					"dimensions": "94.5\" w | 41\" d | 29.5\" h | seat: 16.5\" h",
+					"materials": "Foam, fabric or leather upholstery, steel frame",
+					"badges": "free shipping\ncustom upholstery",
+					"gallery_paths": "/hive-samples/products/sofa.jpg\n/hive-samples/products/lounge.jpg",
 					"featured": true,
 					"summary": "Soft geometry and generous proportions — Urquiola’s Gogan for Moroso.",
+					"variants": [
+						{
+							"label": "Fabric — fog",
+							"group": "Upholstery",
+							"sku": "GOG-FOG",
+							"swatch": "#c5c0b8",
+							"price_label": "$14,180.00",
+							"image_path": "/hive-samples/products/sofa.jpg",
+							"shipping_time": "12–16 weeks · Free Shipping"
+						},
+						{
+							"label": "Fabric — ink",
+							"group": "Upholstery",
+							"sku": "GOG-INK",
+							"swatch": "#3d4654",
+							"price_label": "$14,680.00",
+							"image_path": "/hive-samples/products/lounge.jpg",
+							"shipping_time": "12–16 weeks · Free Shipping"
+						},
+						{
+							"label": "Leather — taupe",
+							"group": "Upholstery",
+							"sku": "GOG-TAU",
+							"swatch": "#8a7a68",
+							"price_label": "$15,270.00",
+							"image_path": "/hive-samples/products/sofa.jpg",
+							"shipping_time": "14–18 weeks · Free Shipping"
+						}
+					],
 					"featured_image": {
 						"$media": {
 							"url": "https://hivemodern.com/public_resources/sofas-b788340c1d.jpg",
@@ -1296,8 +1485,43 @@
 					"designer": "Patricia Urquiola",
 					"price_label": "$2,845.00 – $4,355.00",
 					"shipping_note": "Free Shipping",
+					"sale_label": "Sale",
+					"dimensions": "35.5\" w | 33.5\" d | 35.5\" h | seat: 16.5\" h",
+					"materials": "Molded polymer shell, removable cushions",
+					"badges": "free shipping\nquick ship options",
+					"gallery_paths": "/hive-samples/products/victoria-ghost.jpg\n/hive-samples/products/louis-ghost.jpg",
 					"featured": true,
 					"summary": "Layered cushions nested in a molded shell — Moroso’s Husk in its small armchair scale.",
+					"variants": [
+						{
+							"label": "Shell white / fabric pearl",
+							"group": "Configuration",
+							"sku": "HUSK-WHT",
+							"swatch": "#f2f0ea",
+							"price_label": "$2,845.00",
+							"compare_at_price": "$3,120.00",
+							"image_path": "/hive-samples/products/victoria-ghost.jpg",
+							"shipping_time": "Quick Ship · Free Shipping"
+						},
+						{
+							"label": "Shell grey / fabric charcoal",
+							"group": "Configuration",
+							"sku": "HUSK-GRY",
+							"swatch": "#6d6d6d",
+							"price_label": "$3,420.00",
+							"image_path": "/hive-samples/products/louis-ghost.jpg",
+							"shipping_time": "8–10 weeks · Free Shipping"
+						},
+						{
+							"label": "Shell black / leather black",
+							"group": "Configuration",
+							"sku": "HUSK-BLK",
+							"swatch": "#1c1c1c",
+							"price_label": "$4,355.00",
+							"image_path": "/hive-samples/products/victoria-ghost.jpg",
+							"shipping_time": "10–12 weeks · Free Shipping"
+						}
+					],
 					"featured_image": {
 						"$media": {
 							"url": "https://hivemodern.com/public_resources/victoria-ghost-chair-philippe-starck-kartell-thumb-da4b7bc0d8.jpg",
@@ -1332,10 +1556,43 @@
 				"data": {
 					"title": "Eames Lounge Chair",
 					"designer": "Charles & Ray Eames",
-					"price_label": "Trade pricing available",
+					"price_label": "$8,195.00 – $12,745.00",
 					"shipping_note": "Plus Shipping",
+					"dimensions": "33.5\" w | 35\" d | 31.5\" h | seat: 16\" h\nottoman: 26\" w | 21.5\" d | 17.25\" h",
+					"materials": "Molded plywood, aluminum, leather",
+					"badges": "iconic design\nhistorically significant\nsustainable brand",
+					"gallery_paths": "/hive-samples/products/louis-ghost.jpg\n/hive-samples/products/lounge.jpg",
 					"featured": false,
 					"summary": "Molded plywood and leather — the mid-century lounge that still defines the category.",
+					"variants": [
+						{
+							"label": "Walnut / black leather",
+							"group": "Finish",
+							"sku": "ELC-WAL-BLK",
+							"swatch": "#5c3a21",
+							"price_label": "$8,195.00",
+							"image_path": "/hive-samples/products/louis-ghost.jpg",
+							"shipping_time": "10–12 weeks · Plus Shipping"
+						},
+						{
+							"label": "Ebony / black leather",
+							"group": "Finish",
+							"sku": "ELC-EB-BLK",
+							"swatch": "#1f1a16",
+							"price_label": "$9,395.00",
+							"image_path": "/hive-samples/products/lounge.jpg",
+							"shipping_time": "12–14 weeks · Plus Shipping"
+						},
+						{
+							"label": "White ash / pearl leather",
+							"group": "Finish",
+							"sku": "ELC-ASH-PRL",
+							"swatch": "#e6e0d4",
+							"price_label": "$12,745.00",
+							"image_path": "/hive-samples/products/louis-ghost.jpg",
+							"shipping_time": "14–16 weeks · Plus Shipping"
+						}
+					],
 					"featured_image": {
 						"$media": {
 							"url": "https://hivemodern.com/public_resources/louis-ghost-chair-philippe-starck-kartell-thumb-70f07620f5.jpg",
@@ -1370,10 +1627,34 @@
 				"data": {
 					"title": "Arco Floor Lamp",
 					"designer": "Achille & Pier Giacomo Castiglioni",
-					"price_label": "Trade pricing available",
+					"price_label": "$3,695.00 – $4,195.00",
 					"shipping_note": "Plus Shipping",
+					"dimensions": "86.5\" arc reach | shade: 12.5\" dia | marble base: 9.5\" x 15\"",
+					"materials": "Carrara marble, stainless steel, aluminum shade",
+					"badges": "iconic design\nships assembled",
+					"gallery_paths": "/hive-samples/products/arco-ish.jpg\n/hive-samples/products/desk.jpg",
 					"featured": false,
 					"summary": "Carrara marble base and a sweeping steel arc — Flos lighting at its most architectural.",
+					"variants": [
+						{
+							"label": "Classic marble / steel",
+							"group": "Finish",
+							"sku": "ARCO-CLS",
+							"swatch": "#d8d4ce",
+							"price_label": "$3,695.00",
+							"image_path": "/hive-samples/products/arco-ish.jpg",
+							"shipping_time": "2–4 weeks · Plus Shipping"
+						},
+						{
+							"label": "LED dimmable",
+							"group": "Finish",
+							"sku": "ARCO-LED",
+							"swatch": "#9aa0a6",
+							"price_label": "$4,195.00",
+							"image_path": "/hive-samples/products/desk.jpg",
+							"shipping_time": "4–6 weeks · Plus Shipping"
+						}
+					],
 					"featured_image": {
 						"$media": {
 							"url": "https://hivemodern.com/public_resources/home-page-376f5a0dcf.jpg",

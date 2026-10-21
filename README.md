@@ -16,7 +16,7 @@ SQLite database: `data.db` (created on first request). Seed: `seed/seed.json`.
 
 ## Schema (admin-managed)
 
-- **products** — title, image, designer, price, shipping, summary, content, featured; tagged with **brand** + **category**
+- **products** — title, image, designer, price, shipping, dimensions, materials, badges, gallery paths, variants (repeater), summary, content, featured; tagged with **brand** + **category**
 - **pages** — Home / About / Trade (hero, CTA, phone, content)
 - **contact** — showroom location, address, phone, hours (`Contact & Location` → entry `main`); used in footer Contact column, `/contact`, About, Trade
 - **footer** — newsletter copy, column headings, bottom brand, social URLs (`Footer` → entry `main`)

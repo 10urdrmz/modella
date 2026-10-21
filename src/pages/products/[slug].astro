@@ -9,6 +9,11 @@ import {
 import { Image, PortableText } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
 import { sampleImageForProduct } from "../../data/catalog";
+import {
+	asVariants,
+	groupVariants,
+	linesFromText,
+} from "../../utils/product-detail";
 import { resolveStarterSiteIdentity } from "../../utils/site-identity";
 
 const slug = decodeSlug(Astro.params.slug);
@@ -28,8 +33,37 @@ const seo = getSeoMeta(product, {
 	path: Astro.url.pathname.replace(/\/$/, ""),
 });
 const brands = await getEntryTerms("products", product.data.id, "brand");
+const brand = brands?.[0];
 const sampleSrc =
 	sampleImageForProduct(slug) || sampleImageForProduct(product.id);
+
+const data = product.data as typeof product.data & {
+	shipping_cost?: string;
+	sale_label?: string;
+	dimensions?: string;
+	materials?: string;
+	badges?: string;
+	gallery_paths?: string;
+	variants?: unknown;
+};
+
+const variants = asVariants(data.variants);
+const variantGroups = groupVariants(variants);
+const badges = linesFromText(data.badges);
+const galleryPaths = linesFromText(data.gallery_paths);
+const defaultVariant = variants[0];
+const heroSrc =
+	defaultVariant?.image_path ||
+	galleryPaths[0] ||
+	sampleSrc ||
+	product.data.featured_image?.src ||
+	null;
+const initialPrice =
+	defaultVariant?.price_label || product.data.price_label || "";
+const initialCompare = defaultVariant?.compare_at_price || "";
+const initialShip =
+	defaultVariant?.shipping_time ||
+	[product.data.shipping_note, data.shipping_cost].filter(Boolean).join(" · ");
 ---
 
 <Base
@@ -40,60 +74,569 @@ const sampleSrc =
 	canonical={seo.canonical}
 	content={{ collection: "products", id: product.data.id, slug }}
 >
-	<article>
-		<div class="page-hero">
-			{isPreview && <p class="section__eyebrow">Unpublished preview</p>}
-			<p class="section__eyebrow">{product.data.designer || "Product"}</p>
-			<h1 {...product.edit.title}>{product.data.title}</h1>
+	<article class="pdp" data-pdp>
+		{
+			isPreview && (
+				<p class="section__eyebrow pdp__preview">Unpublished preview</p>
+			)
+		}
+
+		<header class="pdp__intro">
+			<p class="pdp__designer" {...product.edit.designer}>
+				{product.data.designer || brand?.label || "Product"}
+			</p>
+			<h1 class="pdp__title" {...product.edit.title}>{product.data.title}</h1>
 			{
-				product.data.price_label && (
-					<p class="product-tile__price" {...product.edit.price_label}>
-						{product.data.price_label}
-						{product.data.shipping_note ? ` · ${product.data.shipping_note}` : ""}
+				data.sale_label && (
+					<p class="pdp__sale" {...(product.edit as any).sale_label}>
+						{data.sale_label}
 					</p>
 				)
 			}
-		</div>
+			<p class="pdp__price-row">
+				<span class="pdp__price" data-pdp-price {...product.edit.price_label}
+					>{initialPrice}</span
+				>
+				{
+					initialCompare && (
+						<span class="pdp__compare" data-pdp-compare>
+							{initialCompare}
+						</span>
+					)
+				}
+				{
+					initialShip && (
+						<span class="pdp__ship" data-pdp-ship>
+							· {initialShip}
+						</span>
+					)
+				}
+			</p>
+		</header>
 
-		<section class="section" style="padding-top:0;display:grid;gap:1.25rem">
+		<figure class="pdp__media">
 			{
-				sampleSrc ? (
-					<div class="hive-card__media" style="max-width:36rem">
-						<img src={sampleSrc} alt={product.data.title} />
-					</div>
+				heroSrc ? (
+					<img
+						src={heroSrc}
+						alt={product.data.title}
+						data-pdp-image
+						width="900"
+						height="900"
+					/>
 				) : product.data.featured_image ? (
-					<div class="product-tile__media" style="max-width:36rem" {...product.edit.featured_image}>
+					<div class="pdp__media-cms" {...product.edit.featured_image}>
 						<Image image={product.data.featured_image} priority />
 					</div>
-				) : null
-			}
-			{
-				product.data.summary && (
-					<p class="section__lede" {...product.edit.summary}>
-						{product.data.summary}
-					</p>
+				) : (
+					<div class="pdp__media-empty" aria-hidden="true" />
 				)
 			}
-			<div class="prose">
-				<PortableText value={product.data.content} />
-			</div>
 			{
-				brands?.length ? (
-					<p class="product-tile__meta">
-						Brand:{" "}
-						{brands.map((term, i) => (
-							<>
-								{i > 0 && ", "}
-								<a href={`/brands/${term.slug}`}>{term.label}</a>
-							</>
+				galleryPaths.length > 1 && (
+					<div class="pdp__thumbs" role="list">
+						{galleryPaths.map((src, index) => (
+							<button
+								type="button"
+								class:list={["pdp__thumb", index === 0 && "is-active"]}
+								data-pdp-thumb
+								data-src={src}
+								aria-label={`View image ${index + 1}`}
+							>
+								<img src={src} alt="" loading="lazy" />
+							</button>
 						))}
-					</p>
-				) : null
+					</div>
+				)
 			}
-			<div class="hero__actions">
-				<a class="btn btn--solid" href="/trade">Request trade pricing</a>
-				<a class="btn btn--ghost" href="/products">Back to furniture</a>
+		</figure>
+
+		{
+			product.data.summary && (
+				<p class="pdp__summary" {...product.edit.summary}>
+					{product.data.summary}
+				</p>
+			)
+		}
+
+		<section class="pdp__specs">
+			{
+				product.data.designer && (
+					<div class="pdp__spec">
+						<span class="pdp__spec-label">Design</span>
+						<span class="pdp__spec-value">{product.data.designer}</span>
+					</div>
+				)
+			}
+			{
+				brand && (
+					<div class="pdp__spec">
+						<span class="pdp__spec-label">Made by</span>
+						<span class="pdp__spec-value">
+							<a href={`/brands/${brand.slug}`}>{brand.label}</a>
+						</span>
+					</div>
+				)
+			}
+			{
+				data.dimensions && (
+					<div class="pdp__spec">
+						<span class="pdp__spec-label">Dimensions</span>
+						<span class="pdp__spec-value" {...(product.edit as any).dimensions}>
+							{data.dimensions}
+						</span>
+					</div>
+				)
+			}
+			{
+				data.materials && (
+					<div class="pdp__spec">
+						<span class="pdp__spec-label">Materials</span>
+						<span class="pdp__spec-value" {...(product.edit as any).materials}>
+							{data.materials}
+						</span>
+					</div>
+				)
+			}
+			<div class="pdp__spec">
+				<span class="pdp__spec-label">Shipping</span>
+				<span class="pdp__spec-value" data-pdp-ship-detail
+					>{initialShip || "Select options for shipping time"}</span
+				>
 			</div>
 		</section>
+
+		{
+			badges.length > 0 && (
+				<ul class="pdp__badges">
+					{badges.map((badge) => (
+						<li>{badge}</li>
+					))}
+				</ul>
+			)
+		}
+
+		{
+			variantGroups.length > 0 && (
+				<section class="pdp__variants" aria-label="Product options">
+					{variantGroups.map(({ name, items }, groupIndex) => (
+						<div class="pdp__variant-group">
+							<p class="pdp__variant-label">
+								{name}
+								<span data-pdp-group-value={groupIndex}>
+									{items[0]?.label}
+								</span>
+							</p>
+							<div class="pdp__swatches" role="listbox" aria-label={name}>
+								{items.map((variant, index) => (
+									<button
+										type="button"
+										class:list={[
+											"pdp__swatch",
+											variant.swatch ? "pdp__swatch--color" : "pdp__swatch--text",
+											groupIndex === 0 && index === 0 && "is-active",
+										]}
+										role="option"
+										aria-selected={groupIndex === 0 && index === 0}
+										data-pdp-variant
+										data-group={groupIndex}
+										data-label={variant.label}
+										data-price={variant.price_label || product.data.price_label || ""}
+										data-compare={variant.compare_at_price || ""}
+										data-ship={
+											variant.shipping_time ||
+											product.data.shipping_note ||
+											""
+										}
+										data-image={variant.image_path || ""}
+										title={variant.label}
+										style={
+											variant.swatch
+												? `background-color:${variant.swatch}`
+												: undefined
+										}
+									>
+										{!variant.swatch && <span>{variant.label}</span>}
+										<span class="visually-hidden">{variant.label}</span>
+									</button>
+								))}
+							</div>
+						</div>
+					))}
+					<p class="pdp__variant-count">
+						{variants.length} pre-configured{" "}
+						{variants.length === 1 ? "variant" : "variants"}
+					</p>
+				</section>
+			)
+		}
+
+		<div class="pdp__body prose">
+			<PortableText value={product.data.content} />
+		</div>
+
+		<div class="pdp__actions">
+			<a class="btn btn--solid" href="/trade">Request trade pricing</a>
+			<a class="btn btn--ghost" href="/products">Back to furniture</a>
+		</div>
 	</article>
+
+	<script>
+		const root = document.querySelector("[data-pdp]");
+		if (root) {
+			const priceEl = root.querySelector("[data-pdp-price]");
+			const compareEl = root.querySelector("[data-pdp-compare]");
+			const shipEl = root.querySelector("[data-pdp-ship]");
+			const shipDetailEl = root.querySelector("[data-pdp-ship-detail]");
+			const imageEl = root.querySelector("[data-pdp-image]");
+			const thumbs = root.querySelectorAll("[data-pdp-thumb]");
+
+			const applyVariant = (btn: HTMLElement) => {
+				const group = btn.getAttribute("data-group") || "0";
+				root.querySelectorAll(`[data-pdp-variant][data-group="${group}"]`).forEach(
+					(el) => {
+						el.classList.toggle("is-active", el === btn);
+						el.setAttribute("aria-selected", el === btn ? "true" : "false");
+					},
+				);
+				const label = btn.getAttribute("data-label") || "";
+				const valueEl = root.querySelector(`[data-pdp-group-value="${group}"]`);
+				if (valueEl) valueEl.textContent = label;
+
+				const price = btn.getAttribute("data-price") || "";
+				const compare = btn.getAttribute("data-compare") || "";
+				const ship = btn.getAttribute("data-ship") || "";
+				const image = btn.getAttribute("data-image") || "";
+
+				if (priceEl && price) priceEl.textContent = price;
+				if (compareEl) {
+					compareEl.textContent = compare;
+					(compareEl as HTMLElement).hidden = !compare;
+				}
+				if (shipEl) {
+					shipEl.textContent = ship ? `· ${ship}` : "";
+				}
+				if (shipDetailEl && ship) shipDetailEl.textContent = ship;
+				if (imageEl instanceof HTMLImageElement && image) {
+					imageEl.src = image;
+					thumbs.forEach((thumb) => thumb.classList.remove("is-active"));
+				}
+			};
+
+			root.querySelectorAll("[data-pdp-variant]").forEach((btn) => {
+				btn.addEventListener("click", () => applyVariant(btn as HTMLElement));
+			});
+
+			thumbs.forEach((thumb) => {
+				thumb.addEventListener("click", () => {
+					const src = thumb.getAttribute("data-src");
+					if (!src || !(imageEl instanceof HTMLImageElement)) return;
+					imageEl.src = src;
+					thumbs.forEach((el) => el.classList.toggle("is-active", el === thumb));
+				});
+			});
+		}
+	</script>
 </Base>
+
+<style>
+	.pdp {
+		max-width: 42rem;
+		margin: 0 auto;
+		padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1.15rem, 3vw, 2rem)
+			clamp(3rem, 8vw, 5rem);
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.pdp__preview {
+		margin: 0;
+	}
+
+	.pdp__intro {
+		display: grid;
+		gap: 0.35rem;
+	}
+
+	.pdp__designer {
+		margin: 0;
+		font-size: 0.72rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--ink-soft);
+	}
+
+	.pdp__title {
+		margin: 0;
+		font-size: clamp(2rem, 7vw, 3.1rem);
+		max-width: 14ch;
+	}
+
+	.pdp__sale {
+		margin: 0.15rem 0 0;
+		color: var(--hive-sale);
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	.pdp__price-row {
+		margin: 0.35rem 0 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem 0.55rem;
+		font-size: 0.98rem;
+		font-weight: 500;
+		color: var(--ink-strong);
+	}
+
+	.pdp__compare {
+		color: var(--ink-soft);
+		text-decoration: line-through;
+		font-weight: 400;
+		font-size: 0.9rem;
+	}
+
+	.pdp__ship {
+		color: var(--ink-soft);
+		font-weight: 400;
+	}
+
+	.pdp__media {
+		margin: 0.35rem 0 0;
+		display: grid;
+		gap: 0.65rem;
+	}
+
+	.pdp__media img,
+	.pdp__media-cms :global(img) {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		background: var(--mist);
+	}
+
+	.pdp__media-empty {
+		aspect-ratio: 1 / 1;
+		background: var(--mist);
+	}
+
+	.pdp__thumbs {
+		display: flex;
+		gap: 0.45rem;
+		overflow-x: auto;
+		padding-bottom: 0.15rem;
+	}
+
+	.pdp__thumb {
+		flex: 0 0 3.5rem;
+		width: 3.5rem;
+		height: 3.5rem;
+		padding: 0;
+		border: 1px solid transparent;
+		background: var(--mist);
+		cursor: pointer;
+	}
+
+	.pdp__thumb img {
+		width: 100%;
+		height: 100%;
+		aspect-ratio: auto;
+		object-fit: cover;
+	}
+
+	.pdp__thumb.is-active {
+		border-color: var(--ink-strong);
+	}
+
+	.pdp__summary {
+		margin: 0;
+		color: var(--ink);
+		font-size: 1.02rem;
+		line-height: 1.55;
+		max-width: 38rem;
+	}
+
+	.pdp__specs {
+		display: grid;
+		gap: 0.7rem;
+		padding: 1rem 0;
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.pdp__spec {
+		display: grid;
+		grid-template-columns: 7.5rem 1fr;
+		gap: 0.75rem;
+		align-items: start;
+		font-size: 0.9rem;
+	}
+
+	.pdp__spec-label {
+		color: var(--ink-soft);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: 0.68rem;
+		padding-top: 0.15rem;
+	}
+
+	.pdp__spec-value {
+		color: var(--ink-strong);
+		white-space: pre-line;
+	}
+
+	.pdp__badges {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem 0.85rem;
+		font-size: 0.78rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--ink-soft);
+	}
+
+	.pdp__badges li::before {
+		content: "·";
+		margin-right: 0.45rem;
+		color: var(--hive-yellow);
+	}
+
+	.pdp__badges li:first-child::before {
+		content: none;
+		margin: 0;
+	}
+
+	.pdp__variants {
+		display: grid;
+		gap: 1.1rem;
+	}
+
+	.pdp__variant-group {
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	.pdp__variant-label {
+		margin: 0;
+		font-size: 0.78rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-soft);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 0.55rem;
+	}
+
+	.pdp__variant-label span {
+		color: var(--ink-strong);
+		text-transform: none;
+		letter-spacing: 0;
+		font-size: 0.9rem;
+	}
+
+	.pdp__swatches {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+	}
+
+	.pdp__swatch {
+		appearance: none;
+		border: 1px solid var(--line);
+		background: white;
+		cursor: pointer;
+		transition:
+			border-color 0.2s var(--ease),
+			transform 0.2s var(--ease);
+	}
+
+	.pdp__swatch--color {
+		width: 2rem;
+		height: 2rem;
+		border-radius: 999px;
+		padding: 0;
+	}
+
+	.pdp__swatch--text {
+		min-height: 2.1rem;
+		padding: 0.35rem 0.7rem;
+		font-size: 0.78rem;
+		color: var(--ink-strong);
+	}
+
+	.pdp__swatch.is-active {
+		border-color: var(--ink-strong);
+		box-shadow: 0 0 0 1px var(--ink-strong);
+	}
+
+	.pdp__swatch:hover {
+		transform: translateY(-1px);
+	}
+
+	.pdp__variant-count {
+		margin: 0;
+		font-size: 0.8rem;
+		color: var(--ink-soft);
+	}
+
+	.pdp__body.prose {
+		margin: 0;
+		padding: 0;
+		max-width: none;
+	}
+
+	.pdp__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+		padding-top: 0.35rem;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	@media (min-width: 900px) {
+		.pdp {
+			max-width: var(--max);
+			grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+			column-gap: 2.5rem;
+			align-items: start;
+		}
+
+		.pdp__intro,
+		.pdp__summary,
+		.pdp__specs,
+		.pdp__badges,
+		.pdp__variants,
+		.pdp__body,
+		.pdp__actions {
+			grid-column: 2;
+		}
+
+		.pdp__media {
+			grid-column: 1;
+			grid-row: 1 / span 8;
+			position: sticky;
+			top: 5.5rem;
+		}
+
+		.pdp__title {
+			max-width: 16ch;
+		}
+	}
+</style>
