@@ -51,6 +51,22 @@ export interface Product {
   designer?: string;
   price_label?: string;
   shipping_note?: string;
+  shipping_cost?: string;
+  sale_label?: string;
+  dimensions?: string;
+  materials?: string;
+  badges?: string;
+  gallery_paths?: string;
+  variants?: Array<{
+    label: string;
+    group?: string;
+    sku?: string;
+    swatch?: string;
+    price_label?: string;
+    compare_at_price?: string;
+    image_path?: string;
+    shipping_time?: string;
+  }>;
   summary?: string;
   content?: PortableTextBlock[];
   featured?: boolean;

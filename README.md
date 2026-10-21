@@ -16,7 +16,7 @@ SQLite database: `data.db` (created on first request). Seed: `seed/seed.json`.
 
 ## Schema (admin-managed)
 
-- **products** — title, image, designer, price, shipping, summary, content, featured; tagged with **brand** + **category**
+- **products** — title, image, designer, price, shipping, dimensions, materials, badges, gallery paths, variants (repeater), summary, content, featured; tagged with **brand** + **category**
 - **pages** — Home / About / Trade (hero, CTA, phone, content)
 - **category_pages** — hub & subcategory copy + hero/tile image paths (`/category/{slug}`)
 - **category** taxonomy — hierarchical (Furniture → Seating, Accessories → Clocks, …)
