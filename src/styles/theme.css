@@ -13,8 +13,10 @@
 	--steel: #5b6b78;
 	--line: rgba(47, 47, 47, 0.12);
 	--shadow: rgba(16, 20, 24, 0.12);
-	--font-display: "Instrument Serif", "Times New Roman", serif;
-	--font-body: "Sora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/* Hive (hivemodern.com) uses Inter for UI, nav, body, and headings */
+	--font-sans: "Inter", "Inter Fallback", ui-sans-serif, system-ui, sans-serif;
+	--font-display: var(--font-sans);
+	--font-body: var(--font-sans);
 	--space-1: 0.5rem;
 	--space-2: 1rem;
 	--space-3: 1.5rem;
@@ -70,8 +72,8 @@ h1,
 h2,
 h3 {
 	font-family: var(--font-display);
-	font-weight: 500;
-	letter-spacing: -0.02em;
+	font-weight: 560;
+	letter-spacing: -0.025em;
 	line-height: 1.15;
 	margin: 0 0 0.6em;
 }
