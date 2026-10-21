@@ -10,6 +10,7 @@ const slug = decodeSlug(Astro.params.slug);
 if (!slug) return Astro.rewrite("/404");
 if (slug === "home") return Astro.redirect("/");
 if (slug === "contact") return Astro.redirect("/contact");
+if (slug === "about") return Astro.redirect("/about");
 
 const { entry: page, cacheHint } = await getEmDashEntry("pages", slug);
 if (!page) return Astro.rewrite("/404");

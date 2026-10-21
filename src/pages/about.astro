@@ -1,0 +1,401 @@
+---
+import { getEmDashEntry, getSiteSettings } from "emdash";
+import Base from "../layouts/Base.astro";
+import { aboutFaq } from "../data/about-faq";
+import { phoneToTel, resolveSiteContact } from "../utils/site-contact";
+import { resolveStarterSiteIdentity } from "../utils/site-identity";
+
+const { entry: page } = await getEmDashEntry("pages", "about");
+const contact = await resolveSiteContact();
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+
+const story =
+	page?.data.content && Array.isArray(page.data.content)
+		? null
+		: null;
+
+/** Prefer CMS portable text paragraphs when present; else Modella source copy. */
+const storyParagraphs: string[] = [];
+if (page?.data.content && Array.isArray(page.data.content)) {
+	for (const block of page.data.content as Array<{
+		_type?: string;
+		children?: Array<{ text?: string }>;
+	}>) {
+		if (block?._type !== "block") continue;
+		const text = (block.children ?? []).map((c) => c.text ?? "").join("").trim();
+		if (text) storyParagraphs.push(text);
+	}
+}
+if (storyParagraphs.length === 0) {
+	storyParagraphs.push(
+		"Raydolap Modella olarak markalaşan firmamız ilk 1999 yılında kurulmuş olup, sektörde kişiye özel mobilya üretimi olarak hizmet vermeye başlamıştır.",
+		"Yıllar içinde daima yenilikçilik anlayışı ile sürekli kendine değer katmayı başarmıştır.",
+		"2008’li yıllarda 3 boyutlu tasarım, proje ve uygulamayı gerçekleştirmiştir.",
+		"Müşteri memnuniyeti ve ilklere imza atmayı hedefleyen firmamız dünde olduğu gibi bugün ve yarınlar için daha da kaliteli hizmet sağlamayı hedeflemektedir.",
+		"Üretim bandı tamamen kendi bünyemizde olup, uzman ekip ve kadromuzla yılların vermiş olduğu profesyonellik ve tecrübemizle öncelikle siz değerli müşterilerimiz için kaliteli yaşam alanları oluşturmaya ve yeniliklere imza atmaya devam edeceğiz.",
+	);
+}
+
+const headline = page?.data.hero_headline ?? "Hakkımızda";
+const phoneDisplay = page?.data.phone || contact.phone;
+const phone2 = "+90 533 631 86 57";
+const email = contact.email || "cihangirysr@gmail.com";
+---
+
+<Base
+	title={`Hakkımızda — ${siteTitle}`}
+	description={storyParagraphs[0]}
+	phone={phoneDisplay}
+	fullBleed
+	content={page ? { collection: "pages", id: page.data.id, slug: "about" } : undefined}
+>
+	<article class="about-modella">
+		<section class="about-hero">
+			<div
+				class="about-hero__media"
+				style="background-image:url('/modella-about/hero.jpg')"
+				aria-hidden="true"
+			>
+			</div>
+			<div class="about-hero__veil" aria-hidden="true"></div>
+			<div class="about-hero__copy">
+				<img
+					class="about-hero__wordmark"
+					src="/modella-about/wordmark.png"
+					alt="Raydolap Modella"
+					width="488"
+					height="151"
+				/>
+				<p class="about-hero__eyebrow">{page?.data.title ?? "Hakkımızda"}</p>
+			</div>
+		</section>
+
+		<section class="about-story">
+			<div class="about-story__inner">
+				<div class="about-story__photo">
+					<img src="/modella-about/photo2.jpg" alt="Modella mağaza" loading="lazy" />
+				</div>
+				<div class="about-story__text">
+					<h1 {...page?.edit.hero_headline}>{headline}</h1>
+					{
+						storyParagraphs.map((p, i) => (
+							<p {...(i === 0 ? page?.edit.content : undefined)}>{p}</p>
+						))
+					}
+					<p class="about-story__byline">by _ cihangir yaşar</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-faq" id="sss">
+			<div class="about-faq__inner">
+				<h2 class="about-faq__title">Sık Sorulan Sorular</h2>
+				<div class="about-faq__list">
+					{
+						aboutFaq.map((item, i) => (
+							<details class="about-faq__item" open={i === 0}>
+								<summary>{item.q}</summary>
+								<p>{item.a}</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="about-reach" id="bize-ulasin">
+			<div class="about-reach__inner">
+				<h2>Bize Ulaşın</h2>
+				<ul class="about-reach__list">
+					<li>
+						<a class="phone-link" href={`tel:${phoneToTel(phoneDisplay)}`}>{phoneDisplay}</a>
+					</li>
+					<li>
+						<a class="phone-link" href={`tel:${phoneToTel(phone2)}`}>{phone2}</a>
+					</li>
+					<li>
+						<a href={`mailto:${email}`}>{email}</a>
+					</li>
+					<li>
+						<a href={contact.mapUrl || "/contact"} {...contact.edit?.address}>
+							{contact.address}
+						</a>
+					</li>
+					<li class="about-reach__place" {...contact.edit?.location_name}>
+						{contact.locationName}
+					</li>
+				</ul>
+				<img
+					class="about-reach__mark"
+					src="/modella-about/logo-e.png"
+					alt=""
+					width="120"
+					height="92"
+					aria-hidden="true"
+				/>
+			</div>
+		</section>
+	</article>
+</Base>
+
+<style>
+	.about-modella {
+		background: #0a0a0a;
+		color: #f5f5f5;
+	}
+
+	.about-hero {
+		position: relative;
+		min-height: min(68vh, 36rem);
+		display: grid;
+		align-items: end;
+		overflow: hidden;
+	}
+
+	.about-hero__media {
+		position: absolute;
+		inset: 0;
+		background-size: cover;
+		background-position: center;
+		transform: scale(1.04);
+		animation: about-drift 18s var(--ease, ease) alternate infinite;
+	}
+
+	.about-hero__veil {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			180deg,
+			rgba(8, 8, 8, 0.25) 0%,
+			rgba(8, 8, 8, 0.55) 45%,
+			rgba(8, 8, 8, 0.92) 100%
+		);
+	}
+
+	.about-hero__copy {
+		position: relative;
+		z-index: 1;
+		padding: 2.5rem clamp(1.15rem, 4vw, 2.5rem) 2.25rem;
+		max-width: var(--max, 78rem);
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.about-hero__wordmark {
+		width: min(22rem, 78vw);
+		height: auto;
+		filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
+	}
+
+	.about-hero__eyebrow {
+		margin: 0.85rem 0 0;
+		font-size: 0.78rem;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: rgba(255, 245, 240, 0.75);
+	}
+
+	.about-story {
+		background: #fff5f0;
+		color: #242323;
+		padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.15rem, 4vw, 2.5rem);
+	}
+
+	.about-story__inner {
+		max-width: var(--max, 78rem);
+		margin: 0 auto;
+		display: grid;
+		gap: 2rem;
+	}
+
+	.about-story__photo {
+		overflow: hidden;
+		border-radius: 0;
+		aspect-ratio: 16 / 7;
+		background: #e2e2e2;
+	}
+
+	.about-story__photo img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.about-story__text {
+		max-width: 46rem;
+	}
+
+	.about-story__text h1 {
+		font-family: "Sora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: clamp(1.85rem, 4vw, 2.6rem);
+		font-weight: 550;
+		letter-spacing: -0.02em;
+		margin: 0 0 1.25rem;
+		color: #080808;
+	}
+
+	.about-story__text p {
+		margin: 0 0 1rem;
+		font-size: 1.02rem;
+		line-height: 1.7;
+		color: #3a3a3a;
+	}
+
+	.about-story__byline {
+		margin-top: 1.5rem !important;
+		font-style: italic;
+		color: #8f8f8f !important;
+		font-size: 0.95rem !important;
+	}
+
+	.about-faq {
+		background: #fff5f0;
+		color: #242323;
+		padding: 0 clamp(1.15rem, 4vw, 2.5rem) clamp(3rem, 7vw, 5rem);
+	}
+
+	.about-faq__inner {
+		max-width: var(--max, 78rem);
+		margin: 0 auto;
+	}
+
+	.about-faq__title {
+		font-family: "Sora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: clamp(2rem, 6vw, 3.5rem);
+		font-weight: 550;
+		letter-spacing: -0.03em;
+		margin: 0 0 1.75rem;
+		text-decoration: underline;
+		text-underline-offset: 0.18em;
+		color: #080808;
+	}
+
+	.about-faq__list {
+		display: grid;
+		gap: 0.35rem;
+		max-width: 52rem;
+	}
+
+	.about-faq__item {
+		border-bottom: 1px solid rgba(36, 35, 35, 0.14);
+		padding: 0.35rem 0;
+	}
+
+	.about-faq__item summary {
+		cursor: pointer;
+		list-style: none;
+		font-weight: 550;
+		font-size: 1.02rem;
+		padding: 0.95rem 1.75rem 0.95rem 0;
+		position: relative;
+		color: #080808;
+	}
+
+	.about-faq__item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.about-faq__item summary::after {
+		content: "+";
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 1.35rem;
+		font-weight: 400;
+		color: #d74000;
+	}
+
+	.about-faq__item[open] summary::after {
+		content: "–";
+	}
+
+	.about-faq__item p {
+		margin: 0 0 1.1rem;
+		padding-right: 1.5rem;
+		color: #5f6360;
+		line-height: 1.65;
+		font-size: 0.98rem;
+	}
+
+	.about-reach {
+		background: #080808;
+		color: #fff5f0;
+		padding: clamp(3rem, 7vw, 5rem) clamp(1.15rem, 4vw, 2.5rem);
+	}
+
+	.about-reach__inner {
+		max-width: var(--max, 78rem);
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.about-reach h2 {
+		font-family: "Sora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: clamp(1.8rem, 4vw, 2.4rem);
+		font-weight: 550;
+		margin: 0 0 1.5rem;
+		color: #fff5f0;
+	}
+
+	.about-reach__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.85rem;
+		font-size: 1.05rem;
+		max-width: 36rem;
+	}
+
+	.about-reach__list a {
+		color: #fff5f0;
+		text-decoration: none;
+	}
+
+	.about-reach__list a:hover {
+		color: #e30613;
+		text-decoration: underline;
+	}
+
+	.about-reach__place {
+		color: rgba(255, 245, 240, 0.65);
+		font-size: 0.92rem;
+	}
+
+	.about-reach__mark {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: min(7rem, 28vw);
+		opacity: 0.9;
+		pointer-events: none;
+	}
+
+	@keyframes about-drift {
+		from {
+			transform: scale(1.04) translate3d(0, 0, 0);
+		}
+		to {
+			transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+		}
+	}
+
+	@media (min-width: 900px) {
+		.about-story__inner {
+			grid-template-columns: 1.05fr 0.95fr;
+			align-items: center;
+			gap: 3rem;
+		}
+
+		.about-story__photo {
+			aspect-ratio: 4 / 5;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.about-hero__media {
+			animation: none;
+		}
+	}
+</style>

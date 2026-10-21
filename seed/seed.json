@@ -526,7 +526,7 @@
 				{ "type": "custom", "label": "Brands", "url": "/brands" },
 				{ "type": "custom", "label": "Designers", "url": "/brands" },
 				{ "type": "custom", "label": "New!", "url": "/category/new" },
-				{ "type": "custom", "label": "About", "url": "/about" },
+				{ "type": "custom", "label": "Hakkımızda", "url": "/about" },
 				{ "type": "custom", "label": "Sale", "url": "/category/sale" }
 			]
 		},
@@ -597,10 +597,17 @@
 				"slug": "about",
 				"status": "published",
 				"data": {
-					"title": "About",
-					"hero_headline": "Two decades of modern design",
-					"hero_subcopy": "hive connects you with iconic manufacturers and the people who know every detail of the work.",
+					"title": "Hakkımızda",
+					"hero_headline": "Hakkımızda",
+					"hero_subcopy": "1999’dan bu yana kişiye özel mobilya — Masko Mobilya Kenti’nde Raydolap Modella.",
 					"phone": "(0212) 675 20 57",
+					"hero_image": {
+						"$media": {
+							"url": "https://static.wixstatic.com/media/09b89b_41d19a825b194fefaef80472ef5196fe~mv2.jpg/v1/fill/w_1600,h_1067,al_c,q_90/09b89b_41d19a825b194fefaef80472ef5196fe~mv2.jpg",
+							"alt": "Modella Raydolap mağaza",
+							"filename": "modella-about-hero.jpg"
+						}
+					},
 					"content": [
 						{
 							"_type": "block",
@@ -609,7 +616,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "For more than two decades, hive has been a trusted partner to architects and interior designers. We offer expert consultation, project quotes, and dedicated support by phone — alongside online trade pricing for immediate access to member benefits.",
+									"text": "Raydolap Modella olarak markalaşan firmamız ilk 1999 yılında kurulmuş olup, sektörde kişiye özel mobilya üretimi olarak hizmet vermeye başlamıştır.",
 									"_key": "a1"
 								}
 							]
@@ -621,8 +628,44 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Visit us at Masko Mobilya Kenti in Başakşehir, or call (0212) 675 20 57 to speak with our staff.",
+									"text": "Yıllar içinde daima yenilikçilik anlayışı ile sürekli kendine değer katmayı başarmıştır.",
 									"_key": "a3"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "a4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "2008’li yıllarda 3 boyutlu tasarım, proje ve uygulamayı gerçekleştirmiştir.",
+									"_key": "a5"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "a6",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Müşteri memnuniyeti ve ilklere imza atmayı hedefleyen firmamız dünde olduğu gibi bugün ve yarınlar için daha da kaliteli hizmet sağlamayı hedeflemektedir.",
+									"_key": "a7"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "a8",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Üretim bandı tamamen kendi bünyemizde olup, uzman ekip ve kadromuzla yılların vermiş olduğu profesyonellik ve tecrübemizle öncelikle siz değerli müşterilerimiz için kaliteli yaşam alanları oluşturmaya ve yeniliklere imza atmaya devam edeceğiz.",
+									"_key": "a9"
 								}
 							]
 						}
@@ -668,7 +711,7 @@
 					"address": "Ziya Gökalp, İkitelli OSB, Masko Mobilya Kenti D:3B-2 Blok NO:3, 34490 Başakşehir/İstanbul",
 					"phone": "(0212) 675 20 57",
 					"hours": "Çarşamba 09:30–19:30\nPerşembe 09:30–19:30\nCuma 09:30–19:30\nCumartesi 09:30–19:30\nPazar 12:00–19:00\nPazartesi 09:30–19:30\nSalı 09:30–19:30",
-					"email": "info@hivemodern.com",
+					"email": "cihangirysr@gmail.com",
 					"map_url": "https://maps.google.com/?q=Masko+Mobilya+Kenti+Ba%C5%9Fak%C5%9Fehir"
 				}
 			}
