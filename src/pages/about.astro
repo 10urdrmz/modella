@@ -9,11 +9,6 @@ const { entry: page } = await getEmDashEntry("pages", "about");
 const contact = await resolveSiteContact();
 const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
 
-const story =
-	page?.data.content && Array.isArray(page.data.content)
-		? null
-		: null;
-
 /** Prefer CMS portable text paragraphs when present; else Modella source copy. */
 const storyParagraphs: string[] = [];
 if (page?.data.content && Array.isArray(page.data.content)) {
