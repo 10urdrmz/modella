@@ -7,6 +7,8 @@ import {
 	DEFAULT_PHONE_TEL,
 	resolveStarterSiteIdentity,
 } from "../utils/site-identity";
+import HiveLogo from "../components/HiveLogo.astro";
+import HoneycombIcon from "../components/HoneycombIcon.astro";
 import "../styles/theme.css";
 
 interface Props {
@@ -48,8 +50,32 @@ const titleIncludesSiteName =
 	title.endsWith(` — ${siteTitle}`);
 const fullTitle = titleIncludesSiteName ? title : `${title} — ${siteTitle}`;
 const pageDescription = description ?? siteTagline;
-const menu = menuResult.data;
+const cmsMenu = menuResult.data;
 const displayPhone = phone?.trim() || DEFAULT_PHONE;
+
+/** Fallback matches hivemodern.com header when CMS menu is empty/short */
+const defaultNav = [
+	{ label: "Furniture", url: "/products", sale: false },
+	{ label: "Lighting", url: "/products", sale: false },
+	{ label: "Accessories", url: "/products", sale: false },
+	{ label: "Rugs", url: "/products", sale: false },
+	{ label: "Outdoor", url: "/products", sale: false },
+	{ label: "Brands", url: "/brands", sale: false },
+	{ label: "Designers", url: "/brands", sale: false },
+	{ label: "New!", url: "/products", sale: false },
+	{ label: "About", url: "/about", sale: false },
+	{ label: "Sale", url: "/products", sale: true },
+];
+
+const navItems =
+	cmsMenu?.items && cmsMenu.items.length >= 6
+		? cmsMenu.items.map((item) => ({
+				label: item.label,
+				url: item.url,
+				target: item.target,
+				sale: item.label.toLowerCase() === "sale",
+			}))
+		: defaultNav;
 
 const pageCtx = createPublicPageContext({
 	Astro,
@@ -74,9 +100,10 @@ const pageCtx = createPublicPageContext({
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@380;450;550&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@380;450;550;600&display=swap"
 			rel="stylesheet"
 		/>
+		<meta name="theme-color" content="#ffffff" />
 		<EmDashHead page={pageCtx} />
 	</head>
 	<body>
@@ -84,46 +111,139 @@ const pageCtx = createPublicPageContext({
 
 		<div class="site-shell">
 			<header class="site-header">
-				<div class="site-header__inner">
-					<a class="brand-mark" href="/">
-						{
-							siteLogo ? (
-								<img
-									src={siteLogo.url}
-									alt={siteLogo.alt || siteTitle}
-									style="height:40px;width:auto;display:block;"
-								/>
-							) : (
-								siteTitle
-							)
-						}
-					</a>
-					<button
-						class="nav-toggle"
-						type="button"
-						aria-expanded="false"
-						aria-controls="primary-nav"
-						data-nav-toggle
-					>
-						Menu
-					</button>
-					<nav class="site-nav" id="primary-nav" data-nav>
-						{
-							menu?.items.map((item) => (
-								<a
-									href={item.url}
-									target={item.target}
-									rel={
-										item.target === "_blank"
-											? "noopener noreferrer"
-											: undefined
-									}
+				<div class="utility-bar">
+					<div class="utility-bar__inner">
+						<a class="utility-promo" href="/products">
+							<HoneycombIcon />
+							<span>New! Normann Copenhagen</span>
+						</a>
+						<div class="utility-bar__right">
+							<p class="utility-tagline">Modern Design for the Home</p>
+							<div class="utility-links">
+								<a class="phone-link" href={`tel:${DEFAULT_PHONE_TEL}`}
+									>{displayPhone}</a
 								>
-									{item.label}
+								<a href="/trade">Trade Program</a>
+								<a class="utility-help" href="/about">
+									<HoneycombIcon />
+									<span>Help</span>
 								</a>
-							))
-						}
-					</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="main-bar">
+					<div class="main-bar__inner">
+						<a class="brand-mark" href="/" aria-label={`${siteTitle} home`}>
+							{
+								siteLogo ? (
+									<img
+										src={siteLogo.url}
+										alt={siteLogo.alt || siteTitle}
+										class="brand-mark__img"
+									/>
+								) : (
+									<HiveLogo title={siteTitle} />
+								)
+							}
+						</a>
+
+						<button
+							class="nav-toggle"
+							type="button"
+							aria-expanded="false"
+							aria-controls="primary-nav"
+							data-nav-toggle
+						>
+							<span class="nav-toggle__bars" aria-hidden="true"></span>
+							<span class="nav-toggle__label">Menu</span>
+						</button>
+
+						<nav class="site-nav" id="primary-nav" data-nav aria-label="Primary">
+							{
+								navItems.map((item) => (
+									<a
+										href={item.url}
+										class:list={[{ "is-sale": item.sale }]}
+										target={"target" in item ? item.target : undefined}
+										rel={
+											"target" in item && item.target === "_blank"
+												? "noopener noreferrer"
+												: undefined
+										}
+									>
+										{item.label}
+									</a>
+								))
+							}
+						</nav>
+
+						<div class="header-actions" aria-label="Account actions">
+							<a class="header-action header-action--search" href="/products" aria-label="Search">
+								<svg viewBox="0 0 24 24" aria-hidden="true"
+									><circle
+										cx="11"
+										cy="11"
+										r="6.5"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"></circle><path
+										d="m16 16 4.2 4.2"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"></path></svg
+								>
+								<span>Search</span>
+							</a>
+							<a class="header-action" href="/trade" aria-label="Wishlist">
+								<svg viewBox="0 0 24 24" aria-hidden="true"
+									><path
+										d="M12 20s-7-4.4-7-9.2A3.8 3.8 0 0 1 12 7.5a3.8 3.8 0 0 1 7 3.3C19 15.6 12 20 12 20Z"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linejoin="round"></path></svg
+								>
+							</a>
+							<a class="header-action" href="/_emdash/admin" aria-label="Account">
+								<svg viewBox="0 0 24 24" aria-hidden="true"
+									><circle
+										cx="12"
+										cy="8"
+										r="3.2"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"></circle><path
+										d="M5.5 19.2a6.5 6.5 0 0 1 13 0"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"></path></svg
+								>
+							</a>
+							<a class="header-action" href="/products" aria-label="Cart">
+								<svg viewBox="0 0 24 24" aria-hidden="true"
+									><path
+										d="M4 6h2.2l1.3 10.2a1.5 1.5 0 0 0 1.5 1.3h8.2a1.5 1.5 0 0 0 1.5-1.3L20 8H7"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"></path><circle
+										cx="10"
+										cy="20"
+										r="1.2"
+										fill="currentColor"></circle><circle
+										cx="16.5"
+										cy="20"
+										r="1.2"
+										fill="currentColor"></circle></svg
+								>
+							</a>
+						</div>
+					</div>
 				</div>
 			</header>
 
@@ -166,6 +286,7 @@ const pageCtx = createPublicPageContext({
 			toggle?.addEventListener("click", () => {
 				const open = nav?.classList.toggle("is-open");
 				toggle.setAttribute("aria-expanded", open ? "true" : "false");
+				document.body.classList.toggle("nav-open", !!open);
 			});
 		</script>
 	</body>

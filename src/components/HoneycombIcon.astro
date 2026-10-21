@@ -1,0 +1,24 @@
+---
+interface Props {
+	class?: string;
+}
+const className = Astro.props.class ?? "";
+---
+
+<svg
+	class:list={["honeycomb-icon", className]}
+	viewBox="0 0 28 24"
+	aria-hidden="true"
+	focusable="false"
+>
+	<path
+		fill="currentColor"
+		d="M7.2 2.2 13.8 6l6.6-3.8L27 6v7.6L20.4 17.4 13.8 13.6 7.2 17.4 1 13.6V6Z"
+		opacity="0.95"
+	></path>
+	<path
+		fill="currentColor"
+		d="M7.2 13.2 13.8 17l6.6-3.8V20.8L13.8 24.6 7.2 20.8Z"
+		opacity="0.75"
+	></path>
+</svg>

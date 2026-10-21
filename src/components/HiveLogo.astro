@@ -1,0 +1,41 @@
+---
+interface Props {
+	title?: string;
+}
+const { title = "hive" } = Astro.props;
+---
+
+<span class="hive-logo">
+	<span class="hive-logo__word">{title}</span>
+	<svg
+		class="hive-logo__comb"
+		viewBox="0 0 54 40"
+		aria-hidden="true"
+		focusable="false"
+	>
+		<path
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.6"
+			d="M18 3.5 27 8.5 36 3.5 45 8.5 45 18.5 36 23.5 27 18.5 18 23.5 9 18.5 9 8.5Z"
+		></path>
+		<path
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.6"
+			d="M18 23.5 27 28.5 36 23.5 36 33.5 27 38.5 18 33.5Z"
+		></path>
+		<path
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.6"
+			d="M36 23.5 45 28.5 45 38.5 36 33.5"
+		></path>
+		<path
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.6"
+			d="M9 18.5 18 23.5 18 33.5 9 28.5Z"
+		></path>
+	</svg>
+</span>
