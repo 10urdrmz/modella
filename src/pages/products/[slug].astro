@@ -117,19 +117,45 @@ const initialShip =
 		<figure class="pdp__media">
 			{
 				heroSrc ? (
-					<img
-						src={heroSrc}
-						alt={product.data.title}
-						data-pdp-image
-						width="900"
-						height="900"
-					/>
+					<button
+						type="button"
+						class="pdp__media-zoom"
+						data-lightbox
+						data-lightbox-group={`pdp-${slug}`}
+						data-lightbox-src={heroSrc}
+						data-lightbox-title={product.data.title}
+						data-lightbox-index="0"
+						aria-label="Open image gallery"
+					>
+						<img
+							src={heroSrc}
+							alt={product.data.title}
+							data-pdp-image
+							width="900"
+							height="900"
+						/>
+					</button>
 				) : product.data.featured_image ? (
 					<div class="pdp__media-cms" {...product.edit.featured_image}>
 						<Image image={product.data.featured_image} priority />
 					</div>
 				) : (
 					<div class="pdp__media-empty" aria-hidden="true" />
+				)
+			}
+			{
+				/* Hidden lightbox sources for full gallery (incl. index 0 hero) */
+				galleryPaths.map((src, index) =>
+					index === 0 ? null : (
+						<span
+							hidden
+							data-lightbox
+							data-lightbox-group={`pdp-${slug}`}
+							data-lightbox-src={src}
+							data-lightbox-title={product.data.title}
+							data-lightbox-index={String(index)}
+						/>
+					),
 				)
 			}
 			{
@@ -141,6 +167,11 @@ const initialShip =
 								class:list={["pdp__thumb", index === 0 && "is-active"]}
 								data-pdp-thumb
 								data-src={src}
+								data-lightbox
+								data-lightbox-group={`pdp-${slug}`}
+								data-lightbox-src={src}
+								data-lightbox-title={product.data.title}
+								data-lightbox-index={String(index)}
 								aria-label={`View image ${index + 1}`}
 							>
 								<img src={src} alt="" loading="lazy" />
@@ -408,6 +439,17 @@ const initialShip =
 		margin: 0.35rem 0 0;
 		display: grid;
 		gap: 0.65rem;
+	}
+
+	.pdp__media-zoom {
+		appearance: none;
+		border: 0;
+		padding: 0;
+		margin: 0;
+		background: transparent;
+		cursor: zoom-in;
+		display: block;
+		width: 100%;
 	}
 
 	.pdp__media img,

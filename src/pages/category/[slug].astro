@@ -193,10 +193,19 @@ const leafGallery = !showSubgrid
 				) : leafGallery.length > 0 ? (
 					<>
 						<div class="mekan-gallery">
-							{leafGallery.map((item) => (
-								<a class="mekan-gallery__item" href={item.href} title={item.title}>
+							{leafGallery.map((item, index) => (
+								<button
+									type="button"
+									class="mekan-gallery__item"
+									title={item.title}
+									data-lightbox
+									data-lightbox-group={`cat-${slug}`}
+									data-lightbox-src={item.src}
+									data-lightbox-title={item.title}
+									data-lightbox-index={String(index)}
+								>
 									<img src={item.src} alt={item.title} loading="lazy" />
-								</a>
+								</button>
 							))}
 						</div>
 						<div class="mekan-gallery__cta">

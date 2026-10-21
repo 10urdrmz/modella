@@ -14,6 +14,7 @@ import type { CategoryTermLike } from "../utils/categories";
 import SiteFooter from "../components/SiteFooter.astro";
 import HiveLogo from "../components/HiveLogo.astro";
 import HoneycombIcon from "../components/HoneycombIcon.astro";
+import ImageLightbox from "../components/ImageLightbox.astro";
 import "../styles/theme.css";
 
 interface Props {
@@ -287,6 +288,7 @@ const pageCtx = createPublicPageContext({
 			<SiteFooter footer={siteFooter} contact={siteContact} />
 		</div>
 
+		<ImageLightbox siteTitle={siteTitle} />
 		<EmDashBodyEnd page={pageCtx} />
 		<script>
 			const toggle = document.querySelector("[data-nav-toggle]");
