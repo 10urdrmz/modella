@@ -195,9 +195,9 @@ p {
 }
 
 .brand-mark__img {
-	height: 34px;
+	height: 48px;
 	width: auto;
-	max-width: 11rem;
+	max-width: 14rem;
 	object-fit: contain;
 	object-position: left center;
 	display: block;
@@ -211,16 +211,16 @@ p {
 
 .brand-e--full {
 	width: auto;
-	height: 34px;
+	height: 48px;
 	aspect-ratio: 188 / 144;
 	object-fit: contain;
 	display: block;
 }
 
 .brand-mark .brand-e--full {
-	height: 34px;
+	height: 48px;
 	width: auto;
-	max-width: 9.5rem;
+	max-width: 13rem;
 }
 
 .nav-toggle {
@@ -1141,8 +1141,8 @@ p {
 
 	.brand-mark__img,
 	.brand-mark .brand-e--full {
-		height: 38px;
-		max-width: 11rem;
+		height: 56px;
+		max-width: 15rem;
 	}
 
 	.site-nav {
