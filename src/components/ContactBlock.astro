@@ -1,0 +1,79 @@
+---
+import type { SiteContact } from "../utils/site-contact";
+
+interface Props {
+	contact: SiteContact;
+	/** compact = footer-friendly; full = About/Trade/Contact pages */
+	variant?: "compact" | "full";
+}
+
+const { contact, variant = "full" } = Astro.props;
+const hoursId = variant === "full" ? "contact-hours" : undefined;
+---
+
+{
+	variant === "full" ? (
+		<section class="contact-block" aria-label="Contact and location">
+			<p class="section__eyebrow">Visit</p>
+			<h2 class="contact-block__name" {...contact.edit?.location_name}>
+				{contact.locationName}
+			</h2>
+			<p class="contact-block__address" {...contact.edit?.address}>
+				{contact.address}
+			</p>
+			<p class="contact-block__phone">
+				<a class="phone-link" href={`tel:${contact.phoneTel}`} {...contact.edit?.phone}>
+					{contact.phone}
+				</a>
+			</p>
+			{contact.email && (
+				<p class="contact-block__email">
+					<a href={`mailto:${contact.email}`}>{contact.email}</a>
+				</p>
+			)}
+			<div class="contact-block__hours">
+				<p class="contact-block__hours-label" id={hoursId}>
+					Hours
+				</p>
+				<ul class="contact-hours" aria-labelledby={hoursId} {...contact.edit?.hours}>
+					{contact.hours.map((line) => (
+						<li>{line}</li>
+					))}
+				</ul>
+			</div>
+			{contact.mapUrl && (
+				<p class="contact-block__map">
+					<a href={contact.mapUrl} target="_blank" rel="noopener noreferrer">
+						Open in Maps
+					</a>
+				</p>
+			)}
+		</section>
+	) : (
+		<div class="contact-footer">
+			<p class="contact-footer__name" {...contact.edit?.location_name}>
+				{contact.locationName}
+			</p>
+			<p class="contact-footer__address" {...contact.edit?.address}>
+				{contact.address}
+			</p>
+			<p>
+				<a class="phone-link" href={`tel:${contact.phoneTel}`} {...contact.edit?.phone}>
+					{contact.phone}
+				</a>
+			</p>
+			<ul class="contact-hours contact-hours--compact" {...contact.edit?.hours}>
+				{contact.hours.map((line) => (
+					<li>{line}</li>
+				))}
+			</ul>
+			{contact.mapUrl && (
+				<p>
+					<a href={contact.mapUrl} target="_blank" rel="noopener noreferrer">
+						Maps
+					</a>
+				</p>
+			)}
+		</div>
+	)
+}

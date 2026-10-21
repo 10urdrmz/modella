@@ -2,11 +2,9 @@
 import { getMenuWithCacheHint, getSiteSettingsWithCacheHint } from "emdash";
 import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
-import {
-	DEFAULT_PHONE,
-	DEFAULT_PHONE_TEL,
-	resolveStarterSiteIdentity,
-} from "../utils/site-identity";
+import { resolveStarterSiteIdentity } from "../utils/site-identity";
+import { phoneToTel, resolveSiteContact } from "../utils/site-contact";
+import ContactBlock from "../components/ContactBlock.astro";
 import HiveLogo from "../components/HiveLogo.astro";
 import HoneycombIcon from "../components/HoneycombIcon.astro";
 import "../styles/theme.css";
@@ -37,6 +35,7 @@ const {
 } = Astro.props;
 const settingsResult = await getSiteSettingsWithCacheHint();
 const menuResult = await getMenuWithCacheHint("primary");
+const siteContact = await resolveSiteContact();
 if (Astro.cache?.enabled) {
 	Astro.cache.set(settingsResult.cacheHint);
 	if (menuResult.cacheHint) Astro.cache.set(menuResult.cacheHint);
@@ -51,7 +50,10 @@ const titleIncludesSiteName =
 	title.endsWith(` — ${siteTitle}`);
 const fullTitle = titleIncludesSiteName ? title : `${title} — ${siteTitle}`;
 const pageDescription = description ?? siteTagline;
-const displayPhone = phone?.trim() || DEFAULT_PHONE;
+const displayPhone = phone?.trim() || siteContact.phone;
+const displayPhoneTel = phone?.trim()
+	? phoneToTel(phone.trim())
+	: siteContact.phoneTel;
 
 /** Primary nav from EmDash admin (Menus → Primary Navigation) */
 const navItems = (menuResult.data?.items ?? []).map((item) => ({
@@ -103,7 +105,7 @@ const pageCtx = createPublicPageContext({
 						<div class="utility-bar__right">
 							<p class="utility-tagline">Modern Design for the Home</p>
 							<div class="utility-links">
-								<a class="phone-link" href={`tel:${DEFAULT_PHONE_TEL}`}
+								<a class="phone-link" href={`tel:${displayPhoneTel}`}
 									>{displayPhone}</a
 								>
 								<a href="/trade">Trade Program</a>
@@ -236,25 +238,17 @@ const pageCtx = createPublicPageContext({
 					<div>
 						<div class="site-footer__brand">{siteTitle}</div>
 						<p>{siteTagline}</p>
-					</div>
-					<div>
-						<p>
-							Call{" "}
-							<a class="phone-link" href={`tel:${DEFAULT_PHONE_TEL}`}
-								>{displayPhone}</a
-							>
-						</p>
-						<p>
-							<a href="mailto:info@hivemodern.com">info@hivemodern.com</a>
+						<p class="site-footer__links">
+							<a href="/trade">Trade pricing</a>
+							{" · "}
+							<a href="/about">About</a>
+							{" · "}
+							<a href="/contact">Contact</a>
+							{" · "}
+							<a href="/_emdash/admin">Admin</a>
 						</p>
 					</div>
-					<div>
-						<a href="/trade">Trade pricing</a>
-						{" · "}
-						<a href="/about">About</a>
-						{" · "}
-						<a href="/_emdash/admin">Admin</a>
-					</div>
+					<ContactBlock contact={siteContact} variant="compact" />
 				</div>
 			</footer>
 		</div>

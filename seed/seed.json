@@ -118,6 +118,56 @@
 			]
 		},
 		{
+			"slug": "contact",
+			"label": "Contact & Location",
+			"labelSingular": "Contact",
+			"urlPattern": "/contact",
+			"supports": ["drafts", "revisions", "preview"],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "location_name",
+					"label": "Location Name",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "address",
+					"label": "Address",
+					"type": "text",
+					"required": true
+				},
+				{
+					"slug": "phone",
+					"label": "Phone",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "hours",
+					"label": "Hours",
+					"type": "text",
+					"required": true
+				},
+				{
+					"slug": "email",
+					"label": "Email",
+					"type": "string"
+				},
+				{
+					"slug": "map_url",
+					"label": "Map URL",
+					"type": "url"
+				}
+			]
+		},
+		{
 			"slug": "category_pages",
 			"label": "Category Pages",
 			"labelSingular": "Category Page",
@@ -400,7 +450,7 @@
 					"hero_subcopy": "Cassina, Moroso, and the makers architects trust — expert consultation and trade pricing for more than two decades.",
 					"cta_label": "Shop furniture",
 					"cta_url": "/category/furniture",
-					"phone": "1.866.663.4483",
+					"phone": "(0212) 675 20 57",
 					"hero_image": {
 						"$media": {
 							"url": "https://hivemodern.com/public_resources/home-page-199bdebb58.jpg",
@@ -432,7 +482,7 @@
 					"title": "About",
 					"hero_headline": "Two decades of modern design",
 					"hero_subcopy": "hive connects you with iconic manufacturers and the people who know every detail of the work.",
-					"phone": "1.866.663.4483",
+					"phone": "(0212) 675 20 57",
 					"content": [
 						{
 							"_type": "block",
@@ -441,7 +491,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "For more than two decades, hive has been a trusted partner to architects and interior designers. We offer expert consultation, project quotes, and dedicated support by phone and email — alongside online trade pricing for immediate access to member benefits.",
+									"text": "For more than two decades, hive has been a trusted partner to architects and interior designers. We offer expert consultation, project quotes, and dedicated support by phone — alongside online trade pricing for immediate access to member benefits.",
 									"_key": "a1"
 								}
 							]
@@ -453,7 +503,7 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Email info@hivemodern.com and we will respond promptly. Call 1.866.663.4483 to speak with our staff.",
+									"text": "Visit us at Masko Mobilya Kenti in Başakşehir, or call (0212) 675 20 57 to speak with our staff.",
 									"_key": "a3"
 								}
 							]
@@ -470,8 +520,8 @@
 					"hero_headline": "Trade pricing, online",
 					"hero_subcopy": "Architects and designers get immediate access to member pricing, project quotes, and dedicated support.",
 					"cta_label": "Call for a quote",
-					"cta_url": "tel:+18666634483",
-					"phone": "1.866.663.4483",
+					"cta_url": "tel:+902126752057",
+					"phone": "(0212) 675 20 57",
 					"content": [
 						{
 							"_type": "block",
@@ -480,12 +530,27 @@
 							"children": [
 								{
 									"_type": "span",
-									"text": "Open a trade account to unlock online pricing across Cassina, Moroso, Flos, Herman Miller, and hundreds more manufacturers. Our team helps with specification, lead times, and project quotes.",
+									"text": "Open a trade account to unlock online pricing across Cassina, Moroso, Flos, Herman Miller, and hundreds more manufacturers. Our team helps with specification, lead times, and project quotes — visit Masko Mobilya Kenti or call (0212) 675 20 57.",
 									"_key": "t1"
 								}
 							]
 						}
 					]
+				}
+			}
+		],
+		"contact": [
+			{
+				"id": "contact-main",
+				"slug": "main",
+				"status": "published",
+				"data": {
+					"title": "Showroom",
+					"location_name": "Masko Mobilya Kenti",
+					"address": "Ziya Gökalp, İkitelli OSB, Masko Mobilya Kenti D:3B-2 Blok NO:3, 34490 Başakşehir/İstanbul",
+					"phone": "(0212) 675 20 57",
+					"hours": "Çarşamba 09:30–19:30\nPerşembe 09:30–19:30\nCuma 09:30–19:30\nCumartesi 09:30–19:30\nPazar 12:00–19:00\nPazartesi 09:30–19:30\nSalı 09:30–19:30",
+					"map_url": "https://maps.google.com/?q=Masko+Mobilya+Kenti+Ba%C5%9Fak%C5%9Fehir"
 				}
 			}
 		],

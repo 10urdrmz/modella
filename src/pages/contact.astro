@@ -1,0 +1,31 @@
+---
+import { getSiteSettings } from "emdash";
+import Base from "../layouts/Base.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import { resolveSiteContact } from "../utils/site-contact";
+import { resolveStarterSiteIdentity } from "../utils/site-identity";
+
+const contact = await resolveSiteContact();
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+---
+
+<Base
+	title={`Contact — ${siteTitle}`}
+	description={`${contact.locationName} — ${contact.address}`}
+	phone={contact.phone}
+	content={contact.content}
+>
+	<article>
+		<div class="page-hero">
+			<p class="section__eyebrow">Contact</p>
+			<h1>Visit the showroom</h1>
+			<p class="section__lede">
+				Masko Mobilya Kenti — address, phone, and hours below are editable in
+				EmDash admin under Contact &amp; Location.
+			</p>
+		</div>
+		<section class="section" style="padding-top:0">
+			<ContactBlock contact={contact} variant="full" />
+		</section>
+	</article>
+</Base>

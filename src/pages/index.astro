@@ -7,6 +7,7 @@ import {
 } from "emdash";
 import Base from "../layouts/Base.astro";
 import ProductCard from "../components/ProductCard.astro";
+import { phoneToTel } from "../utils/site-contact";
 import { resolveStarterSiteIdentity } from "../utils/site-identity";
 
 const { siteTitle, siteTagline } = resolveStarterSiteIdentity(
@@ -63,7 +64,7 @@ const phone = home?.data.phone ?? null;
 				</a>
 				{
 					phone && (
-						<a class="btn btn--ghost" href={`tel:${phone.replace(/\./g, "")}`}>
+						<a class="btn btn--ghost" href={`tel:${phoneToTel(phone)}`}>
 							Call {phone}
 						</a>
 					)

@@ -15,8 +15,11 @@ export interface StarterSiteIdentitySettings {
 const DEFAULT_SITE_TITLE = "hive";
 const DEFAULT_SITE_TAGLINE =
 	"Modern designer furniture for architects and interior designers";
-export const DEFAULT_PHONE = "1.866.663.4483";
-export const DEFAULT_PHONE_TEL = "+18666634483";
+
+/** @deprecated Prefer resolveSiteContact().phone — kept for gradual migration */
+export const DEFAULT_PHONE = "(0212) 675 20 57";
+/** @deprecated Prefer resolveSiteContact().phoneTel */
+export const DEFAULT_PHONE_TEL = "+902126752057";
 
 export function resolveStarterSiteIdentity(
 	settings?: StarterSiteIdentitySettings,

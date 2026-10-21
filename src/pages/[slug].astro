@@ -2,11 +2,14 @@
 import { decodeSlug, getEmDashEntry, getSeoMeta, getSiteSettings } from "emdash";
 import { Image, PortableText } from "emdash/ui";
 import Base from "../layouts/Base.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import { phoneToTel, resolveSiteContact } from "../utils/site-contact";
 import { resolveStarterSiteIdentity } from "../utils/site-identity";
 
 const slug = decodeSlug(Astro.params.slug);
 if (!slug) return Astro.rewrite("/404");
 if (slug === "home") return Astro.redirect("/");
+if (slug === "contact") return Astro.redirect("/contact");
 
 const { entry: page, cacheHint } = await getEmDashEntry("pages", slug);
 if (!page) return Astro.rewrite("/404");
@@ -18,6 +21,10 @@ const seo = getSeoMeta(page, {
 	siteUrl: Astro.url.origin,
 	path: Astro.url.pathname.replace(/\/$/, ""),
 });
+
+const showContact = slug === "about" || slug === "trade";
+const contact = showContact ? await resolveSiteContact() : null;
+const pagePhone = page.data.phone || contact?.phone || null;
 ---
 
 <Base
@@ -25,7 +32,7 @@ const seo = getSeoMeta(page, {
 	pageTitle={seo.ogTitle}
 	description={seo.description}
 	canonical={seo.canonical}
-	phone={page.data.phone}
+	phone={pagePhone}
 	content={{ collection: "pages", id: page.data.id, slug }}
 >
 	<article>
@@ -50,19 +57,16 @@ const seo = getSeoMeta(page, {
 				)
 			}
 			{
-				(page.data.cta_url || page.data.phone) && (
+				(page.data.cta_url || pagePhone) && (
 					<div class="hero__actions" style="margin-top:1rem">
 						{page.data.cta_url && (
 							<a class="btn btn--solid" href={page.data.cta_url} {...page.edit.cta_label}>
 								{page.data.cta_label || "Continue"}
 							</a>
 						)}
-						{page.data.phone && (
-							<a
-								class="btn btn--ghost"
-								href={`tel:${String(page.data.phone).replace(/\./g, "")}`}
-							>
-								Call {page.data.phone}
+						{pagePhone && (
+							<a class="btn btn--ghost" href={`tel:${phoneToTel(String(pagePhone))}`}>
+								Call {pagePhone}
 							</a>
 						)}
 					</div>
@@ -81,5 +85,12 @@ const seo = getSeoMeta(page, {
 		<section class="section prose" style="padding-top:0">
 			<PortableText value={page.data.content} />
 		</section>
+		{
+			contact && (
+				<section class="section" style="padding-top:0;padding-bottom:var(--space-5)">
+					<ContactBlock contact={contact} variant="full" />
+				</section>
+			)
+		}
 	</article>
 </Base>

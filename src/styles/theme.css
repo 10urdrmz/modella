@@ -354,6 +354,12 @@ p {
 	letter-spacing: -0.03em;
 }
 
+.site-footer__links {
+	margin-top: 0.75rem;
+	color: var(--ink-soft);
+	font-size: 0.9rem;
+}
+
 .site-footer a {
 	text-decoration: none;
 }
@@ -365,6 +371,71 @@ p {
 .phone-link {
 	font-variant-numeric: tabular-nums;
 	letter-spacing: 0.02em;
+}
+
+.contact-footer {
+	display: grid;
+	gap: 0.45rem;
+	font-size: 0.9rem;
+	color: var(--ink-soft);
+}
+
+.contact-footer__name {
+	margin: 0;
+	color: var(--ink-strong);
+	font-family: var(--font-display);
+	font-size: 1.15rem;
+}
+
+.contact-footer__address {
+	margin: 0;
+	max-width: 36ch;
+	line-height: 1.45;
+}
+
+.contact-block {
+	max-width: 40rem;
+	padding: var(--space-3) 0;
+}
+
+.contact-block__name {
+	font-size: clamp(1.6rem, 4vw, 2.1rem);
+	margin-bottom: 0.45rem;
+}
+
+.contact-block__address,
+.contact-block__phone,
+.contact-block__email,
+.contact-block__map {
+	margin: 0 0 0.65rem;
+	color: var(--ink-soft);
+	max-width: 42ch;
+	line-height: 1.5;
+}
+
+.contact-block__hours-label {
+	margin: 1.1rem 0 0.4rem;
+	font-size: 0.72rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
+
+.contact-hours {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.2rem;
+	font-size: 0.92rem;
+	color: var(--ink-strong);
+	font-variant-numeric: tabular-nums;
+}
+
+.contact-hours--compact {
+	margin-top: 0.35rem;
+	font-size: 0.82rem;
+	color: var(--ink-soft);
 }
 
 .section {
@@ -773,6 +844,12 @@ p {
 	.site-footer {
 		padding-left: 2rem;
 		padding-right: 2rem;
+	}
+
+	.site-footer__inner {
+		grid-template-columns: 1fr 1.1fr;
+		align-items: start;
+		gap: var(--space-4);
 	}
 
 	.product-rail {
