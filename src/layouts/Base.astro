@@ -4,7 +4,8 @@ import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
 import { resolveStarterSiteIdentity } from "../utils/site-identity";
 import { phoneToTel, resolveSiteContact } from "../utils/site-contact";
-import ContactBlock from "../components/ContactBlock.astro";
+import { resolveSiteFooter } from "../utils/site-footer";
+import SiteFooter from "../components/SiteFooter.astro";
 import HiveLogo from "../components/HiveLogo.astro";
 import HoneycombIcon from "../components/HoneycombIcon.astro";
 import "../styles/theme.css";
@@ -35,7 +36,10 @@ const {
 } = Astro.props;
 const settingsResult = await getSiteSettingsWithCacheHint();
 const menuResult = await getMenuWithCacheHint("primary");
-const siteContact = await resolveSiteContact();
+const [siteContact, siteFooter] = await Promise.all([
+	resolveSiteContact(),
+	resolveSiteFooter(),
+]);
 if (Astro.cache?.enabled) {
 	Astro.cache.set(settingsResult.cacheHint);
 	if (menuResult.cacheHint) Astro.cache.set(menuResult.cacheHint);
@@ -233,24 +237,7 @@ const pageCtx = createPublicPageContext({
 				<slot />
 			</main>
 
-			<footer class="site-footer">
-				<div class="site-footer__inner">
-					<div>
-						<div class="site-footer__brand">{siteTitle}</div>
-						<p>{siteTagline}</p>
-						<p class="site-footer__links">
-							<a href="/trade">Trade pricing</a>
-							{" · "}
-							<a href="/about">About</a>
-							{" · "}
-							<a href="/contact">Contact</a>
-							{" · "}
-							<a href="/_emdash/admin">Admin</a>
-						</p>
-					</div>
-					<ContactBlock contact={siteContact} variant="compact" />
-				</div>
-			</footer>
+			<SiteFooter footer={siteFooter} contact={siteContact} />
 		</div>
 
 		<EmDashBodyEnd page={pageCtx} />

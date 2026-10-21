@@ -18,7 +18,9 @@ SQLite database: `data.db` (created on first request). Seed: `seed/seed.json`.
 
 - **products** — title, image, designer, price, shipping, summary, content, featured; tagged with **brand** + **category**
 - **pages** — Home / About / Trade (hero, CTA, phone, content)
-- **contact** — showroom location, address, phone, hours (`Contact & Location` → entry `main`); used in footer, `/contact`, About, Trade
+- **contact** — showroom location, address, phone, hours (`Contact & Location` → entry `main`); used in footer Contact column, `/contact`, About, Trade
+- **footer** — newsletter copy, column headings, bottom brand, social URLs (`Footer` → entry `main`)
+- **Menus → Footer — Support / Footer — Account** — footer link lists
 - **category_pages** — hub & subcategory copy + hero/tile image paths (`/category/{slug}`)
 - **category** taxonomy — hierarchical (Furniture → Seating, Accessories → Clocks, …)
 - **brand** taxonomy — Cassina, Moroso, Flos, Herman Miller

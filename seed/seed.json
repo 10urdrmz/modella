@@ -8,7 +8,12 @@
 	},
 	"settings": {
 		"title": "hive",
-		"tagline": "Modern designer furniture for architects and interior designers"
+		"tagline": "Modern designer furniture for architects and interior designers",
+		"social": {
+			"instagram": "https://www.instagram.com/",
+			"facebook": "https://www.facebook.com/",
+			"youtube": "https://www.youtube.com/"
+		}
 	},
 	"collections": [
 		{
@@ -163,6 +168,95 @@
 				{
 					"slug": "map_url",
 					"label": "Map URL",
+					"type": "url"
+				}
+			]
+		},
+		{
+			"slug": "footer",
+			"label": "Footer",
+			"labelSingular": "Footer",
+			"supports": ["drafts", "revisions"],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "newsletter_heading",
+					"label": "Newsletter Heading",
+					"type": "string"
+				},
+				{
+					"slug": "newsletter_placeholder",
+					"label": "Newsletter Placeholder",
+					"type": "string"
+				},
+				{
+					"slug": "newsletter_disclaimer",
+					"label": "Newsletter Disclaimer",
+					"type": "text"
+				},
+				{
+					"slug": "privacy_label",
+					"label": "Privacy Link Label",
+					"type": "string"
+				},
+				{
+					"slug": "privacy_url",
+					"label": "Privacy Link URL",
+					"type": "url"
+				},
+				{
+					"slug": "support_heading",
+					"label": "Support Column Heading",
+					"type": "string"
+				},
+				{
+					"slug": "contact_heading",
+					"label": "Contact Column Heading",
+					"type": "string"
+				},
+				{
+					"slug": "account_heading",
+					"label": "Account Column Heading",
+					"type": "string"
+				},
+				{
+					"slug": "help_center_label",
+					"label": "Help Center Label",
+					"type": "string"
+				},
+				{
+					"slug": "help_center_url",
+					"label": "Help Center URL",
+					"type": "url"
+				},
+				{
+					"slug": "bottom_brand_primary",
+					"label": "Bottom Brand Primary",
+					"type": "string"
+				},
+				{
+					"slug": "bottom_brand_secondary",
+					"label": "Bottom Brand Secondary",
+					"type": "string"
+				},
+				{
+					"slug": "social_instagram",
+					"label": "Instagram URL",
+					"type": "url"
+				},
+				{
+					"slug": "social_facebook",
+					"label": "Facebook URL",
+					"type": "url"
+				},
+				{
+					"slug": "social_vimeo",
+					"label": "Vimeo URL",
 					"type": "url"
 				}
 			]
@@ -435,6 +529,30 @@
 				{ "type": "custom", "label": "About", "url": "/about" },
 				{ "type": "custom", "label": "Sale", "url": "/category/sale" }
 			]
+		},
+		{
+			"name": "footer_support",
+			"label": "Footer — Support",
+			"items": [
+				{ "type": "custom", "label": "About hive", "url": "/about" },
+				{ "type": "custom", "label": "Sales Assistance", "url": "/contact" },
+				{ "type": "custom", "label": "Trade Program", "url": "/trade" },
+				{ "type": "custom", "label": "Swatch Samples", "url": "/products" },
+				{ "type": "custom", "label": "Order Status", "url": "/contact" },
+				{ "type": "custom", "label": "Contact", "url": "/contact" },
+				{ "type": "custom", "label": "FAQ", "url": "/about" },
+				{ "type": "custom", "label": "Policies", "url": "/about" },
+				{ "type": "custom", "label": "Privacy", "url": "/about" },
+				{ "type": "custom", "label": "Cookie Policy", "url": "/about" }
+			]
+		},
+		{
+			"name": "footer_account",
+			"label": "Footer — Account",
+			"items": [
+				{ "type": "custom", "label": "Sign In", "url": "/_emdash/admin" },
+				{ "type": "custom", "label": "Order History", "url": "/contact" }
+			]
 		}
 	],
 	"widgetAreas": [],
@@ -550,7 +668,33 @@
 					"address": "Ziya Gökalp, İkitelli OSB, Masko Mobilya Kenti D:3B-2 Blok NO:3, 34490 Başakşehir/İstanbul",
 					"phone": "(0212) 675 20 57",
 					"hours": "Çarşamba 09:30–19:30\nPerşembe 09:30–19:30\nCuma 09:30–19:30\nCumartesi 09:30–19:30\nPazar 12:00–19:00\nPazartesi 09:30–19:30\nSalı 09:30–19:30",
+					"email": "info@hivemodern.com",
 					"map_url": "https://maps.google.com/?q=Masko+Mobilya+Kenti+Ba%C5%9Fak%C5%9Fehir"
+				}
+			}
+		],
+		"footer": [
+			{
+				"id": "footer-main",
+				"slug": "main",
+				"status": "published",
+				"data": {
+					"title": "Site Footer",
+					"newsletter_heading": "Join Our Newsletter",
+					"newsletter_placeholder": "Email",
+					"newsletter_disclaimer": "By providing this information, you are opting to receive email communications from hive.",
+					"privacy_label": "View privacy policy",
+					"privacy_url": "/about",
+					"support_heading": "Support",
+					"contact_heading": "Contact",
+					"account_heading": "Account",
+					"help_center_label": "Help Center",
+					"help_center_url": "/contact",
+					"bottom_brand_primary": "hive",
+					"bottom_brand_secondary": "İstanbul",
+					"social_instagram": "https://www.instagram.com/",
+					"social_facebook": "https://www.facebook.com/",
+					"social_vimeo": "https://vimeo.com/"
 				}
 			}
 		],
