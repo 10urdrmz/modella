@@ -5,8 +5,8 @@ import {
 	getSiteSettings,
 	getTaxonomyTerms,
 } from "emdash";
-import { Image } from "emdash/ui";
 import Base from "../layouts/Base.astro";
+import ProductCard from "../components/ProductCard.astro";
 import { resolveStarterSiteIdentity } from "../utils/site-identity";
 
 const { siteTitle, siteTagline } = resolveStarterSiteIdentity(
@@ -34,7 +34,7 @@ const subcopy =
 	home?.data.hero_subcopy ??
 	"Curated pieces from celebrated designers and manufacturers — expert consultation and trade pricing.";
 const ctaLabel = home?.data.cta_label ?? "Shop furniture";
-const ctaUrl = home?.data.cta_url ?? "/products";
+const ctaUrl = home?.data.cta_url ?? "/category/furniture";
 const phone = home?.data.phone ?? null;
 ---
 
@@ -46,19 +46,12 @@ const phone = home?.data.phone ?? null;
 	content={home ? { collection: "pages", id: home.data.id, slug: "home" } : undefined}
 >
 	<section class="hero">
-		{
-			home?.data.hero_image ? (
-				<div class="hero__media" {...home.edit.hero_image}>
-					<Image image={home.data.hero_image} />
-				</div>
-			) : (
-				<div
-					class="hero__media"
-					style="background:linear-gradient(145deg,#1f3d32,#101418 55%,#2c4550);"
-					aria-hidden="true"
-				/>
-			)
-		}
+		<div
+			class="hero__media"
+			style="background-image:url('/hive-samples/home-hero.jpg');background-size:cover;background-position:center;"
+			aria-hidden="true"
+		>
+		</div>
 		<div class="hero__veil" aria-hidden="true"></div>
 		<div class="hero__content">
 			<p class="hero__brand">{siteTitle}</p>
@@ -86,35 +79,19 @@ const phone = home?.data.phone ?? null;
 			Cassina, Moroso, Flos, Herman Miller — edit products in admin to publish
 			updates live.
 		</p>
-		<div class="product-rail">
+		<div class="hive-grid" style="margin-top:1.5rem">
 			{
 				showcase.map((product) => (
-					<a class="product-tile" href={`/products/${product.id}`}>
-						{
-							product.data.featured_image && (
-								<div class="product-tile__media" {...product.edit.featured_image}>
-									<Image image={product.data.featured_image} />
-								</div>
-							)
-						}
-						<div>
-							<h3 class="product-tile__title" {...product.edit.title}>
-								{product.data.title}
-							</h3>
-							<p class="product-tile__meta">
-								{[product.data.designer, product.data.terms?.brand?.[0]?.label]
-									.filter(Boolean)
-									.join(" · ")}
-							</p>
-							{
-								product.data.price_label && (
-									<p class="product-tile__price" {...product.edit.price_label}>
-										{product.data.price_label}
-									</p>
-								)
-							}
-						</div>
-					</a>
+					<ProductCard
+						href={`/products/${product.id}`}
+						title={product.data.title}
+						slugOrId={product.id}
+						designer={product.data.designer}
+						brand={product.data.terms?.brand?.[0]?.label}
+						priceLabel={product.data.price_label}
+						shippingNote={product.data.shipping_note}
+						image={product.data.featured_image}
+					/>
 				))
 			}
 		</div>
@@ -153,7 +130,7 @@ const phone = home?.data.phone ?? null;
 			</div>
 			<div class="hero__actions">
 				<a class="btn btn--solid" href="/trade">Trade access</a>
-				<a class="btn btn--ghost" href="/products">Browse furniture</a>
+				<a class="btn btn--ghost" href="/category/furniture">Browse furniture</a>
 			</div>
 		</div>
 	</section>

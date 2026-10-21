@@ -26,7 +26,7 @@ if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
 
 	<section
 		class="cat-hero"
-		style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&h=900&fit=crop')"
+		style="background-image:url('/hive-samples/furniture-hero.jpg')"
 	>
 		<div class="cat-hero__veil" aria-hidden="true"></div>
 		<div class="cat-hero__copy">
@@ -54,12 +54,12 @@ if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
 							<ProductCard
 								href={`/products/${product.id}`}
 								title={product.data.title}
+								slugOrId={product.id}
 								designer={product.data.designer}
 								brand={product.data.terms?.brand?.[0]?.label}
 								priceLabel={product.data.price_label}
 								shippingNote={product.data.shipping_note}
 								image={product.data.featured_image}
-								edit={product.edit}
 							/>
 						))}
 					</div>

@@ -8,6 +8,7 @@ import {
 } from "emdash";
 import { Image, PortableText } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
+import { sampleImageForProduct } from "../../data/catalog";
 import { resolveStarterSiteIdentity } from "../../utils/site-identity";
 
 const slug = decodeSlug(Astro.params.slug);
@@ -27,6 +28,8 @@ const seo = getSeoMeta(product, {
 	path: Astro.url.pathname.replace(/\/$/, ""),
 });
 const brands = await getEntryTerms("products", product.data.id, "brand");
+const sampleSrc =
+	sampleImageForProduct(slug) || sampleImageForProduct(product.id);
 ---
 
 <Base
@@ -54,11 +57,15 @@ const brands = await getEntryTerms("products", product.data.id, "brand");
 
 		<section class="section" style="padding-top:0;display:grid;gap:1.25rem">
 			{
-				product.data.featured_image && (
+				sampleSrc ? (
+					<div class="hive-card__media" style="max-width:36rem">
+						<img src={sampleSrc} alt={product.data.title} />
+					</div>
+				) : product.data.featured_image ? (
 					<div class="product-tile__media" style="max-width:36rem" {...product.edit.featured_image}>
 						<Image image={product.data.featured_image} priority />
 					</div>
-				)
+				) : null
 			}
 			{
 				product.data.summary && (

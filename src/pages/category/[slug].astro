@@ -151,12 +151,12 @@ const showSubgrid = isHub && category.children.length > 0;
 								<ProductCard
 									href={`/products/${product.id}`}
 									title={product.data.title}
+									slugOrId={product.id}
 									designer={product.data.designer}
 									brand={product.data.terms?.brand?.[0]?.label}
 									priceLabel={product.data.price_label}
 									shippingNote={product.data.shipping_note}
 									image={product.data.featured_image}
-									edit={product.edit}
 								/>
 							))
 						)}

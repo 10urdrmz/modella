@@ -1,29 +1,38 @@
 ---
 import { Image } from "emdash/ui";
+import { sampleImageForProduct } from "../data/catalog";
 
 interface Props {
 	href: string;
 	title: string;
+	slugOrId: string;
 	designer?: string | null;
 	brand?: string | null;
 	priceLabel?: string | null;
 	shippingNote?: string | null;
 	image?: { id?: string; src?: string; alt?: string } | null;
-	edit?: Record<string, unknown>;
 }
 
-const { href, title, designer, brand, priceLabel, shippingNote, image, edit } =
-	Astro.props;
+const {
+	href,
+	title,
+	slugOrId,
+	designer,
+	brand,
+	priceLabel,
+	shippingNote,
+	image,
+} = Astro.props;
 const byline = [brand, designer].filter(Boolean).join(" ");
+const sampleSrc = sampleImageForProduct(slugOrId);
 ---
 
 <a class="hive-card" href={href}>
-	<div
-		class="hive-card__media"
-		{...(edit?.featured_image ? edit.featured_image : {})}
-	>
+	<div class="hive-card__media">
 		{
-			image ? (
+			sampleSrc ? (
+				<img src={sampleSrc} alt={title} loading="lazy" />
+			) : image ? (
 				<Image image={image} />
 			) : (
 				<div class="hive-card__placeholder" aria-hidden="true" />
@@ -31,10 +40,10 @@ const byline = [brand, designer].filter(Boolean).join(" ");
 		}
 	</div>
 	<div class="hive-card__body">
-		<h2 class="hive-card__title" {...(edit?.title ?? {})}>{title}</h2>
+		<h2 class="hive-card__title">{title}</h2>
 		{
 			priceLabel && (
-				<p class="hive-card__price" {...(edit?.price_label ?? {})}>
+				<p class="hive-card__price">
 					<span>{priceLabel}</span>
 					{shippingNote && <span class="hive-card__ship">{shippingNote}</span>}
 				</p>

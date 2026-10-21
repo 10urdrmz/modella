@@ -16,16 +16,59 @@
 			"label": "Products",
 			"labelSingular": "Product",
 			"urlPattern": "/products/{slug}",
-			"supports": ["drafts", "revisions", "preview", "search", "seo"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
 			"fields": [
-				{"slug": "title", "label": "Title", "type": "string", "required": true, "searchable": true},
-				{"slug": "featured_image", "label": "Product Image", "type": "image"},
-				{"slug": "designer", "label": "Designer", "type": "string", "searchable": true},
-				{"slug": "price_label", "label": "Price Label", "type": "string"},
-				{"slug": "shipping_note", "label": "Shipping Note", "type": "string"},
-				{"slug": "summary", "label": "Summary", "type": "text", "searchable": true},
-				{"slug": "content", "label": "Description", "type": "portableText", "searchable": true},
-				{"slug": "featured", "label": "Featured on homepage", "type": "boolean"}
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "featured_image",
+					"label": "Product Image",
+					"type": "image"
+				},
+				{
+					"slug": "designer",
+					"label": "Designer",
+					"type": "string",
+					"searchable": true
+				},
+				{
+					"slug": "price_label",
+					"label": "Price Label",
+					"type": "string"
+				},
+				{
+					"slug": "shipping_note",
+					"label": "Shipping Note",
+					"type": "string"
+				},
+				{
+					"slug": "summary",
+					"label": "Summary",
+					"type": "text",
+					"searchable": true
+				},
+				{
+					"slug": "content",
+					"label": "Description",
+					"type": "portableText",
+					"searchable": true
+				},
+				{
+					"slug": "featured",
+					"label": "Featured on homepage",
+					"type": "boolean"
+				}
 			]
 		},
 		{
@@ -33,16 +76,57 @@
 			"label": "Pages",
 			"labelSingular": "Page",
 			"urlPattern": "/{slug}",
-			"supports": ["drafts", "revisions", "preview", "search", "seo"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
 			"fields": [
-				{"slug": "title", "label": "Title", "type": "string", "required": true, "searchable": true},
-				{"slug": "hero_image", "label": "Hero Image", "type": "image"},
-				{"slug": "hero_headline", "label": "Hero Headline", "type": "string"},
-				{"slug": "hero_subcopy", "label": "Hero Subcopy", "type": "text"},
-				{"slug": "cta_label", "label": "CTA Label", "type": "string"},
-				{"slug": "cta_url", "label": "CTA URL", "type": "url"},
-				{"slug": "phone", "label": "Phone Display", "type": "string"},
-				{"slug": "content", "label": "Content", "type": "portableText", "searchable": true}
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "hero_image",
+					"label": "Hero Image",
+					"type": "image"
+				},
+				{
+					"slug": "hero_headline",
+					"label": "Hero Headline",
+					"type": "string"
+				},
+				{
+					"slug": "hero_subcopy",
+					"label": "Hero Subcopy",
+					"type": "text"
+				},
+				{
+					"slug": "cta_label",
+					"label": "CTA Label",
+					"type": "string"
+				},
+				{
+					"slug": "cta_url",
+					"label": "CTA URL",
+					"type": "url"
+				},
+				{
+					"slug": "phone",
+					"label": "Phone Display",
+					"type": "string"
+				},
+				{
+					"slug": "content",
+					"label": "Content",
+					"type": "portableText",
+					"searchable": true
+				}
 			]
 		}
 	],
@@ -52,12 +136,26 @@
 			"label": "Brands",
 			"labelSingular": "Brand",
 			"hierarchical": false,
-			"collections": ["products"],
+			"collections": [
+				"products"
+			],
 			"terms": [
-				{"slug": "cassina", "label": "Cassina"},
-				{"slug": "moroso", "label": "Moroso"},
-				{"slug": "flos", "label": "Flos"},
-				{"slug": "herman-miller", "label": "Herman Miller"}
+				{
+					"slug": "cassina",
+					"label": "Cassina"
+				},
+				{
+					"slug": "moroso",
+					"label": "Moroso"
+				},
+				{
+					"slug": "flos",
+					"label": "Flos"
+				},
+				{
+					"slug": "herman-miller",
+					"label": "Herman Miller"
+				}
 			]
 		}
 	],
@@ -66,16 +164,56 @@
 			"name": "primary",
 			"label": "Primary Navigation",
 			"items": [
-				{"type": "custom", "label": "Furniture", "url": "/category/furniture"},
-				{"type": "custom", "label": "Lighting", "url": "/category/lighting"},
-				{"type": "custom", "label": "Accessories", "url": "/category/accessories"},
-				{"type": "custom", "label": "Rugs", "url": "/category/rugs"},
-				{"type": "custom", "label": "Outdoor", "url": "/category/outdoor"},
-				{"type": "custom", "label": "Brands", "url": "/brands"},
-				{"type": "custom", "label": "Designers", "url": "/brands"},
-				{"type": "custom", "label": "New!", "url": "/category/new"},
-				{"type": "custom", "label": "About", "url": "/about"},
-				{"type": "custom", "label": "Sale", "url": "/category/sale"}
+				{
+					"type": "custom",
+					"label": "Furniture",
+					"url": "/category/furniture"
+				},
+				{
+					"type": "custom",
+					"label": "Lighting",
+					"url": "/category/lighting"
+				},
+				{
+					"type": "custom",
+					"label": "Accessories",
+					"url": "/category/accessories"
+				},
+				{
+					"type": "custom",
+					"label": "Rugs",
+					"url": "/category/rugs"
+				},
+				{
+					"type": "custom",
+					"label": "Outdoor",
+					"url": "/category/outdoor"
+				},
+				{
+					"type": "custom",
+					"label": "Brands",
+					"url": "/brands"
+				},
+				{
+					"type": "custom",
+					"label": "Designers",
+					"url": "/brands"
+				},
+				{
+					"type": "custom",
+					"label": "New!",
+					"url": "/category/new"
+				},
+				{
+					"type": "custom",
+					"label": "About",
+					"url": "/about"
+				},
+				{
+					"type": "custom",
+					"label": "Sale",
+					"url": "/category/sale"
+				}
 			]
 		}
 	],
@@ -95,13 +233,24 @@
 					"phone": "1.866.663.4483",
 					"hero_image": {
 						"$media": {
-							"url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&h=2200&fit=crop",
-							"alt": "Modern living room with sculptural sofa and warm natural light",
-							"filename": "hive-hero-living.jpg"
+							"url": "https://hivemodern.com/public_resources/home-page-199bdebb58.jpg",
+							"alt": "Modern designer furniture at hive",
+							"filename": "hive-home-hero.jpg"
 						}
 					},
 					"content": [
-						{"_type": "block", "style": "normal", "_key": "h0", "children": [{"_type": "span", "text": "A trusted partner to architects and interior designers who refuse to compromise on quality.", "_key": "h1"}]}
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "h0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A trusted partner to architects and interior designers who refuse to compromise on quality.",
+									"_key": "h1"
+								}
+							]
+						}
 					]
 				}
 			},
@@ -115,8 +264,30 @@
 					"hero_subcopy": "hive connects you with iconic manufacturers and the people who know every detail of the work.",
 					"phone": "1.866.663.4483",
 					"content": [
-						{"_type": "block", "style": "normal", "_key": "a0", "children": [{"_type": "span", "text": "For more than two decades, hive has been a trusted partner to architects and interior designers. We offer expert consultation, project quotes, and dedicated support by phone and email — alongside online trade pricing for immediate access to member benefits.", "_key": "a1"}]},
-						{"_type": "block", "style": "normal", "_key": "a2", "children": [{"_type": "span", "text": "Email info@hivemodern.com and we will respond promptly. Call 1.866.663.4483 to speak with our staff.", "_key": "a3"}]}
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "a0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "For more than two decades, hive has been a trusted partner to architects and interior designers. We offer expert consultation, project quotes, and dedicated support by phone and email — alongside online trade pricing for immediate access to member benefits.",
+									"_key": "a1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "a2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Email info@hivemodern.com and we will respond promptly. Call 1.866.663.4483 to speak with our staff.",
+									"_key": "a3"
+								}
+							]
+						}
 					]
 				}
 			},
@@ -132,7 +303,18 @@
 					"cta_url": "tel:+18666634483",
 					"phone": "1.866.663.4483",
 					"content": [
-						{"_type": "block", "style": "normal", "_key": "t0", "children": [{"_type": "span", "text": "Open a trade account to unlock online pricing across Cassina, Moroso, Flos, Herman Miller, and hundreds more manufacturers. Our team helps with specification, lead times, and project quotes.", "_key": "t1"}]}
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "t0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Open a trade account to unlock online pricing across Cassina, Moroso, Flos, Herman Miller, and hundreds more manufacturers. Our team helps with specification, lead times, and project quotes.",
+									"_key": "t1"
+								}
+							]
+						}
 					]
 				}
 			}
@@ -149,10 +331,33 @@
 					"shipping_note": "Plus Shipping",
 					"featured": true,
 					"summary": "The iconic reclining chaise from Cassina’s Le Corbusier collection — continuous comfort in chrome and hide.",
-					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=1400&h=1600&fit=crop", "alt": "Modern lounge chair in a bright interior", "filename": "lc4-chaise.jpg"}},
-					"content": [{"_type": "block", "style": "normal", "_key": "p0", "children": [{"_type": "span", "text": "Designed in 1928 and produced by Cassina, the LC4 remains a definitive piece of modern seating — adjustable frame, sculptural silhouette, and materials meant to last.", "_key": "p1"}]}]
+					"featured_image": {
+						"$media": {
+							"url": "https://hivemodern.com/public_resources/lounge-chairs-2c54c794f7.jpg",
+							"alt": "LC4 Chaise longue",
+							"filename": "lc4.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "p0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Designed in 1928 and produced by Cassina, the LC4 remains a definitive piece of modern seating — adjustable frame, sculptural silhouette, and materials meant to last.",
+									"_key": "p1"
+								}
+							]
+						}
+					]
 				},
-				"taxonomies": {"brand": ["cassina"]}
+				"taxonomies": {
+					"brand": [
+						"cassina"
+					]
+				}
 			},
 			{
 				"id": "zig-zag",
@@ -165,10 +370,33 @@
 					"shipping_note": "Plus Shipping",
 					"featured": true,
 					"summary": "A continuous plane of wood folded into seating — Rietveld’s radical cantilever for Cassina.",
-					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=1400&h=1600&fit=crop", "alt": "Wooden modern dining chair", "filename": "zig-zag-chair.jpg"}},
-					"content": [{"_type": "block", "style": "normal", "_key": "z0", "children": [{"_type": "span", "text": "Cassina’s Zig Zag is both structure and seat: no legs in the conventional sense, only a Z-shaped cantilever that still feels surprising a century on.", "_key": "z1"}]}]
+					"featured_image": {
+						"$media": {
+							"url": "https://hivemodern.com/public_resources/masters-chair-philippe-starck-thumb-edf1544177.jpg",
+							"alt": "Zig Zag Chair",
+							"filename": "zigzag.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "z0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Cassina’s Zig Zag is both structure and seat: no legs in the conventional sense, only a Z-shaped cantilever that still feels surprising a century on.",
+									"_key": "z1"
+								}
+							]
+						}
+					]
 				},
-				"taxonomies": {"brand": ["cassina"]}
+				"taxonomies": {
+					"brand": [
+						"cassina"
+					]
+				}
 			},
 			{
 				"id": "gogan-sofa",
@@ -181,10 +409,33 @@
 					"shipping_note": "Free Shipping",
 					"featured": true,
 					"summary": "Soft geometry and generous proportions — Urquiola’s Gogan for Moroso.",
-					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1400&h=1600&fit=crop", "alt": "Contemporary green sofa in a loft interior", "filename": "gogan-sofa.jpg"}},
-					"content": [{"_type": "block", "style": "normal", "_key": "g0", "children": [{"_type": "span", "text": "Patricia Urquiola’s Gogan for Moroso balances humanistic comfort with a distinctive silhouette — a signature piece for residential and hospitality interiors.", "_key": "g1"}]}]
+					"featured_image": {
+						"$media": {
+							"url": "https://hivemodern.com/public_resources/sofas-b788340c1d.jpg",
+							"alt": "Gogan 3 Seater Sofa",
+							"filename": "gogan.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "g0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Patricia Urquiola’s Gogan for Moroso balances humanistic comfort with a distinctive silhouette — a signature piece for residential and hospitality interiors.",
+									"_key": "g1"
+								}
+							]
+						}
+					]
 				},
-				"taxonomies": {"brand": ["moroso"]}
+				"taxonomies": {
+					"brand": [
+						"moroso"
+					]
+				}
 			},
 			{
 				"id": "husk-armchair",
@@ -197,10 +448,33 @@
 					"shipping_note": "Free Shipping",
 					"featured": true,
 					"summary": "Layered cushions nested in a molded shell — Moroso’s Husk in its small armchair scale.",
-					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=1400&h=1600&fit=crop", "alt": "Upholstered accent chair against a soft wall", "filename": "husk-armchair.jpg"}},
-					"content": [{"_type": "block", "style": "normal", "_key": "hk0", "children": [{"_type": "span", "text": "Husk pairs a molded shell with removable cushions — informal luxury that has become one of Moroso’s most recognized lounge forms.", "_key": "hk1"}]}]
+					"featured_image": {
+						"$media": {
+							"url": "https://hivemodern.com/public_resources/victoria-ghost-chair-philippe-starck-kartell-thumb-da4b7bc0d8.jpg",
+							"alt": "Husk Armchair",
+							"filename": "husk.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "hk0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Husk pairs a molded shell with removable cushions — informal luxury that has become one of Moroso’s most recognized lounge forms.",
+									"_key": "hk1"
+								}
+							]
+						}
+					]
 				},
-				"taxonomies": {"brand": ["moroso"]}
+				"taxonomies": {
+					"brand": [
+						"moroso"
+					]
+				}
 			},
 			{
 				"id": "eames-lounge",
@@ -213,10 +487,33 @@
 					"shipping_note": "Plus Shipping",
 					"featured": false,
 					"summary": "Molded plywood and leather — the mid-century lounge that still defines the category.",
-					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1400&h=1600&fit=crop", "alt": "Styled modern living room with lounge seating", "filename": "eames-lounge.jpg"}},
-					"content": [{"_type": "block", "style": "normal", "_key": "e0", "children": [{"_type": "span", "text": "Available through hive with trade support for specification and project orders.", "_key": "e1"}]}]
+					"featured_image": {
+						"$media": {
+							"url": "https://hivemodern.com/public_resources/louis-ghost-chair-philippe-starck-kartell-thumb-70f07620f5.jpg",
+							"alt": "Eames Lounge Chair",
+							"filename": "eames.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "e0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Available through hive with trade support for specification and project orders.",
+									"_key": "e1"
+								}
+							]
+						}
+					]
 				},
-				"taxonomies": {"brand": ["herman-miller"]}
+				"taxonomies": {
+					"brand": [
+						"herman-miller"
+					]
+				}
 			},
 			{
 				"id": "arco-lamp",
@@ -229,10 +526,33 @@
 					"shipping_note": "Plus Shipping",
 					"featured": false,
 					"summary": "Carrara marble base and a sweeping steel arc — Flos lighting at its most architectural.",
-					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1400&h=1600&fit=crop", "alt": "Modern floor lamp lighting a minimal interior", "filename": "arco-lamp.jpg"}},
-					"content": [{"_type": "block", "style": "normal", "_key": "ar0", "children": [{"_type": "span", "text": "A Flos classic: marble counterweight, stainless arc, and adjustable shade for dining and living spaces.", "_key": "ar1"}]}]
+					"featured_image": {
+						"$media": {
+							"url": "https://hivemodern.com/public_resources/home-page-376f5a0dcf.jpg",
+							"alt": "Arco Floor Lamp",
+							"filename": "arco.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "ar0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A Flos classic: marble counterweight, stainless arc, and adjustable shade for dining and living spaces.",
+									"_key": "ar1"
+								}
+							]
+						}
+					]
 				},
-				"taxonomies": {"brand": ["flos"]}
+				"taxonomies": {
+					"brand": [
+						"flos"
+					]
+				}
 			}
 		]
 	}
