@@ -195,9 +195,9 @@ p {
 }
 
 .brand-mark__img {
-	height: 48px;
-	width: auto;
-	max-width: 14rem;
+	width: 94px;
+	height: 72px;
+	max-width: none;
 	object-fit: contain;
 	object-position: left center;
 	display: block;
@@ -210,17 +210,17 @@ p {
 }
 
 .brand-e--full {
-	width: auto;
-	height: 48px;
-	aspect-ratio: 188 / 144;
+	width: 94px;
+	height: 72px;
+	aspect-ratio: 94 / 72;
 	object-fit: contain;
 	display: block;
 }
 
 .brand-mark .brand-e--full {
-	height: 48px;
-	width: auto;
-	max-width: 13rem;
+	width: 94px;
+	height: 72px;
+	max-width: none;
 }
 
 .nav-toggle {
@@ -1140,9 +1140,11 @@ p {
 	}
 
 	.brand-mark__img,
-	.brand-mark .brand-e--full {
-		height: 56px;
-		max-width: 15rem;
+	.brand-mark .brand-e--full,
+	.brand-e--full {
+		width: 94px;
+		height: 72px;
+		max-width: none;
 	}
 
 	.site-nav {
