@@ -21,7 +21,13 @@
 			"label": "Products",
 			"labelSingular": "Product",
 			"urlPattern": "/products/{slug}",
-			"supports": ["drafts", "revisions", "preview", "search", "seo"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -155,7 +161,13 @@
 			"label": "Pages",
 			"labelSingular": "Page",
 			"urlPattern": "/{slug}",
-			"supports": ["drafts", "revisions", "preview", "search", "seo"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -195,6 +207,42 @@
 					"type": "string"
 				},
 				{
+					"slug": "phone_secondary",
+					"label": "Secondary Phone",
+					"type": "string"
+				},
+				{
+					"slug": "story_image_path",
+					"label": "Story Image Path",
+					"type": "string"
+				},
+				{
+					"slug": "story_byline",
+					"label": "Story Byline",
+					"type": "string"
+				},
+				{
+					"slug": "faq",
+					"label": "FAQ",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "question",
+								"label": "Question",
+								"type": "string",
+								"required": true
+							},
+							{
+								"slug": "answer",
+								"label": "Answer",
+								"type": "text",
+								"required": true
+							}
+						]
+					}
+				},
+				{
 					"slug": "content",
 					"label": "Content",
 					"type": "portableText",
@@ -207,7 +255,11 @@
 			"label": "Contact & Location",
 			"labelSingular": "Contact",
 			"urlPattern": "/contact",
-			"supports": ["drafts", "revisions", "preview"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -256,7 +308,10 @@
 			"slug": "footer",
 			"label": "Footer",
 			"labelSingular": "Footer",
-			"supports": ["drafts", "revisions"],
+			"supports": [
+				"drafts",
+				"revisions"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -346,7 +401,12 @@
 			"label": "Category Pages",
 			"labelSingular": "Category Page",
 			"urlPattern": "/category/{slug}",
-			"supports": ["drafts", "revisions", "preview", "seo"],
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"seo"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -384,12 +444,26 @@
 			"label": "Brands",
 			"labelSingular": "Brand",
 			"hierarchical": false,
-			"collections": ["products"],
+			"collections": [
+				"products"
+			],
 			"terms": [
-				{ "slug": "cassina", "label": "Cassina" },
-				{ "slug": "moroso", "label": "Moroso" },
-				{ "slug": "flos", "label": "Flos" },
-				{ "slug": "herman-miller", "label": "Herman Miller" }
+				{
+					"slug": "cassina",
+					"label": "Cassina"
+				},
+				{
+					"slug": "moroso",
+					"label": "Moroso"
+				},
+				{
+					"slug": "flos",
+					"label": "Flos"
+				},
+				{
+					"slug": "herman-miller",
+					"label": "Herman Miller"
+				}
 			]
 		},
 		{
@@ -397,7 +471,10 @@
 			"label": "Categories",
 			"labelSingular": "Category",
 			"hierarchical": true,
-			"collections": ["products", "category_pages"],
+			"collections": [
+				"products",
+				"category_pages"
+			],
 			"terms": [
 				{
 					"slug": "furniture",
@@ -598,40 +675,128 @@
 			"name": "primary",
 			"label": "Primary Navigation",
 			"items": [
-				{ "type": "custom", "label": "Furniture", "url": "/category/furniture" },
-				{ "type": "custom", "label": "Lighting", "url": "/category/lighting" },
-				{ "type": "custom", "label": "Accessories", "url": "/category/accessories" },
-				{ "type": "custom", "label": "Rugs", "url": "/category/rugs" },
-				{ "type": "custom", "label": "Outdoor", "url": "/category/outdoor" },
-				{ "type": "custom", "label": "Brands", "url": "/brands" },
-				{ "type": "custom", "label": "Designers", "url": "/brands" },
-				{ "type": "custom", "label": "New!", "url": "/category/new" },
-				{ "type": "custom", "label": "Hakkımızda", "url": "/about" },
-				{ "type": "custom", "label": "Sale", "url": "/category/sale" }
+				{
+					"type": "custom",
+					"label": "Furniture",
+					"url": "/category/furniture"
+				},
+				{
+					"type": "custom",
+					"label": "Lighting",
+					"url": "/category/lighting"
+				},
+				{
+					"type": "custom",
+					"label": "Accessories",
+					"url": "/category/accessories"
+				},
+				{
+					"type": "custom",
+					"label": "Rugs",
+					"url": "/category/rugs"
+				},
+				{
+					"type": "custom",
+					"label": "Outdoor",
+					"url": "/category/outdoor"
+				},
+				{
+					"type": "custom",
+					"label": "Brands",
+					"url": "/brands"
+				},
+				{
+					"type": "custom",
+					"label": "Designers",
+					"url": "/brands"
+				},
+				{
+					"type": "custom",
+					"label": "New!",
+					"url": "/category/new"
+				},
+				{
+					"type": "custom",
+					"label": "Hakkımızda",
+					"url": "/about"
+				},
+				{
+					"type": "custom",
+					"label": "Sale",
+					"url": "/category/sale"
+				}
 			]
 		},
 		{
 			"name": "footer_support",
 			"label": "Footer — Support",
 			"items": [
-				{ "type": "custom", "label": "Hakkımızda", "url": "/about" },
-				{ "type": "custom", "label": "Sales Assistance", "url": "/contact" },
-				{ "type": "custom", "label": "Trade Program", "url": "/trade" },
-				{ "type": "custom", "label": "Swatch Samples", "url": "/products" },
-				{ "type": "custom", "label": "Order Status", "url": "/contact" },
-				{ "type": "custom", "label": "Contact", "url": "/contact" },
-				{ "type": "custom", "label": "FAQ", "url": "/about" },
-				{ "type": "custom", "label": "Policies", "url": "/about" },
-				{ "type": "custom", "label": "Privacy", "url": "/about" },
-				{ "type": "custom", "label": "Cookie Policy", "url": "/about" }
+				{
+					"type": "custom",
+					"label": "Hakkımızda",
+					"url": "/about"
+				},
+				{
+					"type": "custom",
+					"label": "Sales Assistance",
+					"url": "/contact"
+				},
+				{
+					"type": "custom",
+					"label": "Trade Program",
+					"url": "/trade"
+				},
+				{
+					"type": "custom",
+					"label": "Swatch Samples",
+					"url": "/products"
+				},
+				{
+					"type": "custom",
+					"label": "Order Status",
+					"url": "/contact"
+				},
+				{
+					"type": "custom",
+					"label": "Contact",
+					"url": "/contact"
+				},
+				{
+					"type": "custom",
+					"label": "FAQ",
+					"url": "/about"
+				},
+				{
+					"type": "custom",
+					"label": "Policies",
+					"url": "/about"
+				},
+				{
+					"type": "custom",
+					"label": "Privacy",
+					"url": "/about"
+				},
+				{
+					"type": "custom",
+					"label": "Cookie Policy",
+					"url": "/about"
+				}
 			]
 		},
 		{
 			"name": "footer_account",
 			"label": "Footer — Account",
 			"items": [
-				{ "type": "custom", "label": "Sign In", "url": "/_emdash/admin" },
-				{ "type": "custom", "label": "Order History", "url": "/contact" }
+				{
+					"type": "custom",
+					"label": "Sign In",
+					"url": "/_emdash/admin"
+				},
+				{
+					"type": "custom",
+					"label": "Order History",
+					"url": "/contact"
+				}
 			]
 		}
 	],
@@ -749,7 +914,84 @@
 								}
 							]
 						}
-					]
+					],
+					"phone_secondary": "+90 533 631 86 57",
+					"story_image_path": "/modella-about/photo2.jpg",
+					"faq": [
+						{
+							"question": "Teslim süreniz nedir?",
+							"answer": "Teslim süresi sezon yoğunluğuna göre 25 ila 40 gün aralığında değişmektedir."
+						},
+						{
+							"question": "Hangi malzemeler kullanılıyor?",
+							"answer": "Ahşap kısımlarda Mdflam, membran ve lake boya seçeneklerimiz mevcuttur."
+						},
+						{
+							"question": "Tasarım aşaması nasıl ilerliyor?",
+							"answer": "Mağazamızda uzman ekibimiz ile 3d max formatında evinizin öncelikle yerleşim planı hazırlanır, bütçe planlamasının ardından anlaşıldığı takdirde detaylı proje ve sunumlara başlanır."
+						},
+						{
+							"question": "Yurt dışı gönderimleriniz var mıdır?",
+							"answer": "Avrupa ülkelerine özel kurulum hariç, anlaşmalı kapıya teslim firmalar ile gönderim sağlıyoruz."
+						},
+						{
+							"question": "Hangi ürünleri üretebiliyorsunuz?",
+							"answer": "Modern tarzda yatak odaları, giyinme odaları, genç odaları, çalışma odaları, vestiyer, tv üniteleri ve benzeri ürünlerin üretimini yapmaktayız."
+						},
+						{
+							"question": "Ödeme işlemleri nasıl oluyor?",
+							"answer": "Nakit ve kredi kartı taksit seçeneklerimiz mevcuttur."
+						},
+						{
+							"question": "Kurulum ve montaj ekstra ücretli midir?",
+							"answer": "İstanbul içi tüm ilçelerimize ücretsiz kurulum sağlıyoruz. Şehir dışı projelerde ise projenin durumuna göre fiyatlama yapılmaktadır."
+						},
+						{
+							"question": "Ürünleri görebileceğimiz mağazanız nerede?",
+							"answer": "Ürünlerimizi Masko Mobilya Kenti Modella mağazamızda veya sosyal mecralardan görebilirsiniz."
+						},
+						{
+							"question": "Hangi kartlara taksit yapıyorsunuz?",
+							"answer": "Genel olarak tüm kredi kartlarına taksit seçeneklerimiz mevcuttur."
+						},
+						{
+							"question": "Neden Modella Raydolap’ı tercih etmeliyim?",
+							"answer": "Yılların vermiş olduğu tecrübe ile standardın dışında ihtiyacınıza, zevkinize, evinize özel kaliteli ürünler üretiyoruz. Satış sonrası her daim destek sağlıyoruz."
+						},
+						{
+							"question": "Ürünün evimde nasıl duracağını önceden görebilir miyim?",
+							"answer": "Proje taslak onayı sonrasında evinizin, odanızın detaylı 3 boyutlu hali üzerine mobilya yerleşimi yapılıp farklı açılardan resim formatındaki görünümlerini sizlere sunuyoruz."
+						},
+						{
+							"question": "Garanti süreniz nedir? Garanti koşulları neyi kapsar?",
+							"answer": "Mobilyaların yasal olarak garanti süresi 2 yıldır. Ancak Modella Raydolap olarak ürünlerimizin her daim arkasındayız."
+						},
+						{
+							"question": "Ürünler hazır mı? Siparişe özel mi hazırlanıyor?",
+							"answer": "Ürünlerimizin tamamı sizlerin siparişlerine özel olarak hazırlanmaktadır."
+						},
+						{
+							"question": "Renk ve tasarım değişimini ne zamana kadar yapabilirim?",
+							"answer": "Proje onayı sonrasında 2-3 gün için değişim imkanı sunuyoruz."
+						},
+						{
+							"question": "Mobilya yaptırmak istiyorum. Ancak fikir almaya ihtiyacım var. Nasıl yardımcı oluyorsunuz?",
+							"answer": "Sizleri mağazamıza bir kahveye davet edip ihtiyacınıza yönelik, alanlarınıza en uygun şekilde proje taslağı sunuyoruz."
+						},
+						{
+							"question": "Montaj aşaması nasıl oluyor?",
+							"answer": "Ürünler kendi tesisimizde montaja hazır hale getirildikten sonra ambalajlı bir şekilde sipariş teslim tarihinizde yine uzman ekibimiz ile birlikte kurulum ve teslimat gerçekleştirilir."
+						},
+						{
+							"question": "Renk seçeneklerimiz nelerdir?",
+							"answer": "Zevkinize uyacak yüzlerce ahşap ve kumaş seçeneklerimiz mevcuttur."
+						},
+						{
+							"question": "Ürünleri tekli alabilir miyiz? Yurt içi her yere gönderim yapıyor musunuz?",
+							"answer": "Öncelikli olarak İstanbul iline, projenin durumuna göre ise çevre illere hizmet sağlıyoruz."
+						}
+					],
+					"story_byline": "by _ cihangir yaşar"
 				}
 			},
 			{
@@ -833,7 +1075,11 @@
 					"tile_image_path": "/hive-samples/furniture-hero.jpg",
 					"hero_alt": "Modern designer furniture"
 				},
-				"taxonomies": { "category": ["furniture"] }
+				"taxonomies": {
+					"category": [
+						"furniture"
+					]
+				}
 			},
 			{
 				"id": "cp-seating",
@@ -846,7 +1092,11 @@
 					"tile_image_path": "/hive-samples/seating.jpg",
 					"hero_alt": "Seating"
 				},
-				"taxonomies": { "category": ["seating"] }
+				"taxonomies": {
+					"category": [
+						"seating"
+					]
+				}
 			},
 			{
 				"id": "cp-tables-desks",
@@ -859,7 +1109,11 @@
 					"tile_image_path": "/hive-samples/tables-desks.jpg",
 					"hero_alt": "Tables & Desks"
 				},
-				"taxonomies": { "category": ["tables-desks"] }
+				"taxonomies": {
+					"category": [
+						"tables-desks"
+					]
+				}
 			},
 			{
 				"id": "cp-shelving-storage",
@@ -872,7 +1126,11 @@
 					"tile_image_path": "/hive-samples/shelving.jpg",
 					"hero_alt": "Shelving & Storage"
 				},
-				"taxonomies": { "category": ["shelving-storage"] }
+				"taxonomies": {
+					"category": [
+						"shelving-storage"
+					]
+				}
 			},
 			{
 				"id": "cp-bedroom",
@@ -885,7 +1143,11 @@
 					"tile_image_path": "/hive-samples/bedroom.jpg",
 					"hero_alt": "Bedroom Furniture"
 				},
-				"taxonomies": { "category": ["bedroom"] }
+				"taxonomies": {
+					"category": [
+						"bedroom"
+					]
+				}
 			},
 			{
 				"id": "cp-lighting",
@@ -898,7 +1160,11 @@
 					"tile_image_path": "/hive-samples/lighting-hero.jpg",
 					"hero_alt": "Modern lighting"
 				},
-				"taxonomies": { "category": ["lighting"] }
+				"taxonomies": {
+					"category": [
+						"lighting"
+					]
+				}
 			},
 			{
 				"id": "cp-floor-lamps",
@@ -911,7 +1177,11 @@
 					"tile_image_path": "/hive-samples/lighting-hero.jpg",
 					"hero_alt": "Floor Lamps"
 				},
-				"taxonomies": { "category": ["floor-lamps"] }
+				"taxonomies": {
+					"category": [
+						"floor-lamps"
+					]
+				}
 			},
 			{
 				"id": "cp-table-lamps",
@@ -924,7 +1194,11 @@
 					"tile_image_path": "/hive-samples/candle-holders.jpg",
 					"hero_alt": "Table Lamps"
 				},
-				"taxonomies": { "category": ["table-lamps"] }
+				"taxonomies": {
+					"category": [
+						"table-lamps"
+					]
+				}
 			},
 			{
 				"id": "cp-pendants",
@@ -937,7 +1211,11 @@
 					"tile_image_path": "/hive-samples/decorative-vases.jpg",
 					"hero_alt": "Pendants"
 				},
-				"taxonomies": { "category": ["pendants"] }
+				"taxonomies": {
+					"category": [
+						"pendants"
+					]
+				}
 			},
 			{
 				"id": "cp-wall-sconces",
@@ -950,7 +1228,11 @@
 					"tile_image_path": "/hive-samples/mirrors.jpg",
 					"hero_alt": "Wall Sconces"
 				},
-				"taxonomies": { "category": ["wall-sconces"] }
+				"taxonomies": {
+					"category": [
+						"wall-sconces"
+					]
+				}
 			},
 			{
 				"id": "cp-accessories",
@@ -963,7 +1245,11 @@
 					"tile_image_path": "/hive-samples/accessories-hero.jpg",
 					"hero_alt": "Modern home accessories"
 				},
-				"taxonomies": { "category": ["accessories"] }
+				"taxonomies": {
+					"category": [
+						"accessories"
+					]
+				}
 			},
 			{
 				"id": "cp-home-accessories",
@@ -976,7 +1262,11 @@
 					"tile_image_path": "/hive-samples/home-accessories.jpg",
 					"hero_alt": "Home Accessories"
 				},
-				"taxonomies": { "category": ["home-accessories"] }
+				"taxonomies": {
+					"category": [
+						"home-accessories"
+					]
+				}
 			},
 			{
 				"id": "cp-kitchen-dining",
@@ -989,7 +1279,11 @@
 					"tile_image_path": "/hive-samples/kitchen-dining.jpg",
 					"hero_alt": "Kitchen & Dining"
 				},
-				"taxonomies": { "category": ["kitchen-dining"] }
+				"taxonomies": {
+					"category": [
+						"kitchen-dining"
+					]
+				}
 			},
 			{
 				"id": "cp-organization-office",
@@ -1002,7 +1296,11 @@
 					"tile_image_path": "/hive-samples/organization-office.jpg",
 					"hero_alt": "Organization & Office"
 				},
-				"taxonomies": { "category": ["organization-office"] }
+				"taxonomies": {
+					"category": [
+						"organization-office"
+					]
+				}
 			},
 			{
 				"id": "cp-clocks",
@@ -1015,7 +1313,11 @@
 					"tile_image_path": "/hive-samples/clocks.jpg",
 					"hero_alt": "Clocks"
 				},
-				"taxonomies": { "category": ["clocks"] }
+				"taxonomies": {
+					"category": [
+						"clocks"
+					]
+				}
 			},
 			{
 				"id": "cp-pillows-blankets",
@@ -1028,7 +1330,11 @@
 					"tile_image_path": "/hive-samples/pillows-blankets.jpg",
 					"hero_alt": "Pillows & Blankets"
 				},
-				"taxonomies": { "category": ["pillows-blankets"] }
+				"taxonomies": {
+					"category": [
+						"pillows-blankets"
+					]
+				}
 			},
 			{
 				"id": "cp-candle-holders",
@@ -1041,7 +1347,11 @@
 					"tile_image_path": "/hive-samples/candle-holders.jpg",
 					"hero_alt": "Candle Holders"
 				},
-				"taxonomies": { "category": ["candle-holders"] }
+				"taxonomies": {
+					"category": [
+						"candle-holders"
+					]
+				}
 			},
 			{
 				"id": "cp-planters",
@@ -1054,7 +1364,11 @@
 					"tile_image_path": "/hive-samples/planters.jpg",
 					"hero_alt": "Planters"
 				},
-				"taxonomies": { "category": ["planters"] }
+				"taxonomies": {
+					"category": [
+						"planters"
+					]
+				}
 			},
 			{
 				"id": "cp-decorative-vases",
@@ -1067,7 +1381,11 @@
 					"tile_image_path": "/hive-samples/decorative-vases.jpg",
 					"hero_alt": "Decorative Vases & Bowls"
 				},
-				"taxonomies": { "category": ["decorative-vases"] }
+				"taxonomies": {
+					"category": [
+						"decorative-vases"
+					]
+				}
 			},
 			{
 				"id": "cp-coat-racks",
@@ -1080,7 +1398,11 @@
 					"tile_image_path": "/hive-samples/coat-racks.jpg",
 					"hero_alt": "Coat Racks"
 				},
-				"taxonomies": { "category": ["coat-racks"] }
+				"taxonomies": {
+					"category": [
+						"coat-racks"
+					]
+				}
 			},
 			{
 				"id": "cp-mirrors",
@@ -1093,7 +1415,11 @@
 					"tile_image_path": "/hive-samples/mirrors.jpg",
 					"hero_alt": "Mirrors"
 				},
-				"taxonomies": { "category": ["mirrors"] }
+				"taxonomies": {
+					"category": [
+						"mirrors"
+					]
+				}
 			},
 			{
 				"id": "cp-fireplace",
@@ -1106,7 +1432,11 @@
 					"tile_image_path": "/hive-samples/fireplace.jpg",
 					"hero_alt": "Fireplace"
 				},
-				"taxonomies": { "category": ["fireplace"] }
+				"taxonomies": {
+					"category": [
+						"fireplace"
+					]
+				}
 			},
 			{
 				"id": "cp-vitra-miniatures",
@@ -1119,7 +1449,11 @@
 					"tile_image_path": "/hive-samples/vitra-miniatures.jpg",
 					"hero_alt": "Miniatures by Vitra"
 				},
-				"taxonomies": { "category": ["vitra-miniatures"] }
+				"taxonomies": {
+					"category": [
+						"vitra-miniatures"
+					]
+				}
 			},
 			{
 				"id": "cp-rugs",
@@ -1132,7 +1466,11 @@
 					"tile_image_path": "/hive-samples/rugs-tile.jpg",
 					"hero_alt": "Modern rugs"
 				},
-				"taxonomies": { "category": ["rugs"] }
+				"taxonomies": {
+					"category": [
+						"rugs"
+					]
+				}
 			},
 			{
 				"id": "cp-area-rugs",
@@ -1145,7 +1483,11 @@
 					"tile_image_path": "/hive-samples/rugs-tile.jpg",
 					"hero_alt": "Area Rugs"
 				},
-				"taxonomies": { "category": ["area-rugs"] }
+				"taxonomies": {
+					"category": [
+						"area-rugs"
+					]
+				}
 			},
 			{
 				"id": "cp-runners",
@@ -1158,7 +1500,11 @@
 					"tile_image_path": "/hive-samples/pillows-blankets.jpg",
 					"hero_alt": "Runners"
 				},
-				"taxonomies": { "category": ["runners"] }
+				"taxonomies": {
+					"category": [
+						"runners"
+					]
+				}
 			},
 			{
 				"id": "cp-outdoor-rugs",
@@ -1171,7 +1517,11 @@
 					"tile_image_path": "/hive-samples/outdoor-seating.jpg",
 					"hero_alt": "Outdoor Rugs"
 				},
-				"taxonomies": { "category": ["outdoor-rugs"] }
+				"taxonomies": {
+					"category": [
+						"outdoor-rugs"
+					]
+				}
 			},
 			{
 				"id": "cp-outdoor",
@@ -1184,7 +1534,11 @@
 					"tile_image_path": "/hive-samples/outdoor-seating.jpg",
 					"hero_alt": "Outdoor furniture"
 				},
-				"taxonomies": { "category": ["outdoor"] }
+				"taxonomies": {
+					"category": [
+						"outdoor"
+					]
+				}
 			},
 			{
 				"id": "cp-outdoor-seating",
@@ -1197,7 +1551,11 @@
 					"tile_image_path": "/hive-samples/outdoor-seating.jpg",
 					"hero_alt": "Outdoor Seating"
 				},
-				"taxonomies": { "category": ["outdoor-seating"] }
+				"taxonomies": {
+					"category": [
+						"outdoor-seating"
+					]
+				}
 			},
 			{
 				"id": "cp-outdoor-tables",
@@ -1210,7 +1568,11 @@
 					"tile_image_path": "/hive-samples/outdoor-tables.jpg",
 					"hero_alt": "Outdoor Tables"
 				},
-				"taxonomies": { "category": ["outdoor-tables"] }
+				"taxonomies": {
+					"category": [
+						"outdoor-tables"
+					]
+				}
 			},
 			{
 				"id": "cp-outdoor-lighting",
@@ -1223,7 +1585,11 @@
 					"tile_image_path": "/hive-samples/lighting-hero.jpg",
 					"hero_alt": "Outdoor Lighting"
 				},
-				"taxonomies": { "category": ["outdoor-lighting"] }
+				"taxonomies": {
+					"category": [
+						"outdoor-lighting"
+					]
+				}
 			},
 			{
 				"id": "cp-sale",
@@ -1236,7 +1602,11 @@
 					"tile_image_path": "/hive-samples/home-hero-2.jpg",
 					"hero_alt": "Sale selection"
 				},
-				"taxonomies": { "category": ["sale"] }
+				"taxonomies": {
+					"category": [
+						"sale"
+					]
+				}
 			},
 			{
 				"id": "cp-new",
@@ -1249,7 +1619,11 @@
 					"tile_image_path": "/hive-samples/home-hero-3.jpg",
 					"hero_alt": "New arrivals"
 				},
-				"taxonomies": { "category": ["new"] }
+				"taxonomies": {
+					"category": [
+						"new"
+					]
+				}
 			}
 		],
 		"products": [
@@ -1330,8 +1704,13 @@
 					]
 				},
 				"taxonomies": {
-					"brand": ["cassina"],
-					"category": ["furniture", "seating"]
+					"brand": [
+						"cassina"
+					],
+					"category": [
+						"furniture",
+						"seating"
+					]
 				}
 			},
 			{
@@ -1401,8 +1780,13 @@
 					]
 				},
 				"taxonomies": {
-					"brand": ["cassina"],
-					"category": ["furniture", "seating"]
+					"brand": [
+						"cassina"
+					],
+					"category": [
+						"furniture",
+						"seating"
+					]
 				}
 			},
 			{
@@ -1472,8 +1856,13 @@
 					]
 				},
 				"taxonomies": {
-					"brand": ["moroso"],
-					"category": ["furniture", "seating"]
+					"brand": [
+						"moroso"
+					],
+					"category": [
+						"furniture",
+						"seating"
+					]
 				}
 			},
 			{
@@ -1545,8 +1934,13 @@
 					]
 				},
 				"taxonomies": {
-					"brand": ["moroso"],
-					"category": ["furniture", "seating"]
+					"brand": [
+						"moroso"
+					],
+					"category": [
+						"furniture",
+						"seating"
+					]
 				}
 			},
 			{
@@ -1616,8 +2010,14 @@
 					]
 				},
 				"taxonomies": {
-					"brand": ["herman-miller"],
-					"category": ["furniture", "seating", "new"]
+					"brand": [
+						"herman-miller"
+					],
+					"category": [
+						"furniture",
+						"seating",
+						"new"
+					]
 				}
 			},
 			{
@@ -1678,8 +2078,14 @@
 					]
 				},
 				"taxonomies": {
-					"brand": ["flos"],
-					"category": ["lighting", "floor-lamps", "sale"]
+					"brand": [
+						"flos"
+					],
+					"category": [
+						"lighting",
+						"floor-lamps",
+						"sale"
+					]
 				}
 			}
 		]

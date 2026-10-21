@@ -9,37 +9,69 @@ const { entry: page } = await getEmDashEntry("pages", "about");
 const contact = await resolveSiteContact();
 const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
 
-/** Prefer CMS portable text paragraphs when present; else Modella source copy. */
-const storyParagraphs: string[] = [];
-if (page?.data.content && Array.isArray(page.data.content)) {
-	for (const block of page.data.content as Array<{
+const data = (page?.data ?? {}) as typeof page.data & {
+	phone_secondary?: string;
+	story_image_path?: string;
+	story_byline?: string;
+	faq?: Array<{ question?: string; answer?: string }>;
+};
+
+function storyFromContent(content: unknown): string[] {
+	if (typeof content === "string") {
+		return content
+			.split(/\n{2,}/)
+			.map((part) => part.replace(/\s+/g, " ").trim())
+			.filter(Boolean);
+	}
+	if (!Array.isArray(content)) return [];
+	const out: string[] = [];
+	for (const block of content as Array<{
 		_type?: string;
 		children?: Array<{ text?: string }>;
 	}>) {
 		if (block?._type !== "block") continue;
 		const text = (block.children ?? []).map((c) => c.text ?? "").join("").trim();
-		if (text) storyParagraphs.push(text);
+		if (text) out.push(text);
 	}
-}
-if (storyParagraphs.length === 0) {
-	storyParagraphs.push(
-		"Raydolap Modella olarak markalaşan firmamız ilk 1999 yılında kurulmuş olup, sektörde kişiye özel mobilya üretimi olarak hizmet vermeye başlamıştır.",
-		"Yıllar içinde daima yenilikçilik anlayışı ile sürekli kendine değer katmayı başarmıştır.",
-		"2008’li yıllarda 3 boyutlu tasarım, proje ve uygulamayı gerçekleştirmiştir.",
-		"Müşteri memnuniyeti ve ilklere imza atmayı hedefleyen firmamız dünde olduğu gibi bugün ve yarınlar için daha da kaliteli hizmet sağlamayı hedeflemektedir.",
-		"Üretim bandı tamamen kendi bünyemizde olup, uzman ekip ve kadromuzla yılların vermiş olduğu profesyonellik ve tecrübemizle öncelikle siz değerli müşterilerimiz için kaliteli yaşam alanları oluşturmaya ve yeniliklere imza atmaya devam edeceğiz.",
-	);
+	return out;
 }
 
-const headline = page?.data.hero_headline ?? "Hakkımızda";
-const phoneDisplay = page?.data.phone || contact.phone;
-const phone2 = "+90 533 631 86 57";
+const fallbackStory = [
+	"Raydolap Modella olarak markalaşan firmamız ilk 1999 yılında kurulmuş olup, sektörde kişiye özel mobilya üretimi olarak hizmet vermeye başlamıştır.",
+	"Yıllar içinde daima yenilikçilik anlayışı ile sürekli kendine değer katmayı başarmıştır.",
+	"2008’li yıllarda 3 boyutlu tasarım, proje ve uygulamayı gerçekleştirmiştir.",
+	"Müşteri memnuniyeti ve ilklere imza atmayı hedefleyen firmamız dünde olduğu gibi bugün ve yarınlar için daha da kaliteli hizmet sağlamayı hedeflemektedir.",
+	"Üretim bandı tamamen kendi bünyemizde olup, uzman ekip ve kadromuzla yılların vermiş olduğu profesyonellik ve tecrübemizle öncelikle siz değerli müşterilerimiz için kaliteli yaşam alanları oluşturmaya ve yeniliklere imza atmaya devam edeceğiz.",
+];
+
+const storyParagraphs = storyFromContent(data.content);
+const paragraphs = storyParagraphs.length > 0 ? storyParagraphs : fallbackStory;
+
+const headline = data.hero_headline || "Hakkımızda";
+const pageTitle = data.title || "Hakkımızda";
+const phoneDisplay = data.phone || contact.phone;
+const phone2 = data.phone_secondary || "+90 533 631 86 57";
 const email = contact.email || "cihangirysr@gmail.com";
+const byline = data.story_byline || "by _ cihangir yaşar";
+const storyImage = data.story_image_path || "/modella-about/photo2.jpg";
+const heroSrc =
+	(typeof data.hero_image === "object" && data.hero_image?.src) ||
+	"/modella-about/hero.jpg";
+
+const cmsFaq = Array.isArray(data.faq)
+	? data.faq
+			.map((item) => ({
+				q: typeof item?.question === "string" ? item.question.trim() : "",
+				a: typeof item?.answer === "string" ? item.answer.trim() : "",
+			}))
+			.filter((item) => item.q && item.a)
+	: [];
+const faqItems = cmsFaq.length > 0 ? cmsFaq : aboutFaq;
 ---
 
 <Base
 	title={`Hakkımızda — ${siteTitle}`}
-	description={storyParagraphs[0]}
+	description={paragraphs[0]}
 	phone={phoneDisplay}
 	fullBleed
 	content={page ? { collection: "pages", id: page.data.id, slug: "about" } : undefined}
@@ -48,8 +80,9 @@ const email = contact.email || "cihangirysr@gmail.com";
 		<section class="about-hero">
 			<div
 				class="about-hero__media"
-				style="background-image:url('/modella-about/hero.jpg')"
+				style={`background-image:url('${heroSrc}')`}
 				aria-hidden="true"
+				{...page?.edit.hero_image}
 			>
 			</div>
 			<div class="about-hero__veil" aria-hidden="true"></div>
@@ -61,23 +94,23 @@ const email = contact.email || "cihangirysr@gmail.com";
 					width="488"
 					height="151"
 				/>
-				<p class="about-hero__eyebrow">{page?.data.title ?? "Hakkımızda"}</p>
+				<p class="about-hero__eyebrow" {...page?.edit.title}>{pageTitle}</p>
 			</div>
 		</section>
 
 		<section class="about-story">
 			<div class="about-story__inner">
 				<div class="about-story__photo">
-					<img src="/modella-about/photo2.jpg" alt="Modella mağaza" loading="lazy" />
+					<img src={storyImage} alt="Modella mağaza" loading="lazy" />
 				</div>
 				<div class="about-story__text">
 					<h1 {...page?.edit.hero_headline}>{headline}</h1>
 					{
-						storyParagraphs.map((p, i) => (
+						paragraphs.map((p, i) => (
 							<p {...(i === 0 ? page?.edit.content : undefined)}>{p}</p>
 						))
 					}
-					<p class="about-story__byline">by _ cihangir yaşar</p>
+					<p class="about-story__byline">{byline}</p>
 				</div>
 			</div>
 		</section>
@@ -87,7 +120,7 @@ const email = contact.email || "cihangirysr@gmail.com";
 				<h2 class="about-faq__title">Sık Sorulan Sorular</h2>
 				<div class="about-faq__list">
 					{
-						aboutFaq.map((item, i) => (
+						faqItems.map((item, i) => (
 							<details class="about-faq__item" open={i === 0}>
 								<summary>{item.q}</summary>
 								<p>{item.a}</p>

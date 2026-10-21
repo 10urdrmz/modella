@@ -33,6 +33,10 @@ export interface Page {
   cta_label?: string;
   cta_url?: string;
   phone?: string;
+  phone_secondary?: string;
+  story_image_path?: string;
+  story_byline?: string;
+  faq?: Array<{ question: string; answer: string }>;
   content?: PortableTextBlock[];
   createdAt: Date;
   updatedAt: Date;

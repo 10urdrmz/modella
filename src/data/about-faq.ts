@@ -1,4 +1,4 @@
-/** FAQ copied from modellaraydolap.com/hakkımızda — editable later via CMS if needed. */
+/** Fallback FAQ from modellaraydolap.com/hakkımızda when Pages → about → faq is empty. */
 export type FaqItem = { q: string; a: string };
 
 export const aboutFaq: FaqItem[] = [
