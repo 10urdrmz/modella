@@ -1,45 +1,60 @@
 ---
-import { getEmDashCollection, getEntriesByTerm, getSiteSettings } from "emdash";
+import {
+	getEmDashCollection,
+	getEmDashEntry,
+	getEntriesByTerm,
+	getSiteSettings,
+	getTaxonomyTerms,
+} from "emdash";
 import Base from "../../layouts/Base.astro";
 import ProductCard from "../../components/ProductCard.astro";
 import HoneycombIcon from "../../components/HoneycombIcon.astro";
-import { getCatalogCategory } from "../../data/catalog";
+import {
+	findCategoryInTree,
+	indexCategoryPages,
+} from "../../utils/categories";
 import { resolveStarterSiteIdentity } from "../../utils/site-identity";
 
 const slug = Astro.params.slug;
 if (!slug) return Astro.rewrite("/404");
 
-const match = getCatalogCategory(slug);
+const terms = await getTaxonomyTerms("category", { includeCounts: false });
+const match = findCategoryInTree(terms, slug);
 if (!match) return Astro.rewrite("/404");
 
-const { category, parent, child } = match;
-const isHub = !child;
-const title = child?.label ?? category.label;
-const lede = child
-	? `Shop ${child.label.toLowerCase()} from the designers and manufacturers architects trust.`
-	: category.lede;
+const { term, parent, hub } = match;
+const isHub = !parent;
+const children = term.children ?? [];
+
+const { entry: pageEntry } = await getEmDashEntry("category_pages", slug);
+const { entries: allCategoryPages } = await getEmDashCollection("category_pages", {
+	limit: 200,
+});
+const pageBySlug = indexCategoryPages(allCategoryPages);
+const pageData = pageEntry?.data ?? pageBySlug.get(slug);
+
+const title = pageData?.title ?? term.label;
+const lede =
+	pageData?.lede ??
+	term.description ??
+	(parent
+		? `Shop ${term.label.toLowerCase()} from the designers and manufacturers architects trust.`
+		: "");
+const heroImage = pageData?.hero_image_path ?? null;
 
 const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
 
 let products: Awaited<ReturnType<typeof getEmDashCollection>>["entries"] = [];
 try {
-	if (isHub) {
+	products = await getEntriesByTerm("products", "category", slug, {
+		limit: isHub ? 24 : 48,
+	});
+	if (products.length === 0 && isHub) {
 		const { entries } = await getEmDashCollection("products", {
 			orderBy: { published_at: "desc" },
-			limit: 24,
+			limit: 12,
 		});
 		products = entries;
-	} else {
-		products = await getEntriesByTerm("products", "category", slug, {
-			limit: 48,
-		});
-		if (products.length === 0) {
-			const { entries } = await getEmDashCollection("products", {
-				orderBy: { published_at: "desc" },
-				limit: 12,
-			});
-			products = entries;
-		}
 	}
 } catch {
 	const { entries } = await getEmDashCollection("products", {
@@ -49,28 +64,42 @@ try {
 	products = entries;
 }
 
-const sidebarItems = category.children;
-const heroImage = child?.image ?? category.heroImage;
-const showSubgrid = isHub && category.children.length > 0;
+const sidebarItems = isHub ? children : (hub.children ?? []);
+const sidebarParent = isHub ? term : hub;
+const showSubgrid = isHub && children.length > 0;
+
+const childTiles = children.map((child) => {
+	const meta = pageBySlug.get(child.slug);
+	return {
+		slug: child.slug,
+		label: meta?.title ?? child.label,
+		image: meta?.tile_image_path ?? meta?.hero_image_path ?? null,
+	};
+});
 ---
 
 <Base
 	title={`${title} — ${siteTitle}`}
 	description={lede}
-	activeNav={category.slug === "sale" ? "Sale" : category.label === "New!" ? "New!" : category.label}
+	activeNav={hub.slug === "sale" ? "Sale" : hub.label === "New!" ? "New!" : hub.label}
+	content={
+		pageEntry
+			? { collection: "category_pages", id: pageEntry.data.id, slug }
+			: undefined
+	}
 >
 	<nav class="crumb" aria-label="Breadcrumb">
 		<a href="/">Home</a>
 		<span aria-hidden="true">›</span>
 		{
-			child ? (
+			parent ? (
 				<>
-					<a href={`/category/${category.slug}`}>{category.label}</a>
+					<a href={`/category/${hub.slug}`}>{hub.label}</a>
 					<span aria-hidden="true">›</span>
-					<span>{child.label}</span>
+					<span>{term.label}</span>
 				</>
 			) : (
-				<span>{category.label}</span>
+				<span>{term.label}</span>
 			)
 		}
 	</nav>
@@ -82,8 +111,8 @@ const showSubgrid = isHub && category.children.length > 0;
 		<div class="cat-hero__veil" aria-hidden="true"></div>
 		<div class="cat-hero__copy">
 			<p class="cat-hero__mark"><HoneycombIcon /></p>
-			<h1>{title}</h1>
-			<p>{lede}</p>
+			<h1 {...pageEntry?.edit.title}>{title}</h1>
+			<p {...pageEntry?.edit.lede}>{lede}</p>
 		</div>
 	</section>
 
@@ -103,14 +132,14 @@ const showSubgrid = isHub && category.children.length > 0;
 			<nav class="cat-tree">
 				<a
 					class:list={["cat-tree__parent", { "is-active": isHub }]}
-					href={`/category/${category.slug}`}
+					href={`/category/${sidebarParent.slug}`}
 				>
-					{category.label}
+					{sidebarParent.label}
 				</a>
 				{
 					sidebarItems.map((item) => (
 						<a
-							class:list={["cat-tree__child", { "is-active": child?.slug === item.slug }]}
+							class:list={["cat-tree__child", { "is-active": term.slug === item.slug }]}
 							href={`/category/${item.slug}`}
 						>
 							{item.label}
@@ -129,7 +158,7 @@ const showSubgrid = isHub && category.children.length > 0;
 			{
 				showSubgrid ? (
 					<div class="subcat-grid">
-						{category.children.map((item) => (
+						{childTiles.map((item) => (
 							<a class="subcat-tile" href={`/category/${item.slug}`}>
 								<div class="subcat-tile__media">
 									{item.image ? (

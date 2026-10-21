@@ -5,6 +5,23 @@
 
 import type { BylineSummary, ContentBylineCredit, TaxonomyTerm, PortableTextBlock } from "emdash";
 
+export interface CategoryPage {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  lede?: string;
+  hero_image_path?: string;
+  tile_image_path?: string;
+  hero_alt?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
 export interface Page {
   id: string;
   slug: string | null;
@@ -47,6 +64,7 @@ export interface Product {
 
 declare module "emdash" {
   interface EmDashCollections {
+    category_pages: CategoryPage;
     pages: Page;
     products: Product;
   }

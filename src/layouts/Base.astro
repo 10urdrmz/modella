@@ -1,5 +1,5 @@
 ---
-import { getSiteSettingsWithCacheHint } from "emdash";
+import { getMenuWithCacheHint, getSiteSettingsWithCacheHint } from "emdash";
 import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
 import {
@@ -36,8 +36,10 @@ const {
 	activeNav = null,
 } = Astro.props;
 const settingsResult = await getSiteSettingsWithCacheHint();
+const menuResult = await getMenuWithCacheHint("primary");
 if (Astro.cache?.enabled) {
 	Astro.cache.set(settingsResult.cacheHint);
+	if (menuResult.cacheHint) Astro.cache.set(menuResult.cacheHint);
 }
 
 const { siteTitle, siteTagline, siteLogo } = resolveStarterSiteIdentity(
@@ -51,22 +53,12 @@ const fullTitle = titleIncludesSiteName ? title : `${title} — ${siteTitle}`;
 const pageDescription = description ?? siteTagline;
 const displayPhone = phone?.trim() || DEFAULT_PHONE;
 
-/** Hive primary nav — category hubs match hivemodern.com structure */
-const defaultNav = [
-	{ label: "Furniture", url: "/category/furniture", sale: false },
-	{ label: "Lighting", url: "/category/lighting", sale: false },
-	{ label: "Accessories", url: "/category/accessories", sale: false },
-	{ label: "Rugs", url: "/category/rugs", sale: false },
-	{ label: "Outdoor", url: "/category/outdoor", sale: false },
-	{ label: "Brands", url: "/brands", sale: false },
-	{ label: "Designers", url: "/brands", sale: false },
-	{ label: "New!", url: "/category/new", sale: false },
-	{ label: "About", url: "/about", sale: false },
-	{ label: "Sale", url: "/category/sale", sale: true },
-];
-
-// Prefer structured hive nav; CMS menu can refine later in admin
-const navItems = defaultNav;
+/** Primary nav from EmDash admin (Menus → Primary Navigation) */
+const navItems = (menuResult.data?.items ?? []).map((item) => ({
+	label: item.label,
+	url: item.url || "#",
+	sale: item.label.toLowerCase() === "sale",
+}));
 
 const pageCtx = createPublicPageContext({
 	Astro,
