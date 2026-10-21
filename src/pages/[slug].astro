@@ -33,9 +33,19 @@ const pagePhone = page.data.phone || contact?.phone || null;
 	description={seo.description}
 	canonical={seo.canonical}
 	phone={pagePhone}
+	fullBleed={Boolean(page.data.hero_image)}
 	content={{ collection: "pages", id: page.data.id, slug }}
 >
 	<article>
+		{
+			page.data.hero_image && (
+				<section class="page-hero-media" aria-label="Hero">
+					<div class="page-hero-media__frame" {...page.edit.hero_image}>
+						<Image image={page.data.hero_image} priority />
+					</div>
+				</section>
+			)
+		}
 		<div class="page-hero">
 			{
 				page.data.hero_headline ? (
@@ -73,15 +83,6 @@ const pagePhone = page.data.phone || contact?.phone || null;
 				)
 			}
 		</div>
-		{
-			page.data.hero_image && (
-				<section class="section" style="padding-top:0">
-					<div class="product-tile__media" style="max-width:48rem" {...page.edit.hero_image}>
-						<Image image={page.data.hero_image} />
-					</div>
-				</section>
-			)
-		}
 		<section class="section prose" style="padding-top:0">
 			<PortableText value={page.data.content} />
 		</section>

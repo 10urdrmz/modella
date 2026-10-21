@@ -809,8 +809,30 @@ p {
 	margin: 0;
 }
 
+.page-hero-media {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: var(--mist);
+}
+
+.page-hero-media__frame {
+	width: 100%;
+	max-height: min(72vh, 40rem);
+	overflow: hidden;
+	aspect-ratio: 16 / 9;
+}
+
+.page-hero-media__frame :global(img),
+.page-hero-media__frame img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
 .page-hero {
-	padding: var(--space-5) 1.15rem var(--space-3);
+	padding: var(--space-4) 1.15rem var(--space-3);
 	max-width: var(--max);
 	margin: 0 auto;
 }
