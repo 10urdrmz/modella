@@ -297,6 +297,17 @@ const pageCtx = createPublicPageContext({
 			const toggle = document.querySelector("[data-nav-toggle]");
 			const nav = document.querySelector("[data-nav]");
 			const megaItems = document.querySelectorAll("[data-mega-item]");
+			const desktopMq = window.matchMedia("(min-width: 900px)");
+			let closeTimer: ReturnType<typeof setTimeout> | null = null;
+
+			const isDesktop = () => desktopMq.matches;
+
+			const clearCloseTimer = () => {
+				if (closeTimer) {
+					clearTimeout(closeTimer);
+					closeTimer = null;
+				}
+			};
 
 			const closeAllMega = (except?: Element | null) => {
 				megaItems.forEach((item) => {
@@ -310,12 +321,18 @@ const pageCtx = createPublicPageContext({
 			};
 
 			const openMega = (item: Element) => {
+				clearCloseTimer();
 				closeAllMega(item);
 				item.classList.add("is-open");
 				const trigger = item.querySelector("[data-mega-trigger]");
 				const panel = item.querySelector("[data-mega-panel]");
 				trigger?.setAttribute("aria-expanded", "true");
 				if (panel instanceof HTMLElement) panel.hidden = false;
+			};
+
+			const scheduleClose = () => {
+				clearCloseTimer();
+				closeTimer = setTimeout(() => closeAllMega(), 160);
 			};
 
 			toggle?.addEventListener("click", () => {
@@ -327,9 +344,10 @@ const pageCtx = createPublicPageContext({
 
 			megaItems.forEach((item) => {
 				const trigger = item.querySelector("[data-mega-trigger]");
+				const panel = item.querySelector("[data-mega-panel]");
+
 				trigger?.addEventListener("click", (event) => {
-					const isDesktop = window.matchMedia("(min-width: 900px)").matches;
-					if (isDesktop) return;
+					if (isDesktop()) return;
 					event.preventDefault();
 					const willOpen = !item.classList.contains("is-open");
 					if (willOpen) openMega(item);
@@ -337,18 +355,32 @@ const pageCtx = createPublicPageContext({
 				});
 
 				item.addEventListener("mouseenter", () => {
-					if (window.matchMedia("(min-width: 900px)").matches) openMega(item);
+					if (isDesktop()) openMega(item);
 				});
 				item.addEventListener("mouseleave", () => {
-					if (window.matchMedia("(min-width: 900px)").matches) closeAllMega();
+					if (isDesktop()) scheduleClose();
 				});
 				item.addEventListener("focusin", () => {
-					if (window.matchMedia("(min-width: 900px)").matches) openMega(item);
+					if (isDesktop()) openMega(item);
+				});
+				item.addEventListener("focusout", (event) => {
+					if (!isDesktop()) return;
+					const next = event.relatedTarget;
+					if (next instanceof Node && item.contains(next)) return;
+					scheduleClose();
+				});
+
+				/* Keep panel interactive: don't let parent leave-close win mid-click */
+				panel?.addEventListener("mouseenter", () => {
+					if (isDesktop()) openMega(item);
 				});
 			});
 
 			document.addEventListener("keydown", (event) => {
-				if (event.key === "Escape") closeAllMega();
+				if (event.key === "Escape") {
+					clearCloseTimer();
+					closeAllMega();
+				}
 			});
 		</script>
 	</body>
