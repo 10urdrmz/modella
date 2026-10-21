@@ -76,6 +76,25 @@ const childTiles = children.map((child) => {
 		image: meta?.tile_image_path ?? meta?.hero_image_path ?? null,
 	};
 });
+
+function galleryPathsFromProduct(product: (typeof products)[number]): string[] {
+	const raw = (product.data as { gallery_paths?: string }).gallery_paths;
+	if (!raw || typeof raw !== "string") return [];
+	return raw
+		.split(/\r?\n/)
+		.map((p) => p.trim())
+		.filter(Boolean);
+}
+
+const leafGallery = !showSubgrid
+	? products.flatMap((product) =>
+			galleryPathsFromProduct(product).map((src) => ({
+				src,
+				href: `/products/${product.id}`,
+				title: product.data.title,
+			})),
+		)
+	: [];
 ---
 
 <Base
@@ -171,10 +190,30 @@ const childTiles = children.map((child) => {
 							</a>
 						))}
 					</div>
+				) : leafGallery.length > 0 ? (
+					<>
+						<div class="mekan-gallery">
+							{leafGallery.map((item) => (
+								<a class="mekan-gallery__item" href={item.href} title={item.title}>
+									<img src={item.src} alt={item.title} loading="lazy" />
+								</a>
+							))}
+						</div>
+						<div class="mekan-gallery__cta">
+							{products.map((product) => (
+								<a class="btn btn--solid" href={`/products/${product.id}`}>
+									{product.data.title} detay
+								</a>
+							))}
+							<a class="btn btn--ghost" href="/contact">
+								Keşif / teklif iste
+							</a>
+						</div>
+					</>
 				) : (
 					<div class="hive-grid">
 						{products.length === 0 ? (
-							<p class="empty-state">No products in this category yet.</p>
+							<p class="empty-state">Bu kategoride henüz ürün yok.</p>
 						) : (
 							products.map((product) => (
 								<ProductCard

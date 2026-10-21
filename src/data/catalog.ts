@@ -1,17 +1,14 @@
-/** Demo product image overrides (Hive samples) keyed by product slug / id */
-const productImg = (name: string) => `/hive-samples/products/${name}.jpg`;
-
+/** Modella product image map keyed by product slug / id */
 export const productSampleImages: Record<string, string> = {
-	"lc4-chaise-longue": productImg("lounge"),
-	"lc4-chaise": productImg("lounge"),
-	"zig-zag-chair": productImg("masters"),
-	"zig-zag": productImg("masters"),
-	"gogan-sofa": productImg("sofa"),
-	"husk-armchair": productImg("victoria-ghost"),
-	"eames-lounge-chair": productImg("louis-ghost"),
-	"eames-lounge": productImg("louis-ghost"),
-	"arco-floor-lamp": productImg("arco-ish"),
-	"arco-lamp": productImg("arco-ish"),
+	"raydolap": "/modella-products/raydolap/01.jpg",
+	"reflekte-camli-dolap": "/modella-products/reflekte-camli-dolap/01.jpg",
+	"membran-kapakli-dolap": "/modella-products/membran-kapakli-dolap/01.jpg",
+	"giyinme-odasi": "/modella-products/giyinme-odasi/01.jpg",
+	"yatak-odasi": "/modella-products/yatak-odasi/01.jpg",
+	"genc-odasi": "/modella-products/genc-odasi/01.jpg",
+	"tv-unitesi": "/modella-products/tv-unitesi/01.jpg",
+	"dresuar-ve-makyaj-masasi": "/modella-products/dresuar-ve-makyaj-masasi/01.jpg",
+	"coffee-corner-ve-kitaplik": "/modella-products/coffee-corner-ve-kitaplik/01.jpg",
 };
 
 export function sampleImageForProduct(slugOrId: string) {

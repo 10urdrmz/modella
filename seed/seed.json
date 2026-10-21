@@ -653,9 +653,9 @@
 				"data": {
 					"title": "Home",
 					"hero_headline": "Kişiye özel raydolap ve mobilya",
-					"hero_subcopy": "1999’dan bu yana Masko’da ölçüye özel üretim — Raydolap Modella.",
-					"cta_label": "Raydolapları incele",
-					"cta_url": "/category/raydolap",
+					"hero_subcopy": "Modella Raydolap üretimleri — ölçüye özel dolap, oda ve ünite çözümleri.",
+					"cta_label": "Ürünleri incele",
+					"cta_url": "/category/dolaplar",
 					"phone": "(0212) 675 20 57",
 					"hero_image": {
 						"$media": {
@@ -914,8 +914,8 @@
 				"data": {
 					"title": "Dolaplar",
 					"lede": "Sürgülü raydolap, reflekte camlı ve membran kapaklı dolap sistemleri.",
-					"hero_image_path": "/hive-samples/credenzas.jpg",
-					"tile_image_path": "/hive-samples/credenzas.jpg",
+					"hero_image_path": "/modella-products/raydolap/01.jpg",
+					"tile_image_path": "/modella-products/raydolap/01.jpg",
 					"hero_alt": "Dolaplar"
 				},
 				"taxonomies": {
@@ -930,9 +930,9 @@
 				"status": "published",
 				"data": {
 					"title": "Raydolap",
-					"lede": "Ölçüye özel sürgülü raydolap — alanınızı son santimine kadar değerlendirin.",
-					"hero_image_path": "/hive-samples/shelving.jpg",
-					"tile_image_path": "/hive-samples/shelving.jpg",
+					"lede": "Dar odalar, eğimli tavanlar ve küçük yatak odaları için akıllı, ergonomik ve şık sürgülü raydolap sistemleri.",
+					"hero_image_path": "/modella-products/raydolap/01.jpg",
+					"tile_image_path": "/modella-products/raydolap/01.jpg",
 					"hero_alt": "Raydolap"
 				},
 				"taxonomies": {
@@ -947,9 +947,9 @@
 				"status": "published",
 				"data": {
 					"title": "Reflekte Camlı Dolap",
-					"lede": "Reflekte cam detaylı dolap çözümleriyle ferah ve modern görünüm.",
-					"hero_image_path": "/hive-samples/mirrors.jpg",
-					"tile_image_path": "/hive-samples/mirrors.jpg",
+					"lede": "Reflekte cam kapaklı dolaplarla ferah görünüm ve kişiye özel depolama çözümleri.",
+					"hero_image_path": "/modella-products/reflekte-camli-dolap/01.jpg",
+					"tile_image_path": "/modella-products/reflekte-camli-dolap/01.jpg",
 					"hero_alt": "Reflekte Camlı Dolap"
 				},
 				"taxonomies": {
@@ -964,9 +964,9 @@
 				"status": "published",
 				"data": {
 					"title": "Membran Kapaklı Dolap",
-					"lede": "Membran kapaklı dolaplar; dayanıklı yüzey, temiz çizgiler.",
-					"hero_image_path": "/hive-samples/bedroom.jpg",
-					"tile_image_path": "/hive-samples/bedroom.jpg",
+					"lede": "Dayanıklı membran kapaklı dolaplar; temiz çizgiler ve uzun ömürlü yüzeyler.",
+					"hero_image_path": "/modella-products/membran-kapakli-dolap/01.jpg",
+					"tile_image_path": "/modella-products/membran-kapakli-dolap/01.jpg",
 					"hero_alt": "Membran Kapaklı Dolap"
 				},
 				"taxonomies": {
@@ -982,8 +982,8 @@
 				"data": {
 					"title": "Odalar",
 					"lede": "Giyinme, yatak ve genç odası için kişiye özel mobilya uygulamaları.",
-					"hero_image_path": "/hive-samples/bedroom.jpg",
-					"tile_image_path": "/hive-samples/bedroom.jpg",
+					"hero_image_path": "/modella-products/giyinme-odasi/01.jpg",
+					"tile_image_path": "/modella-products/yatak-odasi/01.jpg",
 					"hero_alt": "Odalar"
 				},
 				"taxonomies": {
@@ -998,9 +998,9 @@
 				"status": "published",
 				"data": {
 					"title": "Giyinme Odası",
-					"lede": "Duvara gömülü sistemlerden tavana uzanan modüler giyinme odaları.",
-					"hero_image_path": "/hive-samples/organization-office.jpg",
-					"tile_image_path": "/hive-samples/organization-office.jpg",
+					"lede": "Kişiye ve alana özel giyinme odası sistemleri — ölçüye tam uyum.",
+					"hero_image_path": "/modella-products/giyinme-odasi/01.jpg",
+					"tile_image_path": "/modella-products/giyinme-odasi/01.jpg",
 					"hero_alt": "Giyinme Odası"
 				},
 				"taxonomies": {
@@ -1015,9 +1015,9 @@
 				"status": "published",
 				"data": {
 					"title": "Yatak Odası",
-					"lede": "Yatak odanıza uyumlu dolap ve ünite çözümleri.",
-					"hero_image_path": "/hive-samples/bedroom.jpg",
-					"tile_image_path": "/hive-samples/bedroom.jpg",
+					"lede": "Yatak odanız herkesinki gibi değil; tamamen sizin tarzınızı yansıtan özel bir alan.",
+					"hero_image_path": "/modella-products/yatak-odasi/01.jpg",
+					"tile_image_path": "/modella-products/yatak-odasi/01.jpg",
 					"hero_alt": "Yatak Odası"
 				},
 				"taxonomies": {
@@ -1032,9 +1032,9 @@
 				"status": "published",
 				"data": {
 					"title": "Genç Odası",
-					"lede": "Büyüyen ihtiyaçlara göre planlanan genç odası çözümleri.",
-					"hero_image_path": "/hive-samples/shelving.jpg",
-					"tile_image_path": "/hive-samples/shelving.jpg",
+					"lede": "Küçük köşeleri ve dar alanları verimli kullanan özel üretim genç odaları.",
+					"hero_image_path": "/modella-products/genc-odasi/01.jpg",
+					"tile_image_path": "/modella-products/genc-odasi/01.jpg",
 					"hero_alt": "Genç Odası"
 				},
 				"taxonomies": {
@@ -1050,8 +1050,8 @@
 				"data": {
 					"title": "Üniteler",
 					"lede": "TV ünitesi, dresuar, makyaj masası ve kitaplık üniteleri.",
-					"hero_image_path": "/hive-samples/tables-desks.jpg",
-					"tile_image_path": "/hive-samples/tables-desks.jpg",
+					"hero_image_path": "/modella-products/tv-unitesi/01.jpg",
+					"tile_image_path": "/modella-products/coffee-corner-ve-kitaplik/01.jpg",
 					"hero_alt": "Üniteler"
 				},
 				"taxonomies": {
@@ -1066,9 +1066,9 @@
 				"status": "published",
 				"data": {
 					"title": "TV Ünitesi",
-					"lede": "Oturma alanına özel TV ve duvar ünitesi uygulamaları.",
-					"hero_image_path": "/hive-samples/credenzas.jpg",
-					"tile_image_path": "/hive-samples/credenzas.jpg",
+					"lede": "Odanıza kusursuz uyum sağlayan özel üretim TV üniteleri.",
+					"hero_image_path": "/modella-products/tv-unitesi/01.jpg",
+					"tile_image_path": "/modella-products/tv-unitesi/01.jpg",
 					"hero_alt": "TV Ünitesi"
 				},
 				"taxonomies": {
@@ -1083,9 +1083,9 @@
 				"status": "published",
 				"data": {
 					"title": "Dresuar ve Makyaj Masası",
-					"lede": "Dresuar ve makyaj masası ile tamamlanan yatak odası düzeni.",
-					"hero_image_path": "/hive-samples/bathroom.jpg",
-					"tile_image_path": "/hive-samples/bathroom.jpg",
+					"lede": "Ölçü, malzeme ve tasarımı size özel dresuar ve makyaj masası üniteleri.",
+					"hero_image_path": "/modella-products/dresuar-ve-makyaj-masasi/01.jpg",
+					"tile_image_path": "/modella-products/dresuar-ve-makyaj-masasi/01.jpg",
 					"hero_alt": "Dresuar ve Makyaj Masası"
 				},
 				"taxonomies": {
@@ -1100,9 +1100,9 @@
 				"status": "published",
 				"data": {
 					"title": "Coffee Corner ve Kitaplık",
-					"lede": "Coffee corner ve kitaplık ile işlevsel yaşam köşeleri.",
-					"hero_image_path": "/hive-samples/shelving.jpg",
-					"tile_image_path": "/hive-samples/shelving.jpg",
+					"lede": "Mutfak, salon veya balkona özel kahve köşesi ve kitaplık çözümleri.",
+					"hero_image_path": "/modella-products/coffee-corner-ve-kitaplik/01.jpg",
+					"tile_image_path": "/modella-products/coffee-corner-ve-kitaplik/01.jpg",
 					"hero_alt": "Coffee Corner ve Kitaplık"
 				},
 				"taxonomies": {
@@ -1114,238 +1114,404 @@
 		],
 		"products": [
 			{
-				"id": "lc4-chaise",
-				"slug": "lc4-chaise-longue",
+				"id": "raydolap",
+				"slug": "raydolap",
 				"status": "published",
 				"data": {
-					"title": "LC4 Chaise longue",
-					"designer": "Le Corbusier",
-					"price_label": "$6,505.00 – $7,005.00",
-					"shipping_note": "Plus Shipping",
-					"shipping_cost": "Plus Shipping",
-					"dimensions": "22.5\" w | 63\" d | 26.5\" h | seat: 11\"–16\" h",
-					"materials": "Chrome-plated steel, leather or hide",
-					"badges": "iconic design\nmid-century modern\nadjustable frame",
-					"gallery_paths": "/hive-samples/products/lounge.jpg\n/hive-samples/products/sofa.jpg\n/hive-samples/products/masters.jpg",
+					"title": "Raydolap",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/raydolap/01.jpg\n/modella-products/raydolap/02.jpg\n/modella-products/raydolap/03.jpg\n/modella-products/raydolap/04.jpg\n/modella-products/raydolap/05.jpg\n/modella-products/raydolap/06.jpg\n/modella-products/raydolap/07.jpg\n/modella-products/raydolap/08.jpg\n/modella-products/raydolap/09.jpg\n/modella-products/raydolap/10.jpg\n/modella-products/raydolap/11.jpg\n/modella-products/raydolap/12.jpg",
 					"featured": true,
-					"summary": "The iconic reclining chaise from Cassina’s Le Corbusier collection — continuous comfort in chrome and hide.",
-					"variants": [
-						{
-							"label": "Pony hide — black & white",
-							"group": "Upholstery",
-							"sku": "LC4-PONY",
-							"swatch": "#1a1a1a",
-							"price_label": "$7,005.00",
-							"image_path": "/hive-samples/products/lounge.jpg",
-							"shipping_time": "8–10 weeks · Plus Shipping"
-						},
-						{
-							"label": "Leather — cognac",
-							"group": "Upholstery",
-							"sku": "LC4-COG",
-							"swatch": "#8b5a2b",
-							"price_label": "$6,780.00",
-							"image_path": "/hive-samples/products/sofa.jpg",
-							"shipping_time": "10–12 weeks · Plus Shipping"
-						},
-						{
-							"label": "Leather — black",
-							"group": "Upholstery",
-							"sku": "LC4-BLK",
-							"swatch": "#111111",
-							"price_label": "$6,505.00",
-							"image_path": "/hive-samples/products/masters.jpg",
-							"shipping_time": "6–8 weeks · Plus Shipping"
-						},
-						{
-							"label": "Leather — ivory",
-							"group": "Upholstery",
-							"sku": "LC4-IVY",
-							"swatch": "#e8dfd0",
-							"price_label": "$6,650.00",
-							"image_path": "/hive-samples/products/lounge.jpg",
-							"shipping_time": "10–12 weeks · Plus Shipping"
-						}
-					],
-					"featured_image": {
-						"$media": {
-							"url": "https://hivemodern.com/public_resources/lounge-chairs-2c54c794f7.jpg",
-							"alt": "LC4 Chaise longue",
-							"filename": "lc4.jpg"
-						}
-					},
+					"summary": "Dar odalar, eğimli tavanlar ve küçük yatak odaları için akıllı, ergonomik ve şık sürgülü raydolap sistemleri.",
 					"content": [
 						{
 							"_type": "block",
 							"style": "normal",
-							"_key": "p0",
+							"_key": "raydolap-p0",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Designed in 1928 and produced by Cassina, the LC4 remains a definitive piece of modern seating — adjustable frame, sculptural silhouette, and materials meant to last.",
-									"_key": "p1"
+									"text": "Dar odalar, eğimli tavanlar, küçük yatak odaları için standart dolaplar yerine akıllı ve ergonomik aynı zamanda şık ürünleri tasarlıyoruz.",
+									"_key": "raydolap-s0"
 								}
 							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "raydolap-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Köşe dolapların tasarımında alan tasarrufu için köşe alanlarını en iyi şekilde kullanıyoruz; genellikle L veya U formunda üretim yapıyoruz.",
+									"_key": "raydolap-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "raydolap-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ölçüye özel raydolap sistemleriyle alanınızı son santimine kadar değerlendiriyoruz.",
+									"_key": "raydolap-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "RAYDOLAP-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/raydolap/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "RAYDOLAP-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/raydolap/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
 						}
 					]
 				},
 				"taxonomies": {
-					"brand": [
-						"cassina"
-					],
 					"category": [
 						"dolaplar",
-						"raydolap",
+						"raydolap"
+					]
+				}
+			},
+			{
+				"id": "reflekte-camli-dolap",
+				"slug": "reflekte-camli-dolap",
+				"status": "published",
+				"data": {
+					"title": "Reflekte Camlı Dolap",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/reflekte-camli-dolap/01.jpg\n/modella-products/reflekte-camli-dolap/02.jpg\n/modella-products/reflekte-camli-dolap/03.jpg\n/modella-products/reflekte-camli-dolap/04.jpg\n/modella-products/reflekte-camli-dolap/05.jpg\n/modella-products/reflekte-camli-dolap/06.jpg\n/modella-products/reflekte-camli-dolap/07.jpg\n/modella-products/reflekte-camli-dolap/08.jpg\n/modella-products/reflekte-camli-dolap/09.jpg\n/modella-products/reflekte-camli-dolap/10.jpg\n/modella-products/reflekte-camli-dolap/11.jpg\n/modella-products/reflekte-camli-dolap/12.jpg\n/modella-products/reflekte-camli-dolap/13.jpg\n/modella-products/reflekte-camli-dolap/14.jpg",
+					"featured": false,
+					"summary": "Reflekte cam kapaklı dolaplarla ferah görünüm ve kişiye özel depolama çözümleri.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "reflekte-camli-dolap-p0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Reflekte cam detaylı dolap kapakları, mekâna derinlik ve modern bir görünüm kazandırır.",
+									"_key": "reflekte-camli-dolap-s0"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "reflekte-camli-dolap-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "İç düzen, malzeme ve ölçü tamamen kullanım alışkanlıklarınıza göre planlanır.",
+									"_key": "reflekte-camli-dolap-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "reflekte-camli-dolap-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Raydolap Modella kalitesiyle özel üretim reflekte camlı dolap sistemleri.",
+									"_key": "reflekte-camli-dolap-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "REFLEKTE_CAMLI_DOLAP-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/reflekte-camli-dolap/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "REFLEKTE_CAMLI_DOLAP-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/reflekte-camli-dolap/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"dolaplar",
+						"reflekte-camli-dolap"
+					]
+				}
+			},
+			{
+				"id": "membran-kapakli-dolap",
+				"slug": "membran-kapakli-dolap",
+				"status": "published",
+				"data": {
+					"title": "Membran Kapaklı Dolap",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/membran-kapakli-dolap/01.jpg\n/modella-products/membran-kapakli-dolap/02.jpg\n/modella-products/membran-kapakli-dolap/03.jpg\n/modella-products/membran-kapakli-dolap/04.jpg\n/modella-products/membran-kapakli-dolap/05.jpg\n/modella-products/membran-kapakli-dolap/06.jpg\n/modella-products/membran-kapakli-dolap/07.jpg\n/modella-products/membran-kapakli-dolap/08.jpg\n/modella-products/membran-kapakli-dolap/09.jpg\n/modella-products/membran-kapakli-dolap/10.jpg\n/modella-products/membran-kapakli-dolap/11.jpg\n/modella-products/membran-kapakli-dolap/12.jpg",
+					"featured": false,
+					"summary": "Dayanıklı membran kapaklı dolaplar; temiz çizgiler ve uzun ömürlü yüzeyler.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "membran-kapakli-dolap-p0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Membran kapaklı dolaplar, düzgün yüzeyleri ve zengin renk seçenekleriyle modern yaşam alanlarına uyum sağlar.",
+									"_key": "membran-kapakli-dolap-s0"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "membran-kapakli-dolap-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kapak, gövde ve iç donanım ihtiyaçlarınıza göre birlikte kurgulanır.",
+									"_key": "membran-kapakli-dolap-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "membran-kapakli-dolap-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Özel üretim membran kapaklı dolaplarla hem estetik hem fonksiyon sunuyoruz.",
+									"_key": "membran-kapakli-dolap-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "MEMBRAN_KAPAKLI_DOLAP-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/membran-kapakli-dolap/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "MEMBRAN_KAPAKLI_DOLAP-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/membran-kapakli-dolap/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"dolaplar",
+						"membran-kapakli-dolap"
+					]
+				}
+			},
+			{
+				"id": "giyinme-odasi",
+				"slug": "giyinme-odasi",
+				"status": "published",
+				"data": {
+					"title": "Giyinme Odası",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/giyinme-odasi/01.jpg\n/modella-products/giyinme-odasi/02.jpg\n/modella-products/giyinme-odasi/03.jpg\n/modella-products/giyinme-odasi/04.jpg\n/modella-products/giyinme-odasi/05.jpg\n/modella-products/giyinme-odasi/06.jpg\n/modella-products/giyinme-odasi/07.jpg\n/modella-products/giyinme-odasi/08.jpg\n/modella-products/giyinme-odasi/09.jpg\n/modella-products/giyinme-odasi/10.jpg\n/modella-products/giyinme-odasi/11.jpg\n/modella-products/giyinme-odasi/12.jpg\n/modella-products/giyinme-odasi/13.jpg\n/modella-products/giyinme-odasi/14.jpg\n/modella-products/giyinme-odasi/15.jpg\n/modella-products/giyinme-odasi/16.jpg",
+					"featured": true,
+					"summary": "Kişiye ve alana özel giyinme odası sistemleri — ölçüye tam uyum.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "giyinme-odasi-p0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Kişiye ve alana özel giyinme odası sistemleri. Neden kişiye özel giyinme odası tercih ediliyor?",
+									"_key": "giyinme-odasi-s0"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "giyinme-odasi-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Çanta, kemer, kravat, mücevher için özel çekmeceler ve bölmeler planlıyoruz.",
+									"_key": "giyinme-odasi-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "giyinme-odasi-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "İhtiyaçlarınıza ve alanınıza %100 uyumlu odalar üretiyoruz. Dar köşeleri, eğimli tavanları, küçük veya büyük odaları zevkinize göre değerlendiriyoruz.",
+									"_key": "giyinme-odasi-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "GIYINME_ODASI-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/giyinme-odasi/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "GIYINME_ODASI-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/giyinme-odasi/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"odalar",
 						"giyinme-odasi"
 					]
 				}
 			},
 			{
-				"id": "zig-zag",
-				"slug": "zig-zag-chair",
+				"id": "yatak-odasi",
+				"slug": "yatak-odasi",
 				"status": "published",
 				"data": {
-					"title": "Zig Zag Chair",
-					"designer": "Gerrit Rietveld",
-					"price_label": "$2,570.00 – $3,290.00",
-					"shipping_note": "Plus Shipping",
-					"dimensions": "14.5\" w | 17\" d | 29\" h | seat: 17\" h",
-					"materials": "Solid ash or oak, natural or stained finish",
-					"badges": "iconic design\nships assembled",
-					"gallery_paths": "/hive-samples/products/masters.jpg\n/hive-samples/products/victoria-ghost.jpg",
+					"title": "Yatak Odası",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/yatak-odasi/01.jpg\n/modella-products/yatak-odasi/02.jpg\n/modella-products/yatak-odasi/03.jpg\n/modella-products/yatak-odasi/04.jpg\n/modella-products/yatak-odasi/05.jpg\n/modella-products/yatak-odasi/06.jpg\n/modella-products/yatak-odasi/07.jpg\n/modella-products/yatak-odasi/08.jpg\n/modella-products/yatak-odasi/09.jpg\n/modella-products/yatak-odasi/10.jpg\n/modella-products/yatak-odasi/11.jpg\n/modella-products/yatak-odasi/12.jpg\n/modella-products/yatak-odasi/13.jpg\n/modella-products/yatak-odasi/14.jpg\n/modella-products/yatak-odasi/15.jpg\n/modella-products/yatak-odasi/16.jpg\n/modella-products/yatak-odasi/17.jpg\n/modella-products/yatak-odasi/18.jpg",
 					"featured": true,
-					"summary": "A continuous plane of wood folded into seating — Rietveld’s radical cantilever for Cassina.",
-					"variants": [
-						{
-							"label": "Natural ash",
-							"group": "Finish",
-							"sku": "ZZ-ASH",
-							"swatch": "#d9c3a0",
-							"price_label": "$2,570.00",
-							"image_path": "/hive-samples/products/masters.jpg",
-							"shipping_time": "8–10 weeks · Plus Shipping"
-						},
-						{
-							"label": "Black stained ash",
-							"group": "Finish",
-							"sku": "ZZ-BLK",
-							"swatch": "#2a2a2a",
-							"price_label": "$2,890.00",
-							"image_path": "/hive-samples/products/victoria-ghost.jpg",
-							"shipping_time": "10–12 weeks · Plus Shipping"
-						},
-						{
-							"label": "Oak",
-							"group": "Finish",
-							"sku": "ZZ-OAK",
-							"swatch": "#b08958",
-							"price_label": "$3,290.00",
-							"image_path": "/hive-samples/products/masters.jpg",
-							"shipping_time": "12–14 weeks · Plus Shipping"
-						}
-					],
-					"featured_image": {
-						"$media": {
-							"url": "https://hivemodern.com/public_resources/masters-chair-philippe-starck-thumb-edf1544177.jpg",
-							"alt": "Zig Zag Chair",
-							"filename": "zigzag.jpg"
-						}
-					},
+					"summary": "Yatak odanız herkesinki gibi değil; tamamen sizin tarzınızı yansıtan özel bir alan.",
 					"content": [
 						{
 							"_type": "block",
 							"style": "normal",
-							"_key": "z0",
+							"_key": "yatak-odasi-p0",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Cassina’s Zig Zag is both structure and seat: no legs in the conventional sense, only a Z-shaped cantilever that still feels surprising a century on.",
-									"_key": "z1"
+									"text": "Maksimum depolama alanı mı hedefliyorsunuz? Yoksa lüks ve gösterişli bir oda mı? İkisi birden de mümkün.",
+									"_key": "yatak-odasi-s0"
 								}
 							]
-						}
-					]
-				},
-				"taxonomies": {
-					"brand": [
-						"cassina"
-					],
-					"category": [
-						"odalar",
-						"genc-odasi"
-					]
-				}
-			},
-			{
-				"id": "gogan-sofa",
-				"slug": "gogan-sofa",
-				"status": "published",
-				"data": {
-					"title": "Gogan 3 Seater Sofa",
-					"designer": "Patricia Urquiola",
-					"price_label": "$14,180.00 – $15,270.00",
-					"shipping_note": "Free Shipping",
-					"dimensions": "94.5\" w | 41\" d | 29.5\" h | seat: 16.5\" h",
-					"materials": "Foam, fabric or leather upholstery, steel frame",
-					"badges": "free shipping\ncustom upholstery",
-					"gallery_paths": "/hive-samples/products/sofa.jpg\n/hive-samples/products/lounge.jpg",
-					"featured": true,
-					"summary": "Soft geometry and generous proportions — Urquiola’s Gogan for Moroso.",
-					"variants": [
-						{
-							"label": "Fabric — fog",
-							"group": "Upholstery",
-							"sku": "GOG-FOG",
-							"swatch": "#c5c0b8",
-							"price_label": "$14,180.00",
-							"image_path": "/hive-samples/products/sofa.jpg",
-							"shipping_time": "12–16 weeks · Free Shipping"
 						},
-						{
-							"label": "Fabric — ink",
-							"group": "Upholstery",
-							"sku": "GOG-INK",
-							"swatch": "#3d4654",
-							"price_label": "$14,680.00",
-							"image_path": "/hive-samples/products/lounge.jpg",
-							"shipping_time": "12–16 weeks · Free Shipping"
-						},
-						{
-							"label": "Leather — taupe",
-							"group": "Upholstery",
-							"sku": "GOG-TAU",
-							"swatch": "#8a7a68",
-							"price_label": "$15,270.00",
-							"image_path": "/hive-samples/products/sofa.jpg",
-							"shipping_time": "14–18 weeks · Free Shipping"
-						}
-					],
-					"featured_image": {
-						"$media": {
-							"url": "https://hivemodern.com/public_resources/sofas-b788340c1d.jpg",
-							"alt": "Gogan 3 Seater Sofa",
-							"filename": "gogan.jpg"
-						}
-					},
-					"content": [
 						{
 							"_type": "block",
 							"style": "normal",
-							"_key": "g0",
+							"_key": "yatak-odasi-p1",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Patricia Urquiola’s Gogan for Moroso balances humanistic comfort with a distinctive silhouette — a signature piece for residential and hospitality interiors.",
-									"_key": "g1"
+									"text": "Estetik ve fonksiyonelliği bir arada sunan mobilyalarınızı birlikte 3 boyutlu tasarlıyoruz.",
+									"_key": "yatak-odasi-s1"
 								}
 							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "yatak-odasi-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Yatak odanız artık herkesinki gibi değil; tamamen sizin tarzınızı yansıtan, size özel bir alan olacak.",
+									"_key": "yatak-odasi-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "YATAK_ODASI-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/yatak-odasi/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "YATAK_ODASI-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/yatak-odasi/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
 						}
 					]
 				},
 				"taxonomies": {
-					"brand": [
-						"moroso"
-					],
 					"category": [
 						"odalar",
 						"yatak-odasi"
@@ -1353,77 +1519,242 @@
 				}
 			},
 			{
-				"id": "husk-armchair",
-				"slug": "husk-armchair",
+				"id": "genc-odasi",
+				"slug": "genc-odasi",
 				"status": "published",
 				"data": {
-					"title": "Husk Armchair",
-					"designer": "Patricia Urquiola",
-					"price_label": "$2,845.00 – $4,355.00",
-					"shipping_note": "Free Shipping",
-					"sale_label": "Sale",
-					"dimensions": "35.5\" w | 33.5\" d | 35.5\" h | seat: 16.5\" h",
-					"materials": "Molded polymer shell, removable cushions",
-					"badges": "free shipping\nquick ship options",
-					"gallery_paths": "/hive-samples/products/victoria-ghost.jpg\n/hive-samples/products/louis-ghost.jpg",
-					"featured": true,
-					"summary": "Layered cushions nested in a molded shell — Moroso’s Husk in its small armchair scale.",
-					"variants": [
-						{
-							"label": "Shell white / fabric pearl",
-							"group": "Configuration",
-							"sku": "HUSK-WHT",
-							"swatch": "#f2f0ea",
-							"price_label": "$2,845.00",
-							"compare_at_price": "$3,120.00",
-							"image_path": "/hive-samples/products/victoria-ghost.jpg",
-							"shipping_time": "Quick Ship · Free Shipping"
-						},
-						{
-							"label": "Shell grey / fabric charcoal",
-							"group": "Configuration",
-							"sku": "HUSK-GRY",
-							"swatch": "#6d6d6d",
-							"price_label": "$3,420.00",
-							"image_path": "/hive-samples/products/louis-ghost.jpg",
-							"shipping_time": "8–10 weeks · Free Shipping"
-						},
-						{
-							"label": "Shell black / leather black",
-							"group": "Configuration",
-							"sku": "HUSK-BLK",
-							"swatch": "#1c1c1c",
-							"price_label": "$4,355.00",
-							"image_path": "/hive-samples/products/victoria-ghost.jpg",
-							"shipping_time": "10–12 weeks · Free Shipping"
-						}
-					],
-					"featured_image": {
-						"$media": {
-							"url": "https://hivemodern.com/public_resources/victoria-ghost-chair-philippe-starck-kartell-thumb-da4b7bc0d8.jpg",
-							"alt": "Husk Armchair",
-							"filename": "husk.jpg"
-						}
-					},
+					"title": "Genç Odası",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/genc-odasi/01.jpg\n/modella-products/genc-odasi/02.jpg\n/modella-products/genc-odasi/03.jpg\n/modella-products/genc-odasi/04.jpg\n/modella-products/genc-odasi/05.jpg\n/modella-products/genc-odasi/06.jpg\n/modella-products/genc-odasi/07.jpg\n/modella-products/genc-odasi/08.jpg\n/modella-products/genc-odasi/09.jpg\n/modella-products/genc-odasi/10.jpg\n/modella-products/genc-odasi/11.jpg\n/modella-products/genc-odasi/12.jpg\n/modella-products/genc-odasi/13.jpg\n/modella-products/genc-odasi/14.jpg\n/modella-products/genc-odasi/15.jpg\n/modella-products/genc-odasi/16.jpg",
+					"featured": false,
+					"summary": "Küçük köşeleri ve dar alanları verimli kullanan özel üretim genç odaları.",
 					"content": [
 						{
 							"_type": "block",
 							"style": "normal",
-							"_key": "hk0",
+							"_key": "genc-odasi-p0",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Husk pairs a molded shell with removable cushions — informal luxury that has become one of Moroso’s most recognized lounge forms.",
-									"_key": "hk1"
+									"text": "Özel üretim genç odaları; küçük köşeleri, dar alanları maksimum verimlilikle değerlendirir.",
+									"_key": "genc-odasi-s0"
 								}
 							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "genc-odasi-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Bol oyun alanı, sportif vitrin rafları veya kitaplık alanları — seçim tamamen size kalmış.",
+									"_key": "genc-odasi-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "genc-odasi-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Hem fonksiyonel hem havalı ürünlerimizle çocukluktan yetişkinliğe rahat geçiş sunan odalar üretiyoruz.",
+									"_key": "genc-odasi-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "GENC_ODASI-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/genc-odasi/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "GENC_ODASI-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/genc-odasi/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
 						}
 					]
 				},
 				"taxonomies": {
-					"brand": [
-						"moroso"
+					"category": [
+						"odalar",
+						"genc-odasi"
+					]
+				}
+			},
+			{
+				"id": "tv-unitesi",
+				"slug": "tv-unitesi",
+				"status": "published",
+				"data": {
+					"title": "TV Ünitesi",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/tv-unitesi/01.jpg\n/modella-products/tv-unitesi/02.jpg\n/modella-products/tv-unitesi/03.jpg\n/modella-products/tv-unitesi/04.jpg\n/modella-products/tv-unitesi/05.jpg\n/modella-products/tv-unitesi/06.jpg\n/modella-products/tv-unitesi/07.jpg\n/modella-products/tv-unitesi/08.jpg\n/modella-products/tv-unitesi/09.jpg\n/modella-products/tv-unitesi/10.jpg\n/modella-products/tv-unitesi/11.jpg\n/modella-products/tv-unitesi/12.jpg",
+					"featured": true,
+					"summary": "Odanıza kusursuz uyum sağlayan özel üretim TV üniteleri.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "tv-unitesi-p0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Özel üretim TV üniteleri odanıza kusursuz uyum sağlayacak şekilde üretilir.",
+									"_key": "tv-unitesi-s0"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "tv-unitesi-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Oyun konsolları, hoparlör ve decoder için kapalı; kitap ve aksesuar için açık veya camlı depolama alanları tasarlanabilir.",
+									"_key": "tv-unitesi-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "tv-unitesi-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Ölçü, malzeme ve aydınlatma detaylarıyla yaşam alanınıza özel TV duvar üniteleri.",
+									"_key": "tv-unitesi-s2"
+								}
+							]
+						}
 					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "TV_UNITESI-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/tv-unitesi/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "TV_UNITESI-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/tv-unitesi/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"uniteler",
+						"tv-unitesi"
+					]
+				}
+			},
+			{
+				"id": "dresuar-ve-makyaj-masasi",
+				"slug": "dresuar-ve-makyaj-masasi",
+				"status": "published",
+				"data": {
+					"title": "Dresuar ve Makyaj Masası",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/dresuar-ve-makyaj-masasi/01.jpg\n/modella-products/dresuar-ve-makyaj-masasi/02.jpg\n/modella-products/dresuar-ve-makyaj-masasi/03.jpg\n/modella-products/dresuar-ve-makyaj-masasi/04.jpg\n/modella-products/dresuar-ve-makyaj-masasi/05.jpg\n/modella-products/dresuar-ve-makyaj-masasi/06.jpg\n/modella-products/dresuar-ve-makyaj-masasi/07.jpg\n/modella-products/dresuar-ve-makyaj-masasi/08.jpg\n/modella-products/dresuar-ve-makyaj-masasi/09.jpg\n/modella-products/dresuar-ve-makyaj-masasi/10.jpg\n/modella-products/dresuar-ve-makyaj-masasi/11.jpg\n/modella-products/dresuar-ve-makyaj-masasi/12.jpg",
+					"featured": false,
+					"summary": "Ölçü, malzeme ve tasarımı size özel dresuar ve makyaj masası üniteleri.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "dresuar-ve-makyaj-masasi-p0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Standart dresuarlar dar geliyor, çekmeceler yetmiyor, ayna uymuyor mu?",
+									"_key": "dresuar-ve-makyaj-masasi-s0"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "dresuar-ve-makyaj-masasi-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Alanınıza özel dresuar üniteleri üretiyoruz: ölçü, malzeme, tasarım tamamen sizin zevkinize göre şekilleniyor.",
+									"_key": "dresuar-ve-makyaj-masasi-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "dresuar-ve-makyaj-masasi-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Makyaj masası ve depolama ihtiyaçlarınız tek bir düzen içinde çözülür.",
+									"_key": "dresuar-ve-makyaj-masasi-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "DRESUAR_VE_MAKYAJ_MASASI-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/dresuar-ve-makyaj-masasi/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "DRESUAR_VE_MAKYAJ_MASASI-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/dresuar-ve-makyaj-masasi/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						}
+					]
+				},
+				"taxonomies": {
 					"category": [
 						"uniteler",
 						"dresuar-ve-makyaj-masasi"
@@ -1431,145 +1762,83 @@
 				}
 			},
 			{
-				"id": "eames-lounge",
-				"slug": "eames-lounge-chair",
+				"id": "coffee-corner-ve-kitaplik",
+				"slug": "coffee-corner-ve-kitaplik",
 				"status": "published",
 				"data": {
-					"title": "Eames Lounge Chair",
-					"designer": "Charles & Ray Eames",
-					"price_label": "$8,195.00 – $12,745.00",
-					"shipping_note": "Plus Shipping",
-					"dimensions": "33.5\" w | 35\" d | 31.5\" h | seat: 16\" h\nottoman: 26\" w | 21.5\" d | 17.25\" h",
-					"materials": "Molded plywood, aluminum, leather",
-					"badges": "iconic design\nhistorically significant\nsustainable brand",
-					"gallery_paths": "/hive-samples/products/louis-ghost.jpg\n/hive-samples/products/lounge.jpg",
+					"title": "Coffee Corner ve Kitaplık",
+					"designer": "Raydolap Modella",
+					"price_label": "Ölçüye özel fiyat",
+					"shipping_note": "Keşif & montaj",
+					"dimensions": "Ölçüye özel üretim",
+					"materials": "Kişiye özel malzeme ve kapak seçenekleri",
+					"badges": "özel üretim\n3D tasarım\nmontaj dahil planlama",
+					"gallery_paths": "/modella-products/coffee-corner-ve-kitaplik/01.jpg\n/modella-products/coffee-corner-ve-kitaplik/02.jpg\n/modella-products/coffee-corner-ve-kitaplik/03.jpg\n/modella-products/coffee-corner-ve-kitaplik/04.jpg\n/modella-products/coffee-corner-ve-kitaplik/05.jpg\n/modella-products/coffee-corner-ve-kitaplik/06.jpg\n/modella-products/coffee-corner-ve-kitaplik/07.jpg\n/modella-products/coffee-corner-ve-kitaplik/08.jpg\n/modella-products/coffee-corner-ve-kitaplik/09.jpg\n/modella-products/coffee-corner-ve-kitaplik/10.jpg\n/modella-products/coffee-corner-ve-kitaplik/11.jpg\n/modella-products/coffee-corner-ve-kitaplik/12.jpg",
 					"featured": false,
-					"summary": "Molded plywood and leather — the mid-century lounge that still defines the category.",
-					"variants": [
-						{
-							"label": "Walnut / black leather",
-							"group": "Finish",
-							"sku": "ELC-WAL-BLK",
-							"swatch": "#5c3a21",
-							"price_label": "$8,195.00",
-							"image_path": "/hive-samples/products/louis-ghost.jpg",
-							"shipping_time": "10–12 weeks · Plus Shipping"
-						},
-						{
-							"label": "Ebony / black leather",
-							"group": "Finish",
-							"sku": "ELC-EB-BLK",
-							"swatch": "#1f1a16",
-							"price_label": "$9,395.00",
-							"image_path": "/hive-samples/products/lounge.jpg",
-							"shipping_time": "12–14 weeks · Plus Shipping"
-						},
-						{
-							"label": "White ash / pearl leather",
-							"group": "Finish",
-							"sku": "ELC-ASH-PRL",
-							"swatch": "#e6e0d4",
-							"price_label": "$12,745.00",
-							"image_path": "/hive-samples/products/louis-ghost.jpg",
-							"shipping_time": "14–16 weeks · Plus Shipping"
-						}
-					],
-					"featured_image": {
-						"$media": {
-							"url": "https://hivemodern.com/public_resources/louis-ghost-chair-philippe-starck-kartell-thumb-70f07620f5.jpg",
-							"alt": "Eames Lounge Chair",
-							"filename": "eames.jpg"
-						}
-					},
+					"summary": "Mutfak, salon veya balkona özel kahve köşesi ve kitaplık çözümleri.",
 					"content": [
 						{
 							"_type": "block",
 							"style": "normal",
-							"_key": "e0",
+							"_key": "coffee-corner-ve-kitaplik-p0",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Available through hive with trade support for specification and project orders.",
-									"_key": "e1"
+									"text": "Standart tezgâhlar yetmiyor, kablolar karışıyor, fincanlar yer kaplıyor mu?",
+									"_key": "coffee-corner-ve-kitaplik-s0"
 								}
 							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "coffee-corner-ve-kitaplik-p1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Size özel kahve köşesi üretiyoruz: ölçü, tasarım, malzeme mutfağınıza, salonunuza veya balkonunuza göre şekillenir.",
+									"_key": "coffee-corner-ve-kitaplik-s1"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "coffee-corner-ve-kitaplik-p2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Coffee corner ve kitaplık üniteleriyle hem sergileme hem depolama alanları oluşturuyoruz.",
+									"_key": "coffee-corner-ve-kitaplik-s2"
+								}
+							]
+						}
+					],
+					"variants": [
+						{
+							"label": "Standart özel üretim",
+							"group": "Uygulama",
+							"sku": "COFFEE_CORNER_VE_KITAPLIK-01",
+							"swatch": "#c8c2b8",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/coffee-corner-ve-kitaplik/01.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
+						},
+						{
+							"label": "Premium malzeme seçenekleri",
+							"group": "Uygulama",
+							"sku": "COFFEE_CORNER_VE_KITAPLIK-02",
+							"swatch": "#2f2f2f",
+							"price_label": "Ölçüye özel fiyat",
+							"image_path": "/modella-products/coffee-corner-ve-kitaplik/02.jpg",
+							"shipping_time": "Keşif sonrası 25–40 gün"
 						}
 					]
 				},
 				"taxonomies": {
-					"brand": [
-						"herman-miller"
-					],
 					"category": [
 						"uniteler",
 						"coffee-corner-ve-kitaplik"
-					]
-				}
-			},
-			{
-				"id": "arco-lamp",
-				"slug": "arco-floor-lamp",
-				"status": "published",
-				"data": {
-					"title": "Arco Floor Lamp",
-					"designer": "Achille & Pier Giacomo Castiglioni",
-					"price_label": "$3,695.00 – $4,195.00",
-					"shipping_note": "Plus Shipping",
-					"dimensions": "86.5\" arc reach | shade: 12.5\" dia | marble base: 9.5\" x 15\"",
-					"materials": "Carrara marble, stainless steel, aluminum shade",
-					"badges": "iconic design\nships assembled",
-					"gallery_paths": "/hive-samples/products/arco-ish.jpg\n/hive-samples/products/desk.jpg",
-					"featured": false,
-					"summary": "Carrara marble base and a sweeping steel arc — Flos lighting at its most architectural.",
-					"variants": [
-						{
-							"label": "Classic marble / steel",
-							"group": "Finish",
-							"sku": "ARCO-CLS",
-							"swatch": "#d8d4ce",
-							"price_label": "$3,695.00",
-							"image_path": "/hive-samples/products/arco-ish.jpg",
-							"shipping_time": "2–4 weeks · Plus Shipping"
-						},
-						{
-							"label": "LED dimmable",
-							"group": "Finish",
-							"sku": "ARCO-LED",
-							"swatch": "#9aa0a6",
-							"price_label": "$4,195.00",
-							"image_path": "/hive-samples/products/desk.jpg",
-							"shipping_time": "4–6 weeks · Plus Shipping"
-						}
-					],
-					"featured_image": {
-						"$media": {
-							"url": "https://hivemodern.com/public_resources/home-page-376f5a0dcf.jpg",
-							"alt": "Arco Floor Lamp",
-							"filename": "arco.jpg"
-						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"_key": "ar0",
-							"children": [
-								{
-									"_type": "span",
-									"text": "A Flos classic: marble counterweight, stainless arc, and adjustable shade for dining and living spaces.",
-									"_key": "ar1"
-								}
-							]
-						}
-					]
-				},
-				"taxonomies": {
-					"brand": [
-						"flos"
-					],
-					"category": [
-						"uniteler",
-						"tv-unitesi"
 					]
 				}
 			}
