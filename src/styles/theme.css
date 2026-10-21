@@ -6,6 +6,7 @@
 	--paper-deep: #f4f4f4;
 	--mist: #e8e8e8;
 	--hive-yellow: #e6b347;
+	--brand: #e30613;
 	--hive-sale: #c0392b;
 	--pine: #1f3d32;
 	--pine-deep: #142820;
@@ -168,11 +169,13 @@ p {
 	gap: 0.28rem;
 }
 
-.honeycomb-icon {
-	width: 0.95rem;
-	height: 0.82rem;
-	color: var(--hive-yellow);
+.honeycomb-icon,
+.brand-e--compact {
+	width: 1.55rem;
+	height: 0.68rem;
+	color: var(--brand);
 	flex: 0 0 auto;
+	display: block;
 }
 
 .main-bar__inner {
@@ -187,9 +190,14 @@ p {
 
 .brand-mark {
 	text-decoration: none;
-	color: var(--ink-strong);
+	color: var(--brand);
 	line-height: 1;
 	justify-self: start;
+}
+
+.brand-mark:hover {
+	color: var(--brand);
+	opacity: 0.88;
 }
 
 .brand-mark__img {
@@ -199,29 +207,16 @@ p {
 }
 
 .hive-logo {
-	position: relative;
-	display: inline-block;
-	padding-right: 1.6rem;
-	padding-top: 0.15rem;
+	display: inline-flex;
+	align-items: center;
+	line-height: 0;
 }
 
-.hive-logo__word {
-	font-family: var(--font-body);
-	font-size: clamp(1.65rem, 4.5vw, 2rem);
-	font-weight: 450;
-	letter-spacing: -0.03em;
-	text-transform: lowercase;
-	line-height: 1;
-}
-
-.hive-logo__comb {
-	position: absolute;
-	top: -0.15rem;
-	right: -0.1rem;
-	width: 1.85rem;
-	height: 1.35rem;
-	color: var(--hive-yellow);
-	pointer-events: none;
+.brand-e--full {
+	width: clamp(7.5rem, 22vw, 9.25rem);
+	height: auto;
+	display: block;
+	color: var(--brand);
 }
 
 .nav-toggle {
@@ -471,28 +466,23 @@ p {
 
 .site-footer__lockup {
 	display: inline-flex;
-	align-items: baseline;
-	gap: 0.35rem;
+	align-items: center;
+	gap: 0.65rem;
 	text-decoration: none;
-	color: var(--ink-strong);
+	color: var(--brand);
 }
 
 .site-footer__lockup:hover {
 	text-decoration: none;
-	color: var(--ink-strong);
+	color: var(--brand);
+	opacity: 0.9;
 }
 
-.site-footer__lockup-primary {
-	font-family: var(--font-body);
-	font-size: 1.05rem;
-	font-weight: 600;
-	letter-spacing: 0.04em;
-	text-transform: lowercase;
-}
-
-.site-footer__lockup-slash {
-	font-size: 0.85rem;
-	color: var(--ink-soft);
+.site-footer__brand-e,
+.site-footer__lockup .brand-e--full {
+	width: 6.5rem;
+	height: auto;
+	color: var(--brand);
 }
 
 .site-footer__lockup-secondary {
@@ -1033,13 +1023,6 @@ p {
 		display: inline;
 	}
 
-	.hive-logo__comb {
-		width: 2.1rem;
-		height: 1.55rem;
-		right: -0.2rem;
-		top: -0.2rem;
-	}
-
 	.product-rail {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
@@ -1105,12 +1088,14 @@ p {
 
 .cat-hero__mark {
 	margin: 0 0 0.45rem;
-	color: var(--hive-yellow);
+	color: var(--brand);
 }
 
-.cat-hero__mark .honeycomb-icon {
-	width: 1.15rem;
-	height: 1rem;
+.cat-hero__mark .honeycomb-icon,
+.cat-hero__mark .brand-e--compact {
+	width: 2.1rem;
+	height: 0.9rem;
+	color: #fff;
 }
 
 .cat-hero h1 {

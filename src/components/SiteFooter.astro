@@ -1,6 +1,7 @@
 ---
 import type { SiteContact } from "../utils/site-contact";
 import type { SiteFooterContent } from "../utils/site-footer";
+import BrandMark from "./BrandMark.astro";
 
 interface Props {
 	footer: SiteFooterContent;
@@ -120,19 +121,12 @@ const socials = [
 
 		<div class="site-footer__bottom">
 			<a class="site-footer__lockup" href="/" aria-label={`${footer.bottomBrandPrimary} home`}>
-				<span class="site-footer__lockup-primary" {...edit?.bottom_brand_primary}
-					>{footer.bottomBrandPrimary}</span
-				>
+				<BrandMark title={footer.bottomBrandPrimary} variant="full" class="site-footer__brand-e" />
 				{
 					footer.bottomBrandSecondary && (
-						<>
-							<span class="site-footer__lockup-slash" aria-hidden="true">
-								/
-							</span>
-							<span class="site-footer__lockup-secondary" {...edit?.bottom_brand_secondary}>
-								{footer.bottomBrandSecondary}
-							</span>
-						</>
+						<span class="site-footer__lockup-secondary" {...edit?.bottom_brand_secondary}>
+							{footer.bottomBrandSecondary}
+						</span>
 					)
 				}
 			</a>
