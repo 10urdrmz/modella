@@ -1,0 +1,68 @@
+---
+import {
+	decodeSlug,
+	getEntriesByTerm,
+	getSiteSettings,
+	getTerm,
+} from "emdash";
+import { Image } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+import { resolveStarterSiteIdentity } from "../../utils/site-identity";
+
+const slug = decodeSlug(Astro.params.slug);
+if (!slug) return Astro.rewrite("/404");
+
+const term = await getTerm("brand", slug);
+if (!term) return Astro.rewrite("/404");
+
+const products = await getEntriesByTerm("products", "brand", slug, {
+	limit: 48,
+});
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+---
+
+<Base
+	title={`${term.label} — ${siteTitle}`}
+	description={`${term.label} designer furniture at hive`}
+>
+	<div class="page-hero">
+		<p class="section__eyebrow">Brand</p>
+		<h1>{term.label}</h1>
+		<p class="section__lede">
+			<a href="/brands">All brands</a>
+			{" · "}
+			<a href="/products">Furniture</a>
+		</p>
+	</div>
+
+	<section class="section" style="padding-top:0">
+		{
+			products.length === 0 ? (
+				<p class="empty-state">No products for this brand yet.</p>
+			) : (
+				<div class="product-rail">
+					{products.map((product) => (
+						<a class="product-tile" href={`/products/${product.id}`}>
+							{product.data.featured_image && (
+								<div class="product-tile__media" {...product.edit.featured_image}>
+									<Image image={product.data.featured_image} />
+								</div>
+							)}
+							<div>
+								<h2 class="product-tile__title" {...product.edit.title}>
+									{product.data.title}
+								</h2>
+								<p class="product-tile__meta">{product.data.designer}</p>
+								{product.data.price_label && (
+									<p class="product-tile__price" {...product.edit.price_label}>
+										{product.data.price_label}
+									</p>
+								)}
+							</div>
+						</a>
+					))}
+				</div>
+			)
+		}
+	</section>
+</Base>

@@ -1,0 +1,233 @@
+{
+	"$schema": "https://emdashcms.com/seed.schema.json",
+	"version": "1",
+	"meta": {
+		"name": "hive",
+		"description": "Mobile-first modern designer furniture storefront inspired by Hive Modern",
+		"author": "modella"
+	},
+	"settings": {
+		"title": "hive",
+		"tagline": "Modern designer furniture for architects and interior designers"
+	},
+	"collections": [
+		{
+			"slug": "products",
+			"label": "Products",
+			"labelSingular": "Product",
+			"urlPattern": "/products/{slug}",
+			"supports": ["drafts", "revisions", "preview", "search", "seo"],
+			"fields": [
+				{"slug": "title", "label": "Title", "type": "string", "required": true, "searchable": true},
+				{"slug": "featured_image", "label": "Product Image", "type": "image"},
+				{"slug": "designer", "label": "Designer", "type": "string", "searchable": true},
+				{"slug": "price_label", "label": "Price Label", "type": "string"},
+				{"slug": "shipping_note", "label": "Shipping Note", "type": "string"},
+				{"slug": "summary", "label": "Summary", "type": "text", "searchable": true},
+				{"slug": "content", "label": "Description", "type": "portableText", "searchable": true},
+				{"slug": "featured", "label": "Featured on homepage", "type": "boolean"}
+			]
+		},
+		{
+			"slug": "pages",
+			"label": "Pages",
+			"labelSingular": "Page",
+			"urlPattern": "/{slug}",
+			"supports": ["drafts", "revisions", "preview", "search", "seo"],
+			"fields": [
+				{"slug": "title", "label": "Title", "type": "string", "required": true, "searchable": true},
+				{"slug": "hero_image", "label": "Hero Image", "type": "image"},
+				{"slug": "hero_headline", "label": "Hero Headline", "type": "string"},
+				{"slug": "hero_subcopy", "label": "Hero Subcopy", "type": "text"},
+				{"slug": "cta_label", "label": "CTA Label", "type": "string"},
+				{"slug": "cta_url", "label": "CTA URL", "type": "url"},
+				{"slug": "phone", "label": "Phone Display", "type": "string"},
+				{"slug": "content", "label": "Content", "type": "portableText", "searchable": true}
+			]
+		}
+	],
+	"taxonomies": [
+		{
+			"name": "brand",
+			"label": "Brands",
+			"labelSingular": "Brand",
+			"hierarchical": false,
+			"collections": ["products"],
+			"terms": [
+				{"slug": "cassina", "label": "Cassina"},
+				{"slug": "moroso", "label": "Moroso"},
+				{"slug": "flos", "label": "Flos"},
+				{"slug": "herman-miller", "label": "Herman Miller"}
+			]
+		}
+	],
+	"menus": [
+		{
+			"name": "primary",
+			"label": "Primary Navigation",
+			"items": [
+				{"type": "custom", "label": "Furniture", "url": "/products"},
+				{"type": "custom", "label": "Brands", "url": "/brands"},
+				{"type": "custom", "label": "Trade", "url": "/trade"},
+				{"type": "custom", "label": "About", "url": "/about"}
+			]
+		}
+	],
+	"widgetAreas": [],
+	"content": {
+		"pages": [
+			{
+				"id": "home",
+				"slug": "home",
+				"status": "published",
+				"data": {
+					"title": "Home",
+					"hero_headline": "Designer furniture without compromise",
+					"hero_subcopy": "Cassina, Moroso, and the makers architects trust — expert consultation and trade pricing for more than two decades.",
+					"cta_label": "Shop furniture",
+					"cta_url": "/products",
+					"phone": "1.866.663.4483",
+					"hero_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&h=2200&fit=crop",
+							"alt": "Modern living room with sculptural sofa and warm natural light",
+							"filename": "hive-hero-living.jpg"
+						}
+					},
+					"content": [
+						{"_type": "block", "style": "normal", "_key": "h0", "children": [{"_type": "span", "text": "A trusted partner to architects and interior designers who refuse to compromise on quality.", "_key": "h1"}]}
+					]
+				}
+			},
+			{
+				"id": "about",
+				"slug": "about",
+				"status": "published",
+				"data": {
+					"title": "About",
+					"hero_headline": "Two decades of modern design",
+					"hero_subcopy": "hive connects you with iconic manufacturers and the people who know every detail of the work.",
+					"phone": "1.866.663.4483",
+					"content": [
+						{"_type": "block", "style": "normal", "_key": "a0", "children": [{"_type": "span", "text": "For more than two decades, hive has been a trusted partner to architects and interior designers. We offer expert consultation, project quotes, and dedicated support by phone and email — alongside online trade pricing for immediate access to member benefits.", "_key": "a1"}]},
+						{"_type": "block", "style": "normal", "_key": "a2", "children": [{"_type": "span", "text": "Email info@hivemodern.com and we will respond promptly. Call 1.866.663.4483 to speak with our staff.", "_key": "a3"}]}
+					]
+				}
+			},
+			{
+				"id": "trade",
+				"slug": "trade",
+				"status": "published",
+				"data": {
+					"title": "Trade",
+					"hero_headline": "Trade pricing, online",
+					"hero_subcopy": "Architects and designers get immediate access to member pricing, project quotes, and dedicated support.",
+					"cta_label": "Call for a quote",
+					"cta_url": "tel:+18666634483",
+					"phone": "1.866.663.4483",
+					"content": [
+						{"_type": "block", "style": "normal", "_key": "t0", "children": [{"_type": "span", "text": "Open a trade account to unlock online pricing across Cassina, Moroso, Flos, Herman Miller, and hundreds more manufacturers. Our team helps with specification, lead times, and project quotes.", "_key": "t1"}]}
+					]
+				}
+			}
+		],
+		"products": [
+			{
+				"id": "lc4-chaise",
+				"slug": "lc4-chaise-longue",
+				"status": "published",
+				"data": {
+					"title": "LC4 Chaise longue",
+					"designer": "Le Corbusier",
+					"price_label": "$6,505.00 – $7,005.00",
+					"shipping_note": "Plus Shipping",
+					"featured": true,
+					"summary": "The iconic reclining chaise from Cassina’s Le Corbusier collection — continuous comfort in chrome and hide.",
+					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=1400&h=1600&fit=crop", "alt": "Modern lounge chair in a bright interior", "filename": "lc4-chaise.jpg"}},
+					"content": [{"_type": "block", "style": "normal", "_key": "p0", "children": [{"_type": "span", "text": "Designed in 1928 and produced by Cassina, the LC4 remains a definitive piece of modern seating — adjustable frame, sculptural silhouette, and materials meant to last.", "_key": "p1"}]}]
+				},
+				"taxonomies": {"brand": ["cassina"]}
+			},
+			{
+				"id": "zig-zag",
+				"slug": "zig-zag-chair",
+				"status": "published",
+				"data": {
+					"title": "Zig Zag Chair",
+					"designer": "Gerrit Rietveld",
+					"price_label": "$2,570.00 – $3,290.00",
+					"shipping_note": "Plus Shipping",
+					"featured": true,
+					"summary": "A continuous plane of wood folded into seating — Rietveld’s radical cantilever for Cassina.",
+					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=1400&h=1600&fit=crop", "alt": "Wooden modern dining chair", "filename": "zig-zag-chair.jpg"}},
+					"content": [{"_type": "block", "style": "normal", "_key": "z0", "children": [{"_type": "span", "text": "Cassina’s Zig Zag is both structure and seat: no legs in the conventional sense, only a Z-shaped cantilever that still feels surprising a century on.", "_key": "z1"}]}]
+				},
+				"taxonomies": {"brand": ["cassina"]}
+			},
+			{
+				"id": "gogan-sofa",
+				"slug": "gogan-sofa",
+				"status": "published",
+				"data": {
+					"title": "Gogan 3 Seater Sofa",
+					"designer": "Patricia Urquiola",
+					"price_label": "$14,180.00 – $15,270.00",
+					"shipping_note": "Free Shipping",
+					"featured": true,
+					"summary": "Soft geometry and generous proportions — Urquiola’s Gogan for Moroso.",
+					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1400&h=1600&fit=crop", "alt": "Contemporary green sofa in a loft interior", "filename": "gogan-sofa.jpg"}},
+					"content": [{"_type": "block", "style": "normal", "_key": "g0", "children": [{"_type": "span", "text": "Patricia Urquiola’s Gogan for Moroso balances humanistic comfort with a distinctive silhouette — a signature piece for residential and hospitality interiors.", "_key": "g1"}]}]
+				},
+				"taxonomies": {"brand": ["moroso"]}
+			},
+			{
+				"id": "husk-armchair",
+				"slug": "husk-armchair",
+				"status": "published",
+				"data": {
+					"title": "Husk Armchair",
+					"designer": "Patricia Urquiola",
+					"price_label": "$2,845.00 – $4,355.00",
+					"shipping_note": "Free Shipping",
+					"featured": true,
+					"summary": "Layered cushions nested in a molded shell — Moroso’s Husk in its small armchair scale.",
+					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=1400&h=1600&fit=crop", "alt": "Upholstered accent chair against a soft wall", "filename": "husk-armchair.jpg"}},
+					"content": [{"_type": "block", "style": "normal", "_key": "hk0", "children": [{"_type": "span", "text": "Husk pairs a molded shell with removable cushions — informal luxury that has become one of Moroso’s most recognized lounge forms.", "_key": "hk1"}]}]
+				},
+				"taxonomies": {"brand": ["moroso"]}
+			},
+			{
+				"id": "eames-lounge",
+				"slug": "eames-lounge-chair",
+				"status": "published",
+				"data": {
+					"title": "Eames Lounge Chair",
+					"designer": "Charles & Ray Eames",
+					"price_label": "Trade pricing available",
+					"shipping_note": "Plus Shipping",
+					"featured": false,
+					"summary": "Molded plywood and leather — the mid-century lounge that still defines the category.",
+					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1400&h=1600&fit=crop", "alt": "Styled modern living room with lounge seating", "filename": "eames-lounge.jpg"}},
+					"content": [{"_type": "block", "style": "normal", "_key": "e0", "children": [{"_type": "span", "text": "Available through hive with trade support for specification and project orders.", "_key": "e1"}]}]
+				},
+				"taxonomies": {"brand": ["herman-miller"]}
+			},
+			{
+				"id": "arco-lamp",
+				"slug": "arco-floor-lamp",
+				"status": "published",
+				"data": {
+					"title": "Arco Floor Lamp",
+					"designer": "Achille & Pier Giacomo Castiglioni",
+					"price_label": "Trade pricing available",
+					"shipping_note": "Plus Shipping",
+					"featured": false,
+					"summary": "Carrara marble base and a sweeping steel arc — Flos lighting at its most architectural.",
+					"featured_image": {"$media": {"url": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1400&h=1600&fit=crop", "alt": "Modern floor lamp lighting a minimal interior", "filename": "arco-lamp.jpg"}},
+					"content": [{"_type": "block", "style": "normal", "_key": "ar0", "children": [{"_type": "span", "text": "A Flos classic: marble counterweight, stainless arc, and adjustable shade for dining and living spaces.", "_key": "ar1"}]}]
+				},
+				"taxonomies": {"brand": ["flos"]}
+			}
+		]
+	}
+}

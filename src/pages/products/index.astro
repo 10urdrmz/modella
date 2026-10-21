@@ -1,0 +1,53 @@
+---
+import { getEmDashCollection, getSiteSettings } from "emdash";
+import { Image } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+import { resolveStarterSiteIdentity } from "../../utils/site-identity";
+
+const { entries: products, cacheHint } = await getEmDashCollection("products", {
+	orderBy: { published_at: "desc" },
+	limit: 48,
+});
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+---
+
+<Base title={`Furniture — ${siteTitle}`} description="Modern designer furniture collection">
+	<div class="page-hero">
+		<p class="section__eyebrow">Collection</p>
+		<h1>Furniture</h1>
+		<p class="section__lede">
+			Seating, lighting, and icons from makers architects trust.
+		</p>
+	</div>
+	<section class="section" style="padding-top:0">
+		{
+			products.length === 0 ? (
+				<p class="empty-state">No products published yet.</p>
+			) : (
+				<div class="product-rail">
+					{products.map((product) => (
+						<a class="product-tile" href={`/products/${product.id}`}>
+							{product.data.featured_image && (
+								<div class="product-tile__media" {...product.edit.featured_image}>
+									<Image image={product.data.featured_image} />
+								</div>
+							)}
+							<div>
+								<h2 class="product-tile__title" {...product.edit.title}>
+									{product.data.title}
+								</h2>
+								<p class="product-tile__meta">{product.data.designer}</p>
+								{product.data.price_label && (
+									<p class="product-tile__price" {...product.edit.price_label}>
+										{product.data.price_label}
+									</p>
+								)}
+							</div>
+						</a>
+					))}
+				</div>
+			)
+		}
+	</section>
+</Base>

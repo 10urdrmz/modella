@@ -1,0 +1,33 @@
+---
+import { getSiteSettings, getTaxonomyTerms } from "emdash";
+import Base from "../../layouts/Base.astro";
+import { resolveStarterSiteIdentity } from "../../utils/site-identity";
+
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+const brands = await getTaxonomyTerms("brand");
+---
+
+<Base
+	title={`Brands — ${siteTitle}`}
+	description="Iconic manufacturers stocked by hive"
+>
+	<div class="page-hero">
+		<p class="section__eyebrow">Manufacturers</p>
+		<h1>Brands</h1>
+		<p class="section__lede">
+			Iconic brands. Uncompromising craft. The makers who set the standard for
+			modern design.
+		</p>
+	</div>
+	<section class="section" style="padding-top:0">
+		<div class="brand-grid">
+			{
+				brands.map((term) => (
+					<a class="brand-chip" href={`/brands/${term.slug}`}>
+						{term.label}
+					</a>
+				))
+			}
+		</div>
+	</section>
+</Base>

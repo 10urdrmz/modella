@@ -1,0 +1,160 @@
+---
+import {
+	getEmDashCollection,
+	getEmDashEntry,
+	getSiteSettings,
+	getTaxonomyTerms,
+} from "emdash";
+import { Image } from "emdash/ui";
+import Base from "../layouts/Base.astro";
+import { resolveStarterSiteIdentity } from "../utils/site-identity";
+
+const { siteTitle, siteTagline } = resolveStarterSiteIdentity(
+	await getSiteSettings(),
+);
+
+const { entry: home, cacheHint: homeHint } = await getEmDashEntry("pages", "home");
+const { entries: products, cacheHint: productsHint } = await getEmDashCollection(
+	"products",
+	{ orderBy: { published_at: "desc" }, limit: 12 },
+);
+const brands = await getTaxonomyTerms("brand");
+
+if (Astro.cache?.enabled) {
+	if (homeHint) Astro.cache.set(homeHint);
+	Astro.cache.set(productsHint);
+}
+
+const featured = products.filter((p) => p.data.featured).slice(0, 4);
+const showcase = featured.length > 0 ? featured : products.slice(0, 4);
+
+const headline =
+	home?.data.hero_headline ?? "Modern Furniture and Lighting";
+const subcopy =
+	home?.data.hero_subcopy ??
+	"Curated pieces from celebrated designers and manufacturers — expert consultation and trade pricing.";
+const ctaLabel = home?.data.cta_label ?? "Shop furniture";
+const ctaUrl = home?.data.cta_url ?? "/products";
+const phone = home?.data.phone ?? null;
+---
+
+<Base
+	title={`${siteTitle} | Modern Designer Furniture`}
+	description={siteTagline}
+	phone={phone}
+	fullBleed
+	content={home ? { collection: "pages", id: home.data.id, slug: "home" } : undefined}
+>
+	<section class="hero">
+		{
+			home?.data.hero_image ? (
+				<div class="hero__media" {...home.edit.hero_image}>
+					<Image image={home.data.hero_image} />
+				</div>
+			) : (
+				<div
+					class="hero__media"
+					style="background:linear-gradient(145deg,#1f3d32,#101418 55%,#2c4550);"
+					aria-hidden="true"
+				/>
+			)
+		}
+		<div class="hero__veil" aria-hidden="true"></div>
+		<div class="hero__content">
+			<p class="hero__brand">{siteTitle}</p>
+			<h1 class="hero__headline" {...home?.edit.hero_headline}>{headline}</h1>
+			<p class="hero__sub" {...home?.edit.hero_subcopy}>{subcopy}</p>
+			<div class="hero__actions">
+				<a class="btn btn--solid" href={ctaUrl} {...home?.edit.cta_label}>
+					{ctaLabel}
+				</a>
+				{
+					phone && (
+						<a class="btn btn--ghost" href={`tel:${phone.replace(/\./g, "")}`}>
+							Call {phone}
+						</a>
+					)
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<p class="section__eyebrow">Featured</p>
+		<h2 class="section__title">Pieces from the floor</h2>
+		<p class="section__lede">
+			Cassina, Moroso, Flos, Herman Miller — edit products in admin to publish
+			updates live.
+		</p>
+		<div class="product-rail">
+			{
+				showcase.map((product) => (
+					<a class="product-tile" href={`/products/${product.id}`}>
+						{
+							product.data.featured_image && (
+								<div class="product-tile__media" {...product.edit.featured_image}>
+									<Image image={product.data.featured_image} />
+								</div>
+							)
+						}
+						<div>
+							<h3 class="product-tile__title" {...product.edit.title}>
+								{product.data.title}
+							</h3>
+							<p class="product-tile__meta">
+								{[product.data.designer, product.data.terms?.brand?.[0]?.label]
+									.filter(Boolean)
+									.join(" · ")}
+							</p>
+							{
+								product.data.price_label && (
+									<p class="product-tile__price" {...product.edit.price_label}>
+										{product.data.price_label}
+									</p>
+								)
+							}
+						</div>
+					</a>
+				))
+			}
+		</div>
+		{
+			showcase.length === 0 && (
+				<p class="empty-state">
+					No products yet.{" "}
+					<a href="/_emdash/admin/content/products/new">Add one in admin</a>.
+				</p>
+			)
+		}
+	</section>
+
+	<section class="section">
+		<p class="section__eyebrow">Brands</p>
+		<h2 class="section__title">Manufacturers we stock</h2>
+		<div class="brand-grid">
+			{
+				brands.map((term) => (
+					<a class="brand-chip" href={`/brands/${term.slug}`}>
+						{term.label}
+					</a>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="trade-band">
+		<div class="trade-band__inner">
+			<div>
+				<h2>Trade pricing for architects & designers</h2>
+				<p>
+					Project quotes, specification help, and online member pricing — call or
+					open the trade page.
+				</p>
+			</div>
+			<div class="hero__actions">
+				<a class="btn btn--solid" href="/trade">Trade access</a>
+				<a class="btn btn--ghost" href="/products">Browse furniture</a>
+			</div>
+		</div>
+	</section>
+</Base>

@@ -1,0 +1,85 @@
+---
+import { decodeSlug, getEmDashEntry, getSeoMeta, getSiteSettings } from "emdash";
+import { Image, PortableText } from "emdash/ui";
+import Base from "../layouts/Base.astro";
+import { resolveStarterSiteIdentity } from "../utils/site-identity";
+
+const slug = decodeSlug(Astro.params.slug);
+if (!slug) return Astro.rewrite("/404");
+if (slug === "home") return Astro.redirect("/");
+
+const { entry: page, cacheHint } = await getEmDashEntry("pages", slug);
+if (!page) return Astro.rewrite("/404");
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+const seo = getSeoMeta(page, {
+	siteTitle,
+	siteUrl: Astro.url.origin,
+	path: Astro.url.pathname.replace(/\/$/, ""),
+});
+---
+
+<Base
+	title={seo.title}
+	pageTitle={seo.ogTitle}
+	description={seo.description}
+	canonical={seo.canonical}
+	phone={page.data.phone}
+	content={{ collection: "pages", id: page.data.id, slug }}
+>
+	<article>
+		<div class="page-hero">
+			{
+				page.data.hero_headline ? (
+					<>
+						<p class="section__eyebrow" {...page.edit.title}>
+							{page.data.title}
+						</p>
+						<h1 {...page.edit.hero_headline}>{page.data.hero_headline}</h1>
+					</>
+				) : (
+					<h1 {...page.edit.title}>{page.data.title}</h1>
+				)
+			}
+			{
+				page.data.hero_subcopy && (
+					<p class="section__lede" {...page.edit.hero_subcopy}>
+						{page.data.hero_subcopy}
+					</p>
+				)
+			}
+			{
+				(page.data.cta_url || page.data.phone) && (
+					<div class="hero__actions" style="margin-top:1rem">
+						{page.data.cta_url && (
+							<a class="btn btn--solid" href={page.data.cta_url} {...page.edit.cta_label}>
+								{page.data.cta_label || "Continue"}
+							</a>
+						)}
+						{page.data.phone && (
+							<a
+								class="btn btn--ghost"
+								href={`tel:${String(page.data.phone).replace(/\./g, "")}`}
+							>
+								Call {page.data.phone}
+							</a>
+						)}
+					</div>
+				)
+			}
+		</div>
+		{
+			page.data.hero_image && (
+				<section class="section" style="padding-top:0">
+					<div class="product-tile__media" style="max-width:48rem" {...page.edit.hero_image}>
+						<Image image={page.data.hero_image} />
+					</div>
+				</section>
+			)
+		}
+		<section class="section prose" style="padding-top:0">
+			<PortableText value={page.data.content} />
+		</section>
+	</article>
+</Base>

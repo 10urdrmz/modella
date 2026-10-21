@@ -1,0 +1,172 @@
+---
+import { getMenuWithCacheHint, getSiteSettingsWithCacheHint } from "emdash";
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
+import {
+	DEFAULT_PHONE,
+	DEFAULT_PHONE_TEL,
+	resolveStarterSiteIdentity,
+} from "../utils/site-identity";
+import "../styles/theme.css";
+
+interface Props {
+	title: string;
+	pageTitle?: string | null;
+	description?: string | null;
+	image?: string | null;
+	canonical?: string | null;
+	content?: { collection: string; id: string; slug?: string | null };
+	phone?: string | null;
+	fullBleed?: boolean;
+}
+
+const {
+	title,
+	pageTitle,
+	description,
+	image,
+	canonical,
+	content,
+	phone,
+	fullBleed = false,
+} = Astro.props;
+const [settingsResult, menuResult] = await Promise.all([
+	getSiteSettingsWithCacheHint(),
+	getMenuWithCacheHint("primary"),
+]);
+if (Astro.cache?.enabled) {
+	Astro.cache.set(settingsResult.cacheHint);
+	Astro.cache.set(menuResult.cacheHint);
+}
+
+const { siteTitle, siteTagline, siteLogo } = resolveStarterSiteIdentity(
+	settingsResult.data,
+);
+const titleIncludesSiteName =
+	title === siteTitle ||
+	title.endsWith(` | ${siteTitle}`) ||
+	title.endsWith(` — ${siteTitle}`);
+const fullTitle = titleIncludesSiteName ? title : `${title} — ${siteTitle}`;
+const pageDescription = description ?? siteTagline;
+const menu = menuResult.data;
+const displayPhone = phone?.trim() || DEFAULT_PHONE;
+
+const pageCtx = createPublicPageContext({
+	Astro,
+	kind: content ? "content" : "custom",
+	pageType: "website",
+	title: fullTitle,
+	pageTitle: pageTitle ?? title,
+	description: pageDescription,
+	canonical,
+	image,
+	content,
+	siteName: siteTitle,
+});
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{fullTitle}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@380;450;550&display=swap"
+			rel="stylesheet"
+		/>
+		<EmDashHead page={pageCtx} />
+	</head>
+	<body>
+		<EmDashBodyStart page={pageCtx} />
+
+		<div class="site-shell">
+			<header class="site-header">
+				<div class="site-header__inner">
+					<a class="brand-mark" href="/">
+						{
+							siteLogo ? (
+								<img
+									src={siteLogo.url}
+									alt={siteLogo.alt || siteTitle}
+									style="height:40px;width:auto;display:block;"
+								/>
+							) : (
+								siteTitle
+							)
+						}
+					</a>
+					<button
+						class="nav-toggle"
+						type="button"
+						aria-expanded="false"
+						aria-controls="primary-nav"
+						data-nav-toggle
+					>
+						Menu
+					</button>
+					<nav class="site-nav" id="primary-nav" data-nav>
+						{
+							menu?.items.map((item) => (
+								<a
+									href={item.url}
+									target={item.target}
+									rel={
+										item.target === "_blank"
+											? "noopener noreferrer"
+											: undefined
+									}
+								>
+									{item.label}
+								</a>
+							))
+						}
+					</nav>
+				</div>
+			</header>
+
+			<main class="site-main" class:list={[{ "is-full-bleed": fullBleed }]}>
+				<slot />
+			</main>
+
+			<footer class="site-footer">
+				<div class="site-footer__inner">
+					<div>
+						<div class="site-footer__brand">{siteTitle}</div>
+						<p>{siteTagline}</p>
+					</div>
+					<div>
+						<p>
+							Call{" "}
+							<a class="phone-link" href={`tel:${DEFAULT_PHONE_TEL}`}
+								>{displayPhone}</a
+							>
+						</p>
+						<p>
+							<a href="mailto:info@hivemodern.com">info@hivemodern.com</a>
+						</p>
+					</div>
+					<div>
+						<a href="/trade">Trade pricing</a>
+						{" · "}
+						<a href="/about">About</a>
+						{" · "}
+						<a href="/_emdash/admin">Admin</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<EmDashBodyEnd page={pageCtx} />
+		<script>
+			const toggle = document.querySelector("[data-nav-toggle]");
+			const nav = document.querySelector("[data-nav]");
+			toggle?.addEventListener("click", () => {
+				const open = nav?.classList.toggle("is-open");
+				toggle.setAttribute("aria-expanded", open ? "true" : "false");
+			});
+		</script>
+	</body>
+</html>

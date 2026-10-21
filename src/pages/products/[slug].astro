@@ -1,0 +1,92 @@
+---
+import {
+	decodeSlug,
+	getEmDashEntry,
+	getEntryTerms,
+	getSeoMeta,
+	getSiteSettings,
+} from "emdash";
+import { Image, PortableText } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+import { resolveStarterSiteIdentity } from "../../utils/site-identity";
+
+const slug = decodeSlug(Astro.params.slug);
+if (!slug) return Astro.rewrite("/404");
+
+const { entry: product, cacheHint, isPreview } = await getEmDashEntry(
+	"products",
+	slug,
+);
+if (!product) return Astro.rewrite("/404");
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+const seo = getSeoMeta(product, {
+	siteTitle,
+	siteUrl: Astro.url.origin,
+	path: Astro.url.pathname.replace(/\/$/, ""),
+});
+const brands = await getEntryTerms("products", product.data.id, "brand");
+---
+
+<Base
+	title={seo.title}
+	pageTitle={seo.ogTitle}
+	description={seo.description}
+	image={seo.ogImage}
+	canonical={seo.canonical}
+	content={{ collection: "products", id: product.data.id, slug }}
+>
+	<article>
+		<div class="page-hero">
+			{isPreview && <p class="section__eyebrow">Unpublished preview</p>}
+			<p class="section__eyebrow">{product.data.designer || "Product"}</p>
+			<h1 {...product.edit.title}>{product.data.title}</h1>
+			{
+				product.data.price_label && (
+					<p class="product-tile__price" {...product.edit.price_label}>
+						{product.data.price_label}
+						{product.data.shipping_note ? ` · ${product.data.shipping_note}` : ""}
+					</p>
+				)
+			}
+		</div>
+
+		<section class="section" style="padding-top:0;display:grid;gap:1.25rem">
+			{
+				product.data.featured_image && (
+					<div class="product-tile__media" style="max-width:36rem" {...product.edit.featured_image}>
+						<Image image={product.data.featured_image} priority />
+					</div>
+				)
+			}
+			{
+				product.data.summary && (
+					<p class="section__lede" {...product.edit.summary}>
+						{product.data.summary}
+					</p>
+				)
+			}
+			<div class="prose">
+				<PortableText value={product.data.content} />
+			</div>
+			{
+				brands?.length ? (
+					<p class="product-tile__meta">
+						Brand:{" "}
+						{brands.map((term, i) => (
+							<>
+								{i > 0 && ", "}
+								<a href={`/brands/${term.slug}`}>{term.label}</a>
+							</>
+						))}
+					</p>
+				) : null
+			}
+			<div class="hero__actions">
+				<a class="btn btn--solid" href="/trade">Request trade pricing</a>
+				<a class="btn btn--ghost" href="/products">Back to furniture</a>
+			</div>
+		</section>
+	</article>
+</Base>
