@@ -1,0 +1,45 @@
+---
+import { Image } from "emdash/ui";
+
+interface Props {
+	href: string;
+	title: string;
+	designer?: string | null;
+	brand?: string | null;
+	priceLabel?: string | null;
+	shippingNote?: string | null;
+	image?: { id?: string; src?: string; alt?: string } | null;
+	edit?: Record<string, unknown>;
+}
+
+const { href, title, designer, brand, priceLabel, shippingNote, image, edit } =
+	Astro.props;
+const byline = [brand, designer].filter(Boolean).join(" ");
+---
+
+<a class="hive-card" href={href}>
+	<div
+		class="hive-card__media"
+		{...(edit?.featured_image ? edit.featured_image : {})}
+	>
+		{
+			image ? (
+				<Image image={image} />
+			) : (
+				<div class="hive-card__placeholder" aria-hidden="true" />
+			)
+		}
+	</div>
+	<div class="hive-card__body">
+		<h2 class="hive-card__title" {...(edit?.title ?? {})}>{title}</h2>
+		{
+			priceLabel && (
+				<p class="hive-card__price" {...(edit?.price_label ?? {})}>
+					<span>{priceLabel}</span>
+					{shippingNote && <span class="hive-card__ship">{shippingNote}</span>}
+				</p>
+			)
+		}
+		{byline && <p class="hive-card__byline">{byline}</p>}
+	</div>
+</a>

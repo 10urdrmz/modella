@@ -66,16 +66,16 @@
 			"name": "primary",
 			"label": "Primary Navigation",
 			"items": [
-				{"type": "custom", "label": "Furniture", "url": "/products"},
-				{"type": "custom", "label": "Lighting", "url": "/products"},
-				{"type": "custom", "label": "Accessories", "url": "/products"},
-				{"type": "custom", "label": "Rugs", "url": "/products"},
-				{"type": "custom", "label": "Outdoor", "url": "/products"},
+				{"type": "custom", "label": "Furniture", "url": "/category/furniture"},
+				{"type": "custom", "label": "Lighting", "url": "/category/lighting"},
+				{"type": "custom", "label": "Accessories", "url": "/category/accessories"},
+				{"type": "custom", "label": "Rugs", "url": "/category/rugs"},
+				{"type": "custom", "label": "Outdoor", "url": "/category/outdoor"},
 				{"type": "custom", "label": "Brands", "url": "/brands"},
 				{"type": "custom", "label": "Designers", "url": "/brands"},
-				{"type": "custom", "label": "New!", "url": "/products"},
+				{"type": "custom", "label": "New!", "url": "/category/new"},
 				{"type": "custom", "label": "About", "url": "/about"},
-				{"type": "custom", "label": "Sale", "url": "/products"}
+				{"type": "custom", "label": "Sale", "url": "/category/sale"}
 			]
 		}
 	],

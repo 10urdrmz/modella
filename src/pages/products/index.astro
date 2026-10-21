@@ -1,7 +1,8 @@
 ---
 import { getEmDashCollection, getSiteSettings } from "emdash";
-import { Image } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import HoneycombIcon from "../../components/HoneycombIcon.astro";
 import { resolveStarterSiteIdentity } from "../../utils/site-identity";
 
 const { entries: products, cacheHint } = await getEmDashCollection("products", {
@@ -12,42 +13,58 @@ const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
 if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
 ---
 
-<Base title={`Furniture — ${siteTitle}`} description="Modern designer furniture collection">
-	<div class="page-hero">
-		<p class="section__eyebrow">Collection</p>
-		<h1>Furniture</h1>
-		<p class="section__lede">
-			Seating, lighting, and icons from makers architects trust.
-		</p>
-	</div>
-	<section class="section" style="padding-top:0">
-		{
-			products.length === 0 ? (
-				<p class="empty-state">No products published yet.</p>
-			) : (
-				<div class="product-rail">
-					{products.map((product) => (
-						<a class="product-tile" href={`/products/${product.id}`}>
-							{product.data.featured_image && (
-								<div class="product-tile__media" {...product.edit.featured_image}>
-									<Image image={product.data.featured_image} />
-								</div>
-							)}
-							<div>
-								<h2 class="product-tile__title" {...product.edit.title}>
-									{product.data.title}
-								</h2>
-								<p class="product-tile__meta">{product.data.designer}</p>
-								{product.data.price_label && (
-									<p class="product-tile__price" {...product.edit.price_label}>
-										{product.data.price_label}
-									</p>
-								)}
-							</div>
-						</a>
-					))}
-				</div>
-			)
-		}
+<Base
+	title={`Furniture — ${siteTitle}`}
+	description="Modern designer furniture collection"
+	activeNav="Furniture"
+>
+	<nav class="crumb" aria-label="Breadcrumb">
+		<a href="/">Home</a>
+		<span aria-hidden="true">›</span>
+		<span>Furniture</span>
+	</nav>
+
+	<section
+		class="cat-hero"
+		style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&h=900&fit=crop')"
+	>
+		<div class="cat-hero__veil" aria-hidden="true"></div>
+		<div class="cat-hero__copy">
+			<p class="cat-hero__mark"><HoneycombIcon /></p>
+			<h1>Furniture</h1>
+			<p>
+				The foundation of every great space. Explore modern furniture from the
+				world's most celebrated designers and manufacturers.
+			</p>
+		</div>
 	</section>
+
+	<div class="cat-layout">
+		<div class="cat-main" style="grid-column:1/-1">
+			<div class="cat-main__head">
+				<HoneycombIcon />
+				<h2>Furniture</h2>
+			</div>
+			{
+				products.length === 0 ? (
+					<p class="empty-state">No products published yet.</p>
+				) : (
+					<div class="hive-grid">
+						{products.map((product) => (
+							<ProductCard
+								href={`/products/${product.id}`}
+								title={product.data.title}
+								designer={product.data.designer}
+								brand={product.data.terms?.brand?.[0]?.label}
+								priceLabel={product.data.price_label}
+								shippingNote={product.data.shipping_note}
+								image={product.data.featured_image}
+								edit={product.edit}
+							/>
+						))}
+					</div>
+				)
+			}
+		</div>
+	</div>
 </Base>

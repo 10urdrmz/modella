@@ -1,5 +1,5 @@
 ---
-import { getMenuWithCacheHint, getSiteSettingsWithCacheHint } from "emdash";
+import { getSiteSettingsWithCacheHint } from "emdash";
 import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
 import {
@@ -20,6 +20,8 @@ interface Props {
 	content?: { collection: string; id: string; slug?: string | null };
 	phone?: string | null;
 	fullBleed?: boolean;
+	/** Highlights matching primary nav label (e.g. Accessories) */
+	activeNav?: string | null;
 }
 
 const {
@@ -31,14 +33,11 @@ const {
 	content,
 	phone,
 	fullBleed = false,
+	activeNav = null,
 } = Astro.props;
-const [settingsResult, menuResult] = await Promise.all([
-	getSiteSettingsWithCacheHint(),
-	getMenuWithCacheHint("primary"),
-]);
+const settingsResult = await getSiteSettingsWithCacheHint();
 if (Astro.cache?.enabled) {
 	Astro.cache.set(settingsResult.cacheHint);
-	Astro.cache.set(menuResult.cacheHint);
 }
 
 const { siteTitle, siteTagline, siteLogo } = resolveStarterSiteIdentity(
@@ -50,32 +49,24 @@ const titleIncludesSiteName =
 	title.endsWith(` — ${siteTitle}`);
 const fullTitle = titleIncludesSiteName ? title : `${title} — ${siteTitle}`;
 const pageDescription = description ?? siteTagline;
-const cmsMenu = menuResult.data;
 const displayPhone = phone?.trim() || DEFAULT_PHONE;
 
-/** Fallback matches hivemodern.com header when CMS menu is empty/short */
+/** Hive primary nav — category hubs match hivemodern.com structure */
 const defaultNav = [
-	{ label: "Furniture", url: "/products", sale: false },
-	{ label: "Lighting", url: "/products", sale: false },
-	{ label: "Accessories", url: "/products", sale: false },
-	{ label: "Rugs", url: "/products", sale: false },
-	{ label: "Outdoor", url: "/products", sale: false },
+	{ label: "Furniture", url: "/category/furniture", sale: false },
+	{ label: "Lighting", url: "/category/lighting", sale: false },
+	{ label: "Accessories", url: "/category/accessories", sale: false },
+	{ label: "Rugs", url: "/category/rugs", sale: false },
+	{ label: "Outdoor", url: "/category/outdoor", sale: false },
 	{ label: "Brands", url: "/brands", sale: false },
 	{ label: "Designers", url: "/brands", sale: false },
-	{ label: "New!", url: "/products", sale: false },
+	{ label: "New!", url: "/category/new", sale: false },
 	{ label: "About", url: "/about", sale: false },
-	{ label: "Sale", url: "/products", sale: true },
+	{ label: "Sale", url: "/category/sale", sale: true },
 ];
 
-const navItems =
-	cmsMenu?.items && cmsMenu.items.length >= 6
-		? cmsMenu.items.map((item) => ({
-				label: item.label,
-				url: item.url,
-				target: item.target,
-				sale: item.label.toLowerCase() === "sale",
-			}))
-		: defaultNav;
+// Prefer structured hive nav; CMS menu can refine later in admin
+const navItems = defaultNav;
 
 const pageCtx = createPublicPageContext({
 	Astro,
@@ -165,13 +156,10 @@ const pageCtx = createPublicPageContext({
 								navItems.map((item) => (
 									<a
 										href={item.url}
-										class:list={[{ "is-sale": item.sale }]}
-										target={"target" in item ? item.target : undefined}
-										rel={
-											"target" in item && item.target === "_blank"
-												? "noopener noreferrer"
-												: undefined
-										}
+										class:list={[
+											{ "is-sale": item.sale },
+											{ "is-active": activeNav === item.label },
+										]}
 									>
 										{item.label}
 									</a>

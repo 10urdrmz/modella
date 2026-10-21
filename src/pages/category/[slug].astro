@@ -1,0 +1,168 @@
+---
+import { getEmDashCollection, getEntriesByTerm, getSiteSettings } from "emdash";
+import Base from "../../layouts/Base.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import HoneycombIcon from "../../components/HoneycombIcon.astro";
+import { getCatalogCategory } from "../../data/catalog";
+import { resolveStarterSiteIdentity } from "../../utils/site-identity";
+
+const slug = Astro.params.slug;
+if (!slug) return Astro.rewrite("/404");
+
+const match = getCatalogCategory(slug);
+if (!match) return Astro.rewrite("/404");
+
+const { category, parent, child } = match;
+const isHub = !child;
+const title = child?.label ?? category.label;
+const lede = child
+	? `Shop ${child.label.toLowerCase()} from the designers and manufacturers architects trust.`
+	: category.lede;
+
+const { siteTitle } = resolveStarterSiteIdentity(await getSiteSettings());
+
+let products: Awaited<ReturnType<typeof getEmDashCollection>>["entries"] = [];
+try {
+	if (isHub) {
+		const { entries } = await getEmDashCollection("products", {
+			orderBy: { published_at: "desc" },
+			limit: 24,
+		});
+		products = entries;
+	} else {
+		products = await getEntriesByTerm("products", "category", slug, {
+			limit: 48,
+		});
+		if (products.length === 0) {
+			const { entries } = await getEmDashCollection("products", {
+				orderBy: { published_at: "desc" },
+				limit: 12,
+			});
+			products = entries;
+		}
+	}
+} catch {
+	const { entries } = await getEmDashCollection("products", {
+		orderBy: { published_at: "desc" },
+		limit: 12,
+	});
+	products = entries;
+}
+
+const sidebarItems = category.children;
+const heroImage = child?.image ?? category.heroImage;
+const showSubgrid = isHub && category.children.length > 0;
+---
+
+<Base
+	title={`${title} — ${siteTitle}`}
+	description={lede}
+	activeNav={category.slug === "sale" ? "Sale" : category.label === "New!" ? "New!" : category.label}
+>
+	<nav class="crumb" aria-label="Breadcrumb">
+		<a href="/">Home</a>
+		<span aria-hidden="true">›</span>
+		{
+			child ? (
+				<>
+					<a href={`/category/${category.slug}`}>{category.label}</a>
+					<span aria-hidden="true">›</span>
+					<span>{child.label}</span>
+				</>
+			) : (
+				<span>{category.label}</span>
+			)
+		}
+	</nav>
+
+	<section
+		class="cat-hero"
+		style={heroImage ? `background-image:url('${heroImage}')` : undefined}
+	>
+		<div class="cat-hero__veil" aria-hidden="true"></div>
+		<div class="cat-hero__copy">
+			<p class="cat-hero__mark"><HoneycombIcon /></p>
+			<h1>{title}</h1>
+			<p>{lede}</p>
+		</div>
+	</section>
+
+	<div class="cat-layout">
+		<aside class="cat-side" aria-label="Category filters">
+			<button class="cat-filter" type="button" disabled>
+				<svg viewBox="0 0 24 24" aria-hidden="true"
+					><path
+						d="M4 6h16M7 12h10M10 18h4"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.5"
+						stroke-linecap="round"></path></svg
+				>
+				Filter
+			</button>
+			<nav class="cat-tree">
+				<a
+					class:list={["cat-tree__parent", { "is-active": isHub }]}
+					href={`/category/${category.slug}`}
+				>
+					{category.label}
+				</a>
+				{
+					sidebarItems.map((item) => (
+						<a
+							class:list={["cat-tree__child", { "is-active": child?.slug === item.slug }]}
+							href={`/category/${item.slug}`}
+						>
+							{item.label}
+						</a>
+					))
+				}
+			</nav>
+		</aside>
+
+		<div class="cat-main">
+			<div class="cat-main__head">
+				<HoneycombIcon />
+				<h2>{title}</h2>
+			</div>
+
+			{
+				showSubgrid ? (
+					<div class="subcat-grid">
+						{category.children.map((item) => (
+							<a class="subcat-tile" href={`/category/${item.slug}`}>
+								<div class="subcat-tile__media">
+									{item.image ? (
+										<img src={item.image} alt={item.label} loading="lazy" />
+									) : (
+										<div class="hive-card__placeholder" />
+									)}
+								</div>
+								<span class="subcat-tile__label">{item.label}</span>
+							</a>
+						))}
+					</div>
+				) : (
+					<div class="hive-grid">
+						{products.length === 0 ? (
+							<p class="empty-state">No products in this category yet.</p>
+						) : (
+							products.map((product) => (
+								<ProductCard
+									href={`/products/${product.id}`}
+									title={product.data.title}
+									designer={product.data.designer}
+									brand={product.data.terms?.brand?.[0]?.label}
+									priceLabel={product.data.price_label}
+									shippingNote={product.data.shipping_note}
+									image={product.data.featured_image}
+									edit={product.edit}
+								/>
+							))
+						)}
+					</div>
+				)
+			}
+		</div>
+	</div>
+</Base>
